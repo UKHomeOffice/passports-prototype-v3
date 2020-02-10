@@ -471,10 +471,15 @@ const apply = {
     '/apply/confirm': {
         editable: false,
         next: [
-            { field: 'csigRequired', value: true, next: '/apply/confirm-identity' },
-            { field: 'urgent', value: true, next: '/apply/cost' },
-            { field: 'documentsRequired', value: 'none', next: '/apply/cost' },
+            { field: 'csigRequired', value: true, next: '/apply/urgent-passport' },
+            { field: 'urgent', value: true, next: '/apply/urgent-passport' },
+            { field: 'documentsRequired', value: 'none', next: '/apply/urgent-passport' },
             '/apply/documents-to-send'
+        ]
+    },
+    '/apply/urgent-passport': {
+        next: [
+            '/ '
         ]
     },
     '/apply/confirm-identity': {
