@@ -5,9 +5,9 @@ module.exports = {
     // TODO: Improve this: Viewing the first page (index.html) will reset the journey, so shouldn't be used normally.
     // Uncomment to use for purposes such as lab testing variations, and you need radio options in index.html.
     // ========================
-    // labTestOptions: {
-    //     validate: 'required'
-    // },
+    labTestOptions: {
+        validate: 'required'
+    },
     // ========================
 
     cookies: {

@@ -39,7 +39,7 @@
        TODO: Improve this: Viewing the first page (index.html) will reset the journey, so shouldn't be used normally.
        Uncomment to use for purposes such as lab testing variations, and you need radio options in index.html.
        ======================== #}
-    {# {% call hmpoForm(ctx) %}
+    {% call hmpoForm(ctx) %}
 
         {{ hmpoRadios(ctx, {
             id: "labTestOptions",
@@ -60,14 +60,14 @@
 
         {{ hmpoSubmit(ctx, { text: "View prototype" }) }}
 
-    {% endcall %} #}
+    {% endcall %}
     {#  ======================== #}
 
-    {{ govukButton({
+    {# {{ govukButton({
         text: "View prototype",
         href: "/start",
         classes: "govuk-!-margin-bottom-2"
-    }) }}
+    }) }} #}
 
     <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
