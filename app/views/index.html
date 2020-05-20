@@ -1,25 +1,10 @@
 {% extends "layout.html" %}
 
-{% set hmpoTitle %}Latest{% endset %}
+{% set hmpoTitle %}Archive{% endset %}
 
 {% block header %}
     {{ govukHeader({
         serviceName: govukServiceName,
-        navigation: [
-            {
-                href: "./",
-                text: hmpoTitle,
-                active: true
-            },
-            {
-                href: "notifications",
-                text: "Notifications"
-            },
-            {
-                href: "archive",
-                text: "Archive"
-            }
-        ],
         serviceUrl: "/"
     }) }}
 {% endblock %}
@@ -31,8 +16,8 @@
     <span class="govuk-caption-xl">{{ govukServiceName }}</span>
     <h1>{{ hmpoTitle }}</h1>
 
-    <h2>Apply</h2>
-    <p>Main user journey for all application types.</p>
+    <h2>Photo journey</h2>
+    <p>Remote test days: 02 June 2020, 04 June 2020</p>
 
     {# ========================
        Comment hmpoForm call out if index.html does not need to use the form-wizard (normally doesn't).
@@ -45,16 +30,16 @@
             id: "labTestOptions",
             classes: "govuk-radios--small",
             legend: {
-                text: "Lab test options",
+                text: "Test variations",
                 classes: "govuk-fieldset__legend--s"
             },
             items: [{
                 value: "option1",
-                text: "Option 1"
+                text: "Variation 1"
 
             }, {
                 value: "option2",
-                text: "Option 2"
+                text: "Variation 2"
             }]
         }) }}
 
@@ -69,7 +54,7 @@
         classes: "govuk-!-margin-bottom-2"
     }) }} #}
 
-    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    {# <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
     <h2>Tracking</h2>
     <p>User journeys for tracking, without going through the main journey.</p>
@@ -105,7 +90,7 @@
         <li><a href="/track?docs=none&csig=true">adult</a></li>
         <li><a href="/track?docs=documents&csig=true">child, with docs to send</a></li>
         <li><a href="/track?docs=none&csig=true">child, with no docs to send</a></li>
-    </ul>
+    </ul> #}
 
     {# <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
