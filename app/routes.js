@@ -40,6 +40,16 @@ router.use(Wizard(
     }
 ))
 
+router.use(Wizard(
+    steps.dps,
+    fields,
+    {
+        name: 'apply',
+        journeyName: 'dps',
+        controller: require('./controllers/dps')
+    }
+))
+
 router.use((err, req, res, next) => {
     if (err.code === 'SESSION_EXPIRED') err.redirect = '/'
     if (err.code === 'MISSING_PREREQ' && !err.redirect) err.redirect = '/'

@@ -20,7 +20,8 @@
     "giveFeedback": "Give feedback",
     "close": "Close",
     "signIn":"Sign in",
-    "findAddress":"Find Address"
+    "findAddress":"Find Address",
+    "checkEligibility": "Check you can use this service"
     },
     "fields": {
       "date-day": {

@@ -1,10 +1,51 @@
-{% extends "layout.html" %}
+{% extends "layout-apply.html" %}
 
 {% set hmpoTitle %}Apply with Online Premium{% endset %}
+
+{% set collectDetails %}
+    <p class="govuk-body">You can ask someone to collect your new passport for you. They’ll need to bring:</p>
+    <ul class="govuk-list govuk-list--bullet">
+        <li>your old passport</li>
+        <li>a signed and dated letter from you, confirming their full name and giving them permission to collect your new passport</li>
+        <li>proof of their identity, for example a driving licence or passport</li>
+    </ul>
+{% endset %}
 
 {% block mainContent %}
 
     <h1>{{ hmpoTitle }}</h1>
 
+    <p>To try Online Premium you’ll need to:</p>
+
+    {{ hmpoCircleStepList({
+        items: [
+            {
+                html: "Answer some questions to check you can use this service"
+            },
+            {
+                html: "Choose an appointment to collect your new passport"
+            },
+            {
+                html: "Get your digital photo – we’ll show you how"
+            },
+            {
+                html: "Apply online and pay with a debit or credit card"
+            },
+            {
+                html: "Collect your new passport – it usually takes 30 minutes"
+            }
+        ]
+    }) }}
+
+    <br>
+
+    {% call hmpoForm(ctx) %}
+        {{ hmpoSubmit(ctx, { text: translate("buttons.checkEligibility") }) }}
+    {% endcall %}
+
+    {{ govukDetails({
+        summaryText: "Can someone collect my new passport for me?",
+        html: collectDetails
+    }) }}
 
 {% endblock %}
