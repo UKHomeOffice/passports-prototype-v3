@@ -1,0 +1,45 @@
+{% extends "layout-apply.html" %}
+
+{% block backLink %}{% endblock %}
+
+{% set hmpoTitle %}Do you live in the UK?{% endset %}
+
+{% block mainContent %}
+
+    <div class="govuk-inset-text hmpo-inset-info">
+        If you’re applying on behalf of an adult or child, answer these questions with their details rather than your own.
+    </div>
+
+    {% call hmpoForm(ctx) %}
+
+        {{ hmpoRadios(ctx, {
+            id: "isUKApplication",
+            legend: {
+                text: hmpoTitle
+            },
+            isPageHeading: true,
+            items: [
+                {
+                    value: true
+                },
+                {
+                    value: false,
+                    conditional: {
+                        html: hmpoSelect(ctx, {
+                            id: "countryOfApplication",
+                            label: {
+                                text: "Country or territory",
+                                classes: "govuk-label--m"
+                            },
+                            placeholder: true
+                        })
+                    }
+                }
+            ]
+        }) }}
+
+        {{ hmpoSubmit(ctx) }}
+
+    {% endcall %}
+
+{% endblock %}

@@ -981,8 +981,55 @@ const csig = {
 const dps = {
     '/dps/dps-start': {
         entryPoint: true,
-        next: ''
-    }
+        next: '/dps/dps-overseas'
+    },
+    '/dps/dps-overseas': {
+        fields: [
+            'isUKApplication',
+            'countryOfApplication'
+        ],
+        next: [
+            { field: 'isUKApplication', value: true, next: '/dps/dps-age'},
+            '/dps/dps-start'
+        ]
+    },
+    '/dps/dps-age': {
+        controller: require('./controllers/apply'),
+        fields: [
+            'dateOfBirth'
+        ],
+        next:[
+            { field: 'adultOrChild', value: 'adult', next: '/dps/dps-previous-passport' },
+            '/dps/dps-start'
+        ]
+    },
+    '/dps/dps-previous-passport': {
+        fields: [
+            'previousPassport'
+        ],
+        next:[
+            { field: 'previousPassport', value: true, next: '/dps/dps-lost-or-stolen' },
+            '/dps/dps-start'
+        ]
+    },
+    '/dps/dps-lost-or-stolen': {
+        fields: [
+            'lost'
+        ],
+        next:[
+            { field: 'lost', value: false, next: '/dps/dps-name-changed' },
+            '/dps/dps-start'
+        ]
+    },
+    '/dps/dps-name-changed': {
+        fields: [
+            ''
+        ],
+        next:[
+            { field: '', value: 'false', next: '/dps/' },
+            '/dps/dps-start'
+        ]
+    },
 }
 
 module.exports = {
