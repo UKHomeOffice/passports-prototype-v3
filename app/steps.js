@@ -1101,6 +1101,13 @@ const dps = {
     }
 }
 
+const dps = {
+    '/dps/dps-start': {
+        entryPoint: true,
+        next: ''
+    }
+}
+
 module.exports = {
     apply,
     tracking,
