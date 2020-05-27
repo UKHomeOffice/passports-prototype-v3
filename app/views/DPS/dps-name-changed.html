@@ -1,0 +1,28 @@
+{% extends "layout-apply.html" %}
+
+{% set hmpoTitle %}Have you changed your name?{% endset %}
+
+{% block mainContent %}
+
+    {% call hmpoForm(ctx) %}
+
+        {{ hmpoRadios(ctx, {
+            id: "nameChanged",
+            legend: {
+                text: hmpoTitle
+            },
+            hint:"This includes changing your last name or spelling your name differently.",
+            isPageHeading: true,
+            items: [{
+                value: true
+            }, {
+                value: false
+            }]
+        }) }}
+
+        {{ hmpoSubmit(ctx) }}
+
+    {% endcall %}
+
+
+{% endblock %}
