@@ -1,0 +1,19 @@
+{% extends "layout-apply.html" %}
+
+{% set hmpoTitle %}You can’t use the Online Premium service{% endset %}
+
+{% block mainContent %}
+
+    <h1>{{ hmpoTitle }}</h1>
+
+    <p class="govuk-body">You need to choose a different service because your passport is lost or stolen. You can use either:</p>
+    <ul class="govuk-list govuk-list--bullet">
+        <li><a href="https://www.gov.uk/get-a-passport-urgently/1-week-fast-track-service">1 week Fast Track service</a> - you’ll need to get a paper application form from a Post Office and book an appointment online</li>    
+        <li>the online non-urgent service - this takes up to 3 weeks but you won’t need to book an appointment</li>
+    </ul>
+
+    {% call hmpoForm(ctx) %}
+        {{ hmpoSubmit(ctx, { text: "Use the online non-urgent service" }) }}
+    {% endcall %}
+
+{% endblock %}

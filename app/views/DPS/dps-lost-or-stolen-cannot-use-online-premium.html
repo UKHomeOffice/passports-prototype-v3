@@ -1,0 +1,19 @@
+{% extends "layout-apply.html" %}
+
+{% set hmpoTitle %}You won’t be able to use the Online Premium service{% endset %}
+
+{% block mainContent %}
+
+    <h1>{{ hmpoTitle }}</h1>
+
+    <p class="govuk-body">After you cancel your passport, you’ll need to choose a different service because your passport is lost or stolen. You’ll be able to use either:</p>
+    <ul class="govuk-list govuk-list--bullet">
+        <li>1 week Fast Track service</li>
+        <li>the non-urgent service, which takes up to 3 weeks</li>
+    </ul>
+
+    {% call hmpoForm(ctx) %}
+        {{ hmpoSubmit(ctx) }}
+    {% endcall %}
+
+{% endblock %}
