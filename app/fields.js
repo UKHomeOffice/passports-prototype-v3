@@ -801,6 +801,7 @@ module.exports = {
         formatter: 'boolean',
         validate: 'required'
     },
+<<<<<<< HEAD
     csigAppReference: {
         validate: 'required'
     },
@@ -986,5 +987,12 @@ module.exports = {
             { type: 'maxlength', arguments: 15 }
         ],
         type: 'tel'
+=======
+    dpsDamaged: {
+        validate: 'required'
+    },
+    dpsOtherPassports:{
+        validate: 'required'
+>>>>>>> fbce94f... create dps filter pages with steps and fields
     }
 }

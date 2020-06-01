@@ -1,0 +1,27 @@
+{% extends "layout-apply.html" %}
+
+{% set hmpoTitle %}Is your passport damaged?{% endset %}
+
+{% block mainContent %}
+
+    {% call hmpoForm(ctx) %}
+
+        {{ hmpoRadios(ctx, {
+            id: "dpsDamaged",
+            legend: {
+                text: hmpoTitle
+            },
+            isPageHeading: true,
+            items: [{
+                value: true
+            }, {
+                value: false
+            }]
+        }) }}
+
+        {{ hmpoSubmit(ctx) }}
+
+    {% endcall %}
+
+
+{% endblock %}
