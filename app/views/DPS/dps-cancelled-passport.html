@@ -1,0 +1,27 @@
+{% extends "layout-apply.html" %}
+
+{% set hmpoTitle %}Have you cancelled your passport with HM Passport Office?{% endset %}
+
+{% block mainContent %}
+
+    {% call hmpoForm(ctx) %}
+
+        {{ hmpoRadios(ctx, {
+            id: "dpsCancelled",
+            legend: {
+                text: hmpoTitle
+            },
+            isPageHeading: true,
+            hint: "You must cancel your lost or stolen passport before you apply for a replacement.",
+            items: [
+                { value: true, text: "Yes - I’ve cancelled it" },
+                { value: false, text: "No - I need to cancel it now" }
+            ]
+        }) }}
+
+        {{ hmpoSubmit(ctx) }}
+
+    {% endcall %}
+
+
+{% endblock %}

@@ -1104,6 +1104,7 @@ const dps = {
 const dps = {
     '/dps/dps-start': {
         entryPoint: true,
+        resetJourney: true,
         next: '/dps/dps-overseas'
     },
     '/dps/dps-not-eligible':{
@@ -1143,8 +1144,23 @@ const dps = {
         ],
         next:[
             { field: 'lost', value: false, next: '/dps/dps-name-changed' },
-            '/dps/dps-not-eligible'
+            '/dps/dps-cancelled-passport'
         ]
+    },
+    '/dps/dps-cancelled-passport': {
+        fields: [
+            'dpsCancelled'
+        ],
+        next:[
+            { field: 'dpsCancelled', value: 'true', next: '/dps/dps-lost-or-stolen-choose-different-service' },
+            '/dps/dps-lost-or-stolen-cannot-use-online-premium'
+        ]
+    },
+    '/dps/dps-lost-or-stolen-choose-different-service':{
+        next:'/filter/begin'
+    },
+    '/dps/dps-lost-or-stolen-cannot-use-online-premium':{
+        next:'https://www.gov.uk/report-a-lost-or-stolen-passport'
     },
     '/dps/dps-name-changed': {
         fields: [
