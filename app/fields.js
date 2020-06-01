@@ -990,4 +990,10 @@ module.exports = {
     dps: {
         journeyKey: 'application.dps'
     },
+    dpsDamaged: {
+        validate: 'required'
+    },
+    dpsOtherPassports:{
+        validate: 'required'
+    }
 }

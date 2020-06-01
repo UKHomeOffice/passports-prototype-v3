@@ -1123,7 +1123,7 @@ const dps = {
         ],
         next:[
             { field: 'adultOrChild', value: 'adult', next: '/dps/dps-previous-passport' },
-            '/dps/dps-start'
+            '/dps/dps-not-eligible'
         ]
     },
     '/dps/dps-previous-passport': {
@@ -1132,7 +1132,7 @@ const dps = {
         ],
         next:[
             { field: 'previousPassport', value: true, next: '/dps/dps-lost-or-stolen' },
-            '/dps/dps-start'
+            '/dps/dps-not-eligible'
         ]
     },
     '/dps/dps-lost-or-stolen': {
@@ -1141,18 +1141,45 @@ const dps = {
         ],
         next:[
             { field: 'lost', value: false, next: '/dps/dps-name-changed' },
-            '/dps/dps-start'
+            '/dps/dps-not-eligible'
         ]
     },
     '/dps/dps-name-changed': {
         fields: [
-            ''
+            'nameChanged'
         ],
         next:[
-            { field: '', value: 'false', next: '/dps/' },
-            '/dps/dps-start'
+            { field: 'nameChanged', value: 'false', next: '/dps/dps-issue-date' },
+            '/dps/dps-not-eligible'
         ]
     },
+    '/dps/dps-issue-date': {
+        fields: [
+            'passportIssue'
+        ],
+        next: '/dps/dps-damaged'
+    },
+    '/dps/dps-damaged': {
+        fields: [
+            'dpsDamaged'
+        ],
+        next:[
+            { field: 'dpsDamaged', value: 'false', next: '/dps/dps-other-passports' },
+            '/dps/dps-not-eligible'
+        ]
+    },
+    '/dps/dps-other-passports': {
+        fields: [
+            'dpsOtherPassports'
+        ],
+        next:[
+            { field: 'dpsOtherPassports', value: 'false', next: '/dps/dps-application-summary' },
+            '/dps/dps-not-eligible'
+        ]
+    },
+    '/dps/dps-application-summary':{
+        next:'/dps/'
+    }
 }
 
 module.exports = {
