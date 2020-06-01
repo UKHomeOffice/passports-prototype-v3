@@ -1106,6 +1106,8 @@ const dps = {
         entryPoint: true,
         next: '/dps/dps-overseas'
     },
+    '/dps/dps-not-eligible':{
+    },
     '/dps/dps-overseas': {
         fields: [
             'isUKApplication',
