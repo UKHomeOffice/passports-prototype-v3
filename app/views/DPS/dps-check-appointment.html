@@ -1,0 +1,25 @@
+{% extends "layout-apply.html" %}
+
+{% set hmpoTitle %}Check your collection appointment{% endset %}
+
+{% block mainContent %}
+    <h1>{{ hmpoTitle }}</h1>
+    {{ govukWarningText({
+        text: "You need to complete your application to keep this appointment.",
+        iconFallbackText: "Warning"
+    }) }}
+    <p></p>
+    <h2>Wednesday 3 June 2020<br>
+    at 10:00pm</h2>
+    <p><span class="govuk-heading-m address-title">London HM Passport Office</span>
+    Globe House<br>
+    89 Eccleston Square<br>
+    London<br>
+    SW1V 1PN<br>
+    <a href="https://www.google.co.uk/maps/?q=London HM Passport Office, SW1V 1PN" target="_blank">View map</a>
+    </p>
+
+    {% call hmpoForm(ctx) %}
+        {{ hmpoSubmit(ctx, { text: "Start your application" }) }}
+    {% endcall %}
+{% endblock %}

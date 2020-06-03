@@ -1079,13 +1079,15 @@ const dps = {
         next:'/dps/dps-choose-date-and-place'
     },
     '/dps/dps-choose-date-and-place':{
-        noPost: true
+        noPost: true,
+        next: '/dps/dps-choose-time'
     },
     '/dps/dps-choose-time':{
-        noPost: true
+        noPost: true,
+        next:'/dps/dps-check-appointment'
     },
     '/dps/dps-check-appointment':{
-        next:'/dps/'
+        next:'/photo/digital-photo'
     }
 }
 
