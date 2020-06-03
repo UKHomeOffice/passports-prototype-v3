@@ -117,6 +117,7 @@ const apply = {
             'submitPhoto'
         ],
         next: [
+            { field: 'dps', value: true, next: '/dps' },
             { field: 'submitPhoto', value: false, next: '/photo/choose-photo-method' },
             '/filter/previous-passport'
         ]
@@ -127,6 +128,7 @@ const apply = {
             'photoOverrideReason'
         ],
         next: [
+            { field: 'dps', value: true, next: '/dps' },
             { field: 'photoOverride', value: false, next: '/photo/choose-photo-method' },
             '/filter/previous-passport'
         ]
@@ -980,6 +982,7 @@ const csig = {
 
 const dps = {
     '/dps/dps-start': {
+        controller: require('./controllers/dps-start'),
         entryPoint: true,
         resetJourney: true,
         next: '/dps/dps-overseas'

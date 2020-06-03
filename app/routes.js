@@ -45,7 +45,7 @@ router.use(Wizard(
     fields,
     {
         name: 'apply',
-        journeyName: 'dps',
+        journeyName: 'apply',
         controller: require('./controllers/dps')
     }
 ))

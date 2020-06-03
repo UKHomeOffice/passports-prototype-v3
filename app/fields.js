@@ -986,5 +986,9 @@ module.exports = {
             { type: 'maxlength', arguments: 15 }
         ],
         type: 'tel'
-    }
+    },
+    dps: {
+        journeyKey: 'application.dps'
+    },
+
 }
