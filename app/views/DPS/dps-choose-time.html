@@ -1,0 +1,173 @@
+{% extends "layout-apply.html" %}
+
+{% set hmpoTitle %}Choose a collection time{% endset %}
+
+{% block hmpoContent %}
+
+    <h1>{{ hmpoTitle }}</h1>
+    <p><span class="govuk-heading-m address-title">London HM Passport Office</span>
+        Globe House,89 Eccleston Square,London,
+        SW1V 1PN
+        &nbsp;&nbsp;
+        <a data-id="appointment-location-map" href="https://www.google.co.uk/maps/?q=London HM Passport Office, SW1V 1PN" class="new-window" target="_blank">View map</a>
+    </p>
+    <p>It usually takes 30 minutes to collect your new passport.</p>
+
+    <div style="padding-bottom:2em">
+        <div class="later-time direction-arrow">
+            <a class="govuk-body-m" href="#">Later</a>
+        </div>
+    </div>
+
+    <table class="govuk-table booking-table">
+        <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+
+                <th>
+                    Thursday<br>
+                    3 June
+                </th>
+
+                <th>
+                    Friday<br>
+                    4 June
+                </th>
+
+                <th>
+                    Saturday<br>
+                    5 June
+                </th>
+
+            </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+
+                <td class="govuk-table__cell">
+                    <a href="/dps/dps-check-appointment">10:00am<br>
+                        <span class="available"> Available</span></a>
+                </td>
+
+                <td class="govuk-table__cell">
+                    <a href="#">10:00am<br>
+                        <span class="available"> Available</span></a>
+                </td>
+
+                <td class="govuk-table__cell">
+                    <a href="#">10:00am<br>
+                        <span class="available"> Available</span></a>
+                </td>
+
+            </tr>
+            <tr class="govuk-table__row">
+
+                <td class="govuk-table__cell">
+                    <a href="#">11:00am<br>
+                        <span class="available"> Available</span></a>
+                </td>
+
+                <td class="govuk-table__cell">
+                    <a href="#">11:00am<br>
+                        <span class="available"> Available</span></a>
+                </td>
+
+                <td class="govuk-table__cell">
+                    <span class="unavailable">11:00am</span><span class="govuk-visually-hidden">
+                        Unavailable</span>
+                </td>
+
+            </tr>
+            <tr class="govuk-table__row">
+
+                <td class="govuk-table__cell">
+                    <a href="#">12:00pm<br>
+                        <span class="available"> Available</span></a>
+                </td>
+
+                <td class="govuk-table__cell">
+                    <a href="#">12:00pm<br>
+                        <span class="available"> Available</span></a>
+                </td>
+
+                <td class="govuk-table__cell">
+                    <a href="#">12:00pm<br>
+                        <span class="available"> Available</span></a>
+                </td>
+
+            </tr>
+            <tr class="govuk-table__row">
+
+                <td class="govuk-table__cell">
+                    <a href="#">1:00pm<br>
+                        <span class="available"> Available</span></a>
+                </td>
+
+                <td class="govuk-table__cell">
+                    <a href="#">1:00pm<br>
+                        <span class="available"> Available</span></a>
+                </td>
+
+                <td class="govuk-table__cell">
+                    <span class="unavailable">1:00pm</span><span class="govuk-visually-hidden">
+                        Unavailable</span>
+                </td>
+
+            </tr>
+            <tr class="govuk-table__row">
+
+                <td class="govuk-table__cell">
+                    <a href="#">2:00pm<br>
+                        <span class="available"> Available</span></a>
+                </td>
+
+                <td class="govuk-table__cell">
+                    <span class="unavailable">2:00pm</span><span class="govuk-visually-hidden">
+                        Unavailable</span>
+                </td>
+
+                <td class="govuk-table__cell">
+                    <a href="#">2:00pm<br>
+                        <span class="available"> Available</span></a>
+                </td>
+
+            </tr>
+            <tr class="govuk-table__row">
+
+                <td class="govuk-table__cell">
+                    <a href="#">3:00pm<br>
+                        <span class="available"> Available</span></a>
+                </td>
+
+                <td class="govuk-table__cell">
+                    <a href="#">3:00pm<br>
+                        <span class="available"> Available</span></a>
+                </td>
+
+                <td class="govuk-table__cell">
+                    <span class="unavailable">3:00pm</span><span class="govuk-visually-hidden">
+                        Unavailable</span>
+                </td>
+
+            </tr>
+            <tr class="govuk-table__row">
+
+                <td class="govuk-table__cell">
+                    <a href="#">4:00pm<br>
+                        <span class="available"> Available</span></a>
+                </td>
+
+                <td class="govuk-table__cell">
+                    <a href="#">4:00pm<br>
+                        <span class="available"> Available</span></a>
+                </td>
+
+                <td class="govuk-table__cell">
+                    <a href="#">4:00pm<br>
+                        <span class="available"> Available</span></a>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+
+  {% endblock %}
