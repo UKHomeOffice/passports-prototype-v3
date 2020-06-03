@@ -1199,7 +1199,16 @@ const dps = {
         next:'/dps/dps-how-to-apply'
     },
     '/dps/dps-how-to-apply':{
-        next:'/dps'
+        next:'/dps/dps-choose-date-and-place'
+    },
+    '/dps/dps-choose-date-and-place':{
+        noPost: true
+    },
+    '/dps/dps-choose-time':{
+        noPost: true
+    },
+    '/dps/dps-check-appointment':{
+        next:'/dps/'
     }
 }
 
