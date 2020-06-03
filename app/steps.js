@@ -179,10 +179,12 @@ const apply = {
             'submitPhoto'
         ],
         next: [
+            { field: 'dps', value: true, next: '/dps' },
             { field: 'submitPhoto', value: false, next: '/photo/choose-photo-method' },
             '/filter/previous-passport'
         ]
     },
+<<<<<<< HEAD
     '/photo/check-and-submit-photo': {
         // controller: require('../../controllers/check-photo'),
         fields: [
@@ -207,6 +209,13 @@ const apply = {
     },
     '/photo/server-too-busy': {
         next: '/photo/choose-photo-method'
+=======
+    '/photo/choose-submit-photo': {
+        next: [
+            { field: 'dps', value: true, next: '/dps' },
+            '/filter/previous-passport'
+        ]
+>>>>>>> 0a1a67a... add dps value to session
     },
 
     '/filter/previous-passport': {
@@ -1103,6 +1112,7 @@ const dps = {
 
 const dps = {
     '/dps/dps-start': {
+        controller: require('./controllers/dps-start'),
         entryPoint: true,
         resetJourney: true,
         next: '/dps/dps-overseas'
