@@ -1,0 +1,37 @@
+{% extends "layout-apply.html" %}
+
+{% set hmpoTitle %}Old passport details{% endset %}
+
+{% block mainContent %}
+    <h1 id="header">{{ hmpoTitle }}</h1>
+
+    {% call hmpoForm(ctx) %}
+        <p>This passport will be cancelled on the day of your collection appointment. You won’t be able to use it.</p>
+
+        {{ hmpoNumber(ctx, {
+            id: "passportNumber",
+            label: {
+                text: "Passport number",
+                classes: "govuk-label--m"
+            },
+            hint: "For example, 502135326"
+        }) }}
+
+        {{ hmpoDate(ctx, {
+            id: "passportExpiry",
+            legend: {
+                text: "Expiry date",
+                classes: "govuk-label--m"
+            },
+            hint: "For example, 01 08 2017"
+        }) }}
+
+        {% call hmpoDetails({ summaryText: "My passport is lost or stolen" }) %}
+            <p>You must <a href="https://www.gov.uk/report-a-lost-or-stolen-passport">cancel your old passport</a>. You can’t apply with Online Premium, but you can still get your passport urgently with Fast Track.</p>
+        {% endcall %}
+
+        {{ hmpoSubmit(ctx) }}
+
+    {% endcall %}
+
+{% endblock %}
