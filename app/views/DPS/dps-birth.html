@@ -1,0 +1,49 @@
+{% extends "layout-apply.html" %}
+
+{% set hmpoTitle %}Were you born in the UK?{% endset %}
+
+{% set townOfBirthHint %}As written on your old passport{% endset %}
+
+{% block mainContent %}
+
+    {% call hmpoForm(ctx) %}
+
+        {{ hmpoRadios(ctx, {
+            id: "bornInUK",
+            legend: hmpoTitle,
+            isPageHeading: true,
+            items: [
+                {
+                    value: true
+                },
+                {
+                    value: false,
+                    conditional: {
+                        html: hmpoSelect (ctx, {
+                            id: "countryOfBirth",
+                            label: {
+                                text: "Select your country of birth",
+                                classes: "govuk-label--m"
+                            },
+                            placeholder: true
+                        })
+                    }
+                }
+            ]
+        }) }}
+
+        {{ hmpoText(ctx, {
+            id: "townOfBirth",
+            label: {
+                text: "Town of birth",
+                classes: "govuk-label--m"
+            },
+            attributes: { autocapitalize: "words" },
+            hint: townOfBirthHint
+        }) }}
+
+        {{ hmpoSubmit(ctx) }}
+
+    {% endcall %}
+
+{% endblock %}
