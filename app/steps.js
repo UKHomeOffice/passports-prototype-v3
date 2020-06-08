@@ -421,7 +421,10 @@ const apply = {
         fields: [
             'gender'
         ],
-        next: '/apply/birth'
+        next: [
+            { field: 'dps', value: true, next: '/dps/dps-birth' },
+            '/apply/birth'
+        ]
     },
     '/apply/birth': {
         fields: [
@@ -1216,7 +1219,16 @@ const dps = {
         next:'/photo/digital-photo'
     },
     '/dps/dps-passport-details':{
-        next:'/dps'
+        next:'/dps/dps-name'
+    },
+    '/dps/dps-name':{
+        next:'/apply/previous-names'
+    },
+    '/dps/dps-birth':{
+        next:'/apply/address-manual'
+    },
+    '/dps/dps-new-passport':{
+        next:'/apply/sign'
     }
 }
 

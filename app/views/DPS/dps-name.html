@@ -2,13 +2,21 @@
 
 {% set hmpoTitle %}New passport details{% endset %}
 
-{% set titles = [
-    { value: "Mr", text: "Mr" },
-    { value: "Mrs", text: "Mrs" },
-    { value: "Miss", text: "Miss" },
-    { value: "Ms", text: "Ms" },
-    { value: "Other", text: "Other" }
-] %}
+{% if values.adultOrChild == 'child' %}
+    {% set titles = [
+        { value: "Master", text: "Master" },
+        { value: "Miss", text: "Miss" },
+        { value: "Other", text: "Other" }
+    ] %}
+{% else %}
+    {% set titles = [
+        { value: "Mr", text: "Mr" },
+        { value: "Mrs", text: "Mrs" },
+        { value: "Miss", text: "Miss" },
+        { value: "Ms", text: "Ms" },
+        { value: "Other", text: "Other" }
+    ] %}
+{% endif %}
 
 {% set otherConditional %}
     {% from "hmpo-text/macro.njk" import hmpoText %}
@@ -21,6 +29,22 @@
         }
     }) }}
     <p>You can’t use this service if you want to add a new professional or honorary title to your passport - you need to <a href="https://www.gov.uk/get-a-passport-urgently/1-week-fast-track-service">apply with Fast Track</a>.</p>
+
+    {% if values.urgent %}
+        <p>You can’t use this service if you want to add a new professional or honorary title to your passport - you need to <a href="https://www.gov.uk/get-a-passport-urgently/1-week-fast-track-service">apply with Fast Track</a>.</p>
+    {% else %}
+        <p>You’ll need to send proof of a new professional or honorary title if you want it added to your passport.</p>
+    {% endif %}
+{% endset %}
+
+{% set changeOfNameTitle %}
+    {% if values.naturalised %}
+        Is this name on your naturalisation or registration certificate?
+    {% elif values.applicationType == 'first' %}
+        Is this name on your birth or adoption certificate?
+    {% else %}
+        Did you use this name on your old passport?
+    {% endif %}
 {% endset %}
 
 {% block mainContent %}
