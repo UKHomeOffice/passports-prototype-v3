@@ -47,6 +47,7 @@
         {{ govukSummaryList({ rows: [
             {
                 key: { text: " New passport" },
+                key: { text: "Passport size" },
                 value: { html:
                     (
                         "Frequent traveller passport"
@@ -60,10 +61,11 @@
             },
             {
                 key: { text: "Total" },
-                value: { text: values.passportCost | currency }
+                value: { html:
+                    (values.passportCost | currency)
+                }
             }
-        ] | filter }) }}
-
+        ] }) }}
     {% else %}
         {{ govukSummaryList({ rows: [
             {
