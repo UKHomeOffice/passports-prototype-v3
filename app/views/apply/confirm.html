@@ -2,45 +2,21 @@
 
 {% set hmpoTitle %}Check this application{% endset %}
 
+{% set appointmentTime %}
+    <p>Wednesday 3 June 2020<br>
+    at 10:00pm</p>
+{% endset %}
+{% set appointmentAddress %}
+    <p>London HM Passport Office<br>
+    Globe House<br>
+    89 Eccleston Square<br>
+    London<br>
+    SW1V 1PN<br>
+    </p>
+{% endset %}
+
 {% block mainContent %}
     <h1>{{ hmpoTitle }}</h1>
-
-    {% if values.relationship %}
-        <h2>Your relationship to the applicant</h2>
-        {{ govukSummaryList({ rows: [
-            {
-                key: { text: "Relationship" },
-                value: { text: values.otherRelationship if values.relationship == 'other' else values.relationship | capitalize },
-                actions: { items: [{ text: "Change", href: "/apply/relationship-to-applicant/edit" }]}
-            },
-            {
-                key: { text: "Name" },
-                value: { text: values.thirdPartyFirstName + " " + values.thirdPartyLastName },
-                actions: { items: [{ text: "Change", href: "/apply/third-party-name/edit" }]}
-            },
-            {
-                key: { text: "Explanation" },
-                value: { text: values.thirdPartyExplanation },
-                actions: { items: [{ text: "Change", href: "/apply/third-party-name/edit" }]}
-            } if values.thirdPartyExplanation
-        ] | filter }) }}
-    {% endif %}
-
-    {% if values.naturalised %}
-        <h2>Naturalisation or registration details</h2>
-        {{ govukSummaryList({ rows: [
-            {
-                key: { text: "Certificate number" },
-                value: { text: values.naturalisationCertificateNumber },
-                actions: { items: [{ text: "Change", href: "/apply/naturalisation-details/edit" }]}
-            },
-            {
-                key: { text: "Date of issue" },
-                value: { text: values.naturalisationIssueDate | date },
-                actions: { items: [{ text: "Change", href: "/apply/naturalisation-details/edit" }]}
-            }
-        ] }) }}
-    {% endif %}
 
     {% if values.previousPassport %}
         <h2>Old passport details</h2>
@@ -162,221 +138,8 @@
         }
     ] | filter }) }}
 
-    {% if values.parentsRequired %}
-        <h2>Parents’ details</h2>
-        {{ govukSummaryList({ rows: [
-            {
-                key: { text: "Mother or parent 1" },
-                value: { text: values.parent1FirstName + " " + values.parent1LastName },
-                actions: { items: [{ text: "Change", href: "/apply/parents-details/edit" }]}
-            },
-            {
-                key: { text: "Father or parent 2" },
-                value: { text: values.parent2FirstName + " " + values.parent2LastName },
-                actions: { items: [{ text: "Change", href: "/apply/parents-details/edit" }]}
-            },
-            {
-                key: { text: "Marriage date" },
-                value: { text: values.parentsMarriageDate | date }
-            },
-            {
-                key: { text: "EU settled status" },
-                value: { text: values.parentsHaveEUSettledStatus | yesOrNo },
-                actions: { items: [{ text: "Change", href: "/apply/parents-eu-settled-status/edit" }]}
-            } if values.parentsHaveEUSettledStatus != undefined
-        ] | filter }) }}
-
-        <h2>Mother or parent 1</h2>
-        {{ govukSummaryList({ rows: [
-            {
-                key: { text: "Town of birth" },
-                value: { text: values.parent1TownOfBirth }
-            },
-            {
-                key: { text: "Country of birth" },
-                value: { text: values.parent1CountryOfBirth | countryName }
-            },
-            {
-                key: { text: "Date of birth" },
-                value: { text: values.parent1DateOfBirth | date }
-            },
-            {
-                key: { text: "Nationality" },
-                value: { text: values.parent1Nationality }
-            },
-            {
-                key: { text: "UK passport number" },
-                value: { text: values.parent1PassportNumber }
-            },
-            {
-                key: { text: "Date of issue" },
-                value: { text: values.parent1PassportIssueDate | date }
-            },
-            {
-                key: { text: "Additional information" },
-                value: { text: values.parent1NoDetailsReason }
-            } if values.parent1NoDetailsReason
-        ] | filter }) }}
-
-        <h2>Father or parent 2</h2>
-        {{ govukSummaryList({ rows: [
-            {
-                key: { text: "Town of birth" },
-                value: { text: values.parent2TownOfBirth }
-            },
-            {
-                key: { text: "Country of birth" },
-                value: { text: values.parent2CountryOfBirth | countryName }
-            },
-            {
-                key: { text: "Date of birth" },
-                value: { text: values.parent2DateOfBirth | date }
-            },
-            {
-                key: { text: "Nationality" },
-                value: { text: values.parent2Nationality }
-            },
-            {
-                key: { text: "UK passport number" },
-                value: { text: values.parent2PassportNumber }
-            },
-            {
-                key: { text: "Date of issue" },
-                value: { text: values.parent2PassportIssueDate | date }
-            },
-            {
-                key: { text: "Additional information" },
-                value: { text: values.parent2NoDetailsReason }
-            } if values.parent2NoDetailsReason
-        ] | filter }) }}
-    {% endif %}
-
-    {% if values.grandparentsRequired %}
-        <h2>Maternal grandparents</h2>
-        {{ govukSummaryList({ rows: [
-            {
-                key: { text: "Grandmother" },
-                value: { text: values.parent1Parent1FirstName + " " + values.parent1Parent1LastName },
-                actions: { items: [{ text: "Change", href: "/apply/parent1-grandparents/edit" }]}
-            },
-            {
-                key: { text: "Grandfather" },
-                value: { text: values.parent1Parent2FirstName + " " + values.parent1Parent2LastName },
-                actions: { items: [{ text: "Change", href: "/apply/parent1-grandparents/edit" }]}
-            },
-            {
-                key: { text: "Marriage date" },
-                value: { text: values.parent1ParentsMarriageDate | date }
-            }
-        ] }) }}
-
-        <h2>Maternal grandmother</h2>
-        {{ govukSummaryList({ rows: [
-            {
-                key: { text: "Town of birth" },
-                value: { text: values.parent1Parent1TownOfBirth }
-            },
-            {
-                key: { text: "Country of birth" },
-                value: { text: values.parent1Parent1CountryOfBirth | countryName }
-            },
-            {
-                key: { text: "Date of birth" },
-                value: { text: values.parent1Parent1DateOfBirth | date }
-            },
-            {
-                key: { text: "Additional information" },
-                value: { text: values.parent1Parent1NoDetailsReason }
-            } if values.parent1Parent1NoDetailsReason
-        ] | filter }) }}
-
-        <h2>Maternal grandfather</h2>
-        {{ govukSummaryList({ rows: [
-            {
-                key: { text: "Town of birth" },
-                value: { text: values.parent1Parent2TownOfBirth }
-            },
-            {
-                key: { text: "Country of birth" },
-                value: { text: values.parent1Parent2CountryOfBirth | countryName }
-            },
-            {
-                key: { text: "Date of birth" },
-                value: { text: values.parent1Parent2DateOfBirth | date }
-            },
-            {
-                key: { text: "Additional information" },
-                value: { text: values.parent1Parent2NoDetailsReason }
-            } if values.parent1Parent2NoDetailsReason
-        ] | filter }) }}
-
-        <h2>Paternal grandparents</h2>
-        {{ govukSummaryList({ rows: [
-            {
-                key: { text: "Grandmother" },
-                value: { text: values.parent2Parent1FirstName + " " + values.parent2Parent1LastName },
-                actions: { items: [{ text: "Change", href: "/apply/parent2-grandparents/edit" }]}
-            },
-            {
-                key: { text: "Grandfather" },
-                value: { text: values.parent2Parent2FirstName + " " + values.parent2Parent2LastName },
-                actions: { items: [{ text: "Change", href: "/apply/parent2-grandparents/edit" }]}
-            },
-            {
-                key: { text: "Marriage date" },
-                value: { text: values.parent2ParentsMarriageDate | date }
-            }
-        ] }) }}
-
-        <h2>Paternal grandmother</h2>
-        {{ govukSummaryList({ rows: [
-            {
-                key: { text: "Town of birth" },
-                value: { text: values.parent2Parent1TownOfBirth }
-            },
-            {
-                key: { text: "Country of birth" },
-                value: { text: values.parent2Parent1CountryOfBirth | countryName }
-            },
-            {
-                key: { text: "Date of birth" },
-                value: { text: values.parent2Parent1DateOfBirth | date }
-            },
-            {
-                key: { text: "Additional information" },
-                value: { text: values.parent2Parent1NoDetailsReason }
-            } if values.parent2Parent1NoDetailsReason
-        ] | filter }) }}
-
-        <h2>Paternal grandfather</h2>
-        {{ govukSummaryList({ rows: [
-            {
-                key: { text: "Town of birth" },
-                value: { text: values.parent2Parent2TownOfBirth }
-            },
-            {
-                key: { text: "Country of birth" },
-                value: { text: values.parent2Parent2CountryOfBirth | countryName }
-            },
-            {
-                key: { text: "Date of birth" },
-                value: { text: values.parent2Parent2DateOfBirth | date }
-            },
-            {
-                key: { text: "Additional information" },
-                value: { text: values.parent2Parent2NoDetailsReason }
-            } if values.parent2Parent2NoDetailsReason
-        ] | filter }) }}
-
-    {% endif %}
-
     <h2>Application details</h2>
     {{ govukSummaryList({ rows: [
-        {
-            key: { text: "Country or territory you live in" },
-            value: { text: values.countryOfApplication | countryName | default("United Kingdom") },
-            actions: { items: [{ text: "Change", href: "/filter/overseas/edit" }]}
-        },
         {
             key: { text: "Address" },
             value: { html: [
@@ -410,23 +173,17 @@
         }
     ] }) }}
 
-    {% if values.dps %}
-        <h2>Appointment</h2>
-            {{ govukSummaryList({ rows: [
-            {
-                key: { text: "Date and time" },
-                value: { html:
-                    values.dpsAppointmentDateTime | date("dddd D MMMM YYYY") +
-                    "<br/> at " +
-                    values.dpsAppointmentDateTime | date("h:mma")
-                }
-            },
-            {
-                key: { text: "Passport office" },
-                value: { html: values.dpsAppointmentLocation | dpsLocation | join("<br/>") }
-            }
-        ] }) }}
-    {% endif %}
+    <h2>Appointment</h2>
+        {{ govukSummaryList({ rows: [
+        {
+            key: { text: "Date and time" },
+            value: { html: appointmentTime}
+        },
+        {
+            key: { text: "Passport office" },
+            value: { html: appointmentAddress}
+        }
+    ] }) }}
 
     {% call hmpoForm(ctx) %}
         {{ hmpoSubmit(ctx) }}

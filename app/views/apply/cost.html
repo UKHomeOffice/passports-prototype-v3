@@ -43,34 +43,56 @@
 {% block mainContent %}
     <h1>{{ hmpoTitle }}</h1>
 
-    {{ govukSummaryList({ rows: [
-        {
-            key: { text: "New passport" },
-            value: { html:
-                (
-                    "Frequent traveller passport with secure delivery included"
-                    if values.largePassport else
-                    "Standard passport with secure delivery included"
-                ) +
-                "<br/>" +
-                (values.passportCost | currency)
+    {% if values.dps === true%}
+        {{ govukSummaryList({ rows: [
+            {
+                key: { text: "Passport size" },
+                value: { html:
+                    (
+                        "Frequent traveller passport"
+                        if values.largePassport else
+                        "Standard passport"
+                    )
+                },
+                actions: { items: [ { text: "Change", href: "/dps/dps-new-passport/edit" }]}
             },
-            actions: { items: [ { text: "Change", href: "/apply/new-passport/edit" }]}
-        },
-        {
-            key: { text: deliveryKey },
-            value: { html:
-                deliveryValue +
-                "<br/>" +
-                (values.deliveryCost | currency)
+            {
+                key: { text: "Total" },
+                value: { html:
+                    (values.passportCost | currency)
+                }
+            }
+        ] }) }}
+    {% else %}
+        {{ govukSummaryList({ rows: [
+            {
+                key: { text: "New passport" },
+                value: { html:
+                    (
+                        "Frequent traveller passport with secure delivery included"
+                        if values.largePassport else
+                        "Standard passport with secure delivery included"
+                    ) +
+                    "<br/>" +
+                    (values.passportCost | currency)
+                },
+                actions: { items: [ { text: "Change", href: "/apply/new-passport/edit" }]}
             },
-            actions: { items: [ { text: "Change", href: "/apply/passport-delivery/edit" }]} if delivery != "none"
-        },
-        {
-            key: { text: "Total" },
-            value: { text: values.totalCost | currency }
-        }
-    ] | filter }) }}
+            {
+                key: { text: deliveryKey },
+                value: { html:
+                    deliveryValue +
+                    "<br/>" +
+                    (values.deliveryCost | currency)
+                },
+                actions: { items: [ { text: "Change", href: "/apply/passport-delivery/edit" }]} if delivery != "none"
+            },
+            {
+                key: { text: "Total" },
+                value: { text: values.totalCost | currency }
+            }
+        ] | filter }) }}
+    {% endif %}
 
     {% call hmpoForm(ctx) %}
         {{ hmpoSubmit(ctx) }}

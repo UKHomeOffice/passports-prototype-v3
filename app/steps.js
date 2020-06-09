@@ -596,6 +596,7 @@ const apply = {
     '/apply/confirm': {
         editable: false,
         next: [
+            { field: 'dps', value: true, next: '/apply/cost' },
             { field: 'documentsRequired', value: 'none', next: '/apply/cost' },
             { field: 'csigRequired', value: true, next: '/apply/confirm-identity' },
             // ====================================================================
