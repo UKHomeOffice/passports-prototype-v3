@@ -1111,7 +1111,7 @@ const dps = {
         controller: require('./controllers/dps-start'),
         entryPoint: true,
         resetJourney: true,
-        next: '/dps/dps-overseas'
+        next: '/filter/overseas'
     },
     '/dps/dps-not-eligible':{
     },
@@ -1122,7 +1122,7 @@ const dps = {
         ],
         next: [
             { field: 'isUKApplication', value: true, next: '/dps/dps-age'},
-            '/dps/dps-start'
+            '/dps/dps-not-eligible'
         ]
     },
     '/dps/dps-age': {
@@ -1173,7 +1173,7 @@ const dps = {
             'nameChanged'
         ],
         next:[
-            { field: 'nameChanged', value: 'false', next: '/dps/dps-issue-date' },
+            { field: 'nameChanged', value: 'false', next: '/filter/issue-date' },
             '/dps/dps-not-eligible'
         ]
     },

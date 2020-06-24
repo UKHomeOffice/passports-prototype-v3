@@ -106,7 +106,7 @@ module.exports = {
     },
     damagedReason: {
         validate: [
-            'required',
+            // 'required',
             'alphanumex1',
             { type: 'maxlength', arguments: 250 }
         ],
