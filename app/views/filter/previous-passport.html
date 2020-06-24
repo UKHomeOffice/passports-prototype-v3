@@ -10,7 +10,7 @@
             You may need to have a <a href="/help/identity-interviews">passport interview</a>.
         {% endif %}
         We’ll tell you if that happens and what you need to do.
-    </p>
+</p>
 {% endset -%}
 
 {% block mainContent %}
@@ -27,7 +27,7 @@
                 value: true
             }, {
                 value: false,
-                conditional: { html: passportInterview } if not values.urgent
+                conditional: { html: passportInterview } if not values.urgent and not values.dps
             }]
         }) }}
 

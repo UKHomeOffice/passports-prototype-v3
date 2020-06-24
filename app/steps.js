@@ -56,7 +56,13 @@ const apply = {
             'isUKApplication',
             'countryOfApplication'
         ],
-        next: '/filter/intro'
+        next:[
+            { field: 'dps', value: true, next: [
+                { field: 'isUKApplication', value: true, next: '/filter/age' },
+                '/dps/dps-not-eligible'
+            ]},
+            '/filter/intro'
+        ]
     },
     '/filter/intro': {
         next: '/filter/age'
@@ -65,7 +71,13 @@ const apply = {
         fields: [
             'dateOfBirth'
         ],
-        next: '/photo/digital-photo'
+        next:[
+            { field: 'dps', value: true, next: [
+                { field: 'adultOrChild', value: 'adult', next: '/filter/previous-passport' },
+                '/dps/dps-not-eligible'
+            ]},
+            '/photo/digital-photo'
+        ]
     },
 
     '/photo/digital-photo': {
@@ -200,6 +212,10 @@ const apply = {
             'previousPassport'
         ],
         next: [
+            { field: 'dps', value: true, next: [
+                { field: 'previousPassport', value: true, next: '/filter/lost-or-stolen' },
+                '/dps/dps-not-eligible'
+            ]},
             { field: 'previousPassport', value: true, next: '/filter/lost-or-stolen' },
             '/filter/naturalisation-certificate'
         ]
@@ -209,6 +225,10 @@ const apply = {
             'lost'
         ],
         next: [
+            { field: 'dps', value: true, next: [
+                { field: 'lost', value: false, next: '/dps/dps-name-changed' },
+                '/filter/cancelled-passport'
+            ]},
             { field: 'lost', value: true, next: '/filter/cancelled-passport' },
             '/filter/issue-date'
         ]
@@ -234,7 +254,13 @@ const apply = {
             'damaged',
             'damagedReason'
         ],
-        next: '/filter/other-passports'
+        next: [
+            { field: 'dps', value: true, next: [
+                { field: 'damaged', value: false, next: '/filter/other-passports' },
+                '/dps/dps-not-eligible'
+            ]},
+            '/filter/other-passports'
+        ]
     },
     '/filter/naturalisation-certificate': {
         fields: [
@@ -247,6 +273,10 @@ const apply = {
             'otherPassports'
         ],
         next: [
+            { field: 'dps', value: true, next: [
+                { field: 'otherPassports', value: false, next: '/apply/application-summary' },
+                '/dps/dps-not-eligible'
+            ]},
             { field: 'isUKApplication', value: true, next: '/apply/application-summary' },
             { field: 'applicationType', value: 'first', next: '/filter/country-of-birth' },
             '/filter/british-citizen'
@@ -993,7 +1023,7 @@ const dps = {
         controller: require('./controllers/dps-start'),
         entryPoint: true,
         resetJourney: true,
-        next: '/dps/dps-overseas'
+        next: '/filter/overseas'
     },
     '/dps/dps-not-eligible':{
     },
@@ -1004,7 +1034,7 @@ const dps = {
         ],
         next: [
             { field: 'isUKApplication', value: true, next: '/dps/dps-age'},
-            '/dps/dps-start'
+            '/dps/dps-not-eligible'
         ]
     },
     '/dps/dps-age': {
@@ -1055,7 +1085,7 @@ const dps = {
             'nameChanged'
         ],
         next:[
-            { field: 'nameChanged', value: 'false', next: '/dps/dps-issue-date' },
+            { field: 'nameChanged', value: 'false', next: '/filter/issue-date' },
             '/dps/dps-not-eligible'
         ]
     },
