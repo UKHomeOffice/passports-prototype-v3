@@ -1115,53 +1115,6 @@ const dps = {
     },
     '/dps/dps-not-eligible':{
     },
-    '/dps/dps-overseas': {
-        fields: [
-            'isUKApplication',
-            'countryOfApplication'
-        ],
-        next: [
-            { field: 'isUKApplication', value: true, next: '/dps/dps-age'},
-            '/dps/dps-not-eligible'
-        ]
-    },
-    '/dps/dps-age': {
-        controller: require('./controllers/apply'),
-        fields: [
-            'dateOfBirth'
-        ],
-        next:[
-            { field: 'adultOrChild', value: 'adult', next: '/dps/dps-previous-passport' },
-            '/dps/dps-not-eligible'
-        ]
-    },
-    '/dps/dps-previous-passport': {
-        fields: [
-            'previousPassport'
-        ],
-        next:[
-            { field: 'previousPassport', value: true, next: '/dps/dps-lost-or-stolen' },
-            '/dps/dps-not-eligible'
-        ]
-    },
-    '/dps/dps-lost-or-stolen': {
-        fields: [
-            'lost'
-        ],
-        next:[
-            { field: 'lost', value: false, next: '/dps/dps-name-changed' },
-            '/dps/dps-cancelled-passport'
-        ]
-    },
-    '/dps/dps-cancelled-passport': {
-        fields: [
-            'dpsCancelled'
-        ],
-        next:[
-            { field: 'dpsCancelled', value: 'true', next: '/dps/dps-lost-or-stolen-choose-different-service' },
-            '/dps/dps-lost-or-stolen-cannot-use-online-premium'
-        ]
-    },
     '/dps/dps-lost-or-stolen-choose-different-service':{
         next:'/filter/begin'
     },
@@ -1177,12 +1130,6 @@ const dps = {
             '/dps/dps-not-eligible'
         ]
     },
-    '/dps/dps-issue-date': {
-        fields: [
-            'passportIssue'
-        ],
-        next: '/dps/dps-damaged'
-    },
     '/dps/dps-damaged': {
         fields: [
             'damaged'
@@ -1194,18 +1141,6 @@ const dps = {
             ]},
             '/filter/other-passports'
         ]
-    },
-    '/dps/dps-other-passports': {
-        fields: [
-            'dpsOtherPassports'
-        ],
-        next:[
-            { field: 'dpsOtherPassports', value: 'false', next: '/dps/dps-application-summary' },
-            '/dps/dps-not-eligible'
-        ]
-    },
-    '/dps/dps-application-summary':{
-        next:'/dps/dps-how-to-apply'
     },
     '/dps/dps-how-to-apply':{
         next:'/dps/dps-choose-date-and-place'
@@ -1221,9 +1156,6 @@ const dps = {
     '/dps/dps-check-appointment':{
         next:'/photo/digital-photo'
     },
-    '/dps/dps-passport-details':{
-        next:'/dps/dps-name'
-    },
     '/dps/dps-name':{
         fields: [
             'title',
@@ -1232,9 +1164,6 @@ const dps = {
             'lastName'
         ],
         next:'/apply/previous-names'
-    },
-    '/dps/dps-birth':{
-        next:'/apply/address-manual'
     },
     '/dps/dps-new-passport':{
         fields: [
