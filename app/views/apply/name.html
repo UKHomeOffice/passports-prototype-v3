@@ -29,7 +29,7 @@
         }
     }) }}
 
-    {% if values.urgent %}
+    {% if values.dps %}
         <p>You can’t use this service if you want to add a new professional or honorary title to your passport - you need to <a href="https://www.gov.uk/get-a-passport-urgently/1-week-fast-track-service">apply with Fast Track</a>.</p>
     {% else %}
         <p>You’ll need to send proof of a new professional or honorary title if you want it added to your passport.</p>
@@ -80,7 +80,7 @@
             }
         }) }}
 
-        {% if not values.urgent %}
+        {% if not values.dps %}
             {{ hmpoRadios(ctx, {
                 id: "changeOfName",
                 legend: {

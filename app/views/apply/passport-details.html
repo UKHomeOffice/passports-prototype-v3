@@ -7,7 +7,7 @@
 
     {% call hmpoForm(ctx) %}
 
-        {% if values.urgent %}
+        {% if values.dps %}
             <p>This passport will be cancelled on the day of your collection appointment. You won’t be able to use it.</p>
         {% endif %}
 
@@ -29,13 +29,13 @@
             hint: "For example, 01 08 2017"
         }) }}
 
-        {% if not values.urgent %}
+        {% if not values.dps %}
             {% call hmpoWarningText({ iconFallbackText: "Warning" }) %}
                 You’ll need to send us your old passport so we can cancel it.
             {% endcall %}
         {% endif %}
 
-        {% if values.urgent %}
+        {% if values.dps %}
             {% call hmpoDetails({ summaryText: "My passport is lost or stolen" }) %}
                 You must <a href="#">cancel your old passport</a>. You can’t apply with Online Premium, but you can still get your passport urgently with Fast Track.
             {% endcall %}

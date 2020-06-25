@@ -5,6 +5,7 @@ class DefaultController extends BaseController {
     successHandler (req, res, next) {
         this.setAgeGroup(req)
         this.setApplicationType(req)
+        this.setCsigDPS(req)
         this.setParentsRequired(req)
         this.setEUSSEligible(req)
         this.setGrandparentsRequired(req)
@@ -84,6 +85,14 @@ class DefaultController extends BaseController {
         }
         req.sessionModel.set('applicationType', applicationType)
         req.sessionModel.set('oldBlue', oldBlue)
+    }
+
+    setCsigDPS (req) {
+        let reqCsigDps = false
+        if (req.sessionModel.get('passportIssue') < '2001-12-31') {
+            reqCsigDps = true
+        }
+        req.sessionModel.set('reqCsigDps', reqCsigDps)
     }
 
     setParentsRequired (req) {

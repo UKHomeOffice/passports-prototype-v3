@@ -129,8 +129,10 @@ const apply = {
             'submitPhoto'
         ],
         next: [
-            { field: 'dps', value: true, next: '/dps/dps-passport-details' },
-            { field: 'submitPhoto', value: false, next: '/photo/choose-photo-method' },
+            { field: 'dps', value: true, next: [
+                { field: 'submitPhoto', value: true, next: '/apply/passport-details' },
+                '/photo/choose-photo-method'
+            ]},
             '/filter/previous-passport'
         ]
     },
@@ -140,7 +142,7 @@ const apply = {
             'photoOverrideReason'
         ],
         next: [
-            { field: 'dps', value: true, next: '/dps/dps-passport-details' },
+            { field: 'dps', value: true, next: '/apply/passport-details' },
             { field: 'photoOverride', value: false, next: '/photo/choose-photo-method' },
             '/filter/previous-passport'
         ]
@@ -238,6 +240,10 @@ const apply = {
             'cancelled'
         ],
         next: [
+            { field: 'dps', value: true, next: [
+                { field: 'cancelled', value: false, next: '/dps/dps-lost-or-stolen-cannot-use-online-premium'  },
+                '/dps/dps-lost-or-stolen-choose-different-service'
+            ]},
             { field: 'cancelled', value: true, next: '/filter/other-passports' },
             'https://www.gov.uk/report-a-lost-or-stolen-passport'
         ]
@@ -247,7 +253,13 @@ const apply = {
             'passportIssue',
             'passportIssuingAuthority'
         ],
-        next: '/filter/damaged'
+        next: [
+        { field: 'dps', value: true, next: [
+            { field: 'reqCsigDps', value: false, next: '/dps/dps-damaged'  },
+            '/dps/dps-not-eligible'
+        ]},
+        '/filter/damaged'
+        ]
     },
     '/filter/damaged': {
         fields: [
@@ -300,6 +312,7 @@ const apply = {
             'applyReason'
         ],
         next: [
+            { field: 'dps', value: true , next: '/dps/dps-how-to-apply' },
             { field: 'applyReason', value: 'compassionate', next: '/apply/urgent-compassionate-guidance' },
             { field: 'applyReason', value: 'government', next: '/apply/urgent-compassionate-guidance' },
             { field: 'applyReason', value: 'identification', next: '/apply/urgent-compassionate-guidance' },
@@ -343,7 +356,10 @@ const apply = {
             'passportNumber',
             'passportExpiry'
         ],
-        next: '/apply/name'
+        next: [
+            { field: 'dps', value: true, next: '/dps/dps-name' },
+            '/apply/name'
+        ]
     },
     '/apply/old-passport-details': {
         fields: [
@@ -403,10 +419,7 @@ const apply = {
         fields: [
             'gender'
         ],
-        next: [
-            { field: 'dps', value: true, next: '/dps/dps-birth' },
-            '/apply/birth'
-        ]
+        next: '/apply/birth'
     },
     '/apply/birth': {
         fields: [
@@ -415,6 +428,7 @@ const apply = {
             'townOfBirth'
         ],
         next: [
+            { field: 'dps', value: true , next: '/apply/address-manual' },
             { field: 'applicationType', value: 'first', next: [
                 { field: 'naturalised', value: true, next: '/apply/naturalisation-details' },
                 '/apply/family-details'
@@ -1097,11 +1111,14 @@ const dps = {
     },
     '/dps/dps-damaged': {
         fields: [
-            'dpsDamaged'
+            'damaged'
         ],
-        next:[
-            { field: 'dpsDamaged', value: 'false', next: '/dps/dps-other-passports' },
-            '/dps/dps-not-eligible'
+        next: [
+            { field: 'dps', value: true, next: [
+                { field: 'damaged', value: false, next: '/filter/other-passports' },
+                '/dps/dps-not-eligible'
+            ]},
+            '/filter/other-passports'
         ]
     },
     '/dps/dps-other-passports': {
@@ -1134,12 +1151,23 @@ const dps = {
         next:'/dps/dps-name'
     },
     '/dps/dps-name':{
+        fields: [
+            'title',
+            'otherTitle',
+            'firstName',
+            'lastName'
+        ],
         next:'/apply/previous-names'
     },
     '/dps/dps-birth':{
         next:'/apply/address-manual'
     },
     '/dps/dps-new-passport':{
+        fields: [
+            'largePassport',
+            'braille'
+        ],
+        editBackStep: '/apply/cost',
         next:'/apply/sign'
     }
 }

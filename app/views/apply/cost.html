@@ -46,23 +46,24 @@
     {% if values.dps === true%}
         {{ govukSummaryList({ rows: [
             {
-                key: { text: "Passport size" },
+                key: { text: " New passport" },
                 value: { html:
                     (
                         "Frequent traveller passport"
                         if values.largePassport else
                         "Standard passport"
-                    )
+                    ) +
+                    "<br/>" +
+                    (values.passportCost | currency)
                 },
                 actions: { items: [ { text: "Change", href: "/dps/dps-new-passport/edit" }]}
             },
             {
                 key: { text: "Total" },
-                value: { html:
-                    (values.passportCost | currency)
-                }
+                value: { text: values.passportCost | currency }
             }
-        ] }) }}
+        ] | filter }) }}
+
     {% else %}
         {{ govukSummaryList({ rows: [
             {
