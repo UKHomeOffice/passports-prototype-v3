@@ -990,5 +990,4 @@ module.exports = {
     dps: {
         journeyKey: 'application.dps'
     },
-
 }
