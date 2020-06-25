@@ -993,12 +993,6 @@ module.exports = {
     dpsDamaged: {
         validate: 'required'
     },
-    dpsOtherPassports:{
-        validate: 'required'
-    },
-    dpsCancelled: {
-        validate: 'required'
-    },
     dps: {
         journeyKey: 'application.dps'
     },
