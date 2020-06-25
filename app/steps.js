@@ -179,8 +179,10 @@ const apply = {
             'submitPhoto'
         ],
         next: [
-            { field: 'dps', value: true, next: '/dps/dps-passport-details' },
-            { field: 'submitPhoto', value: false, next: '/photo/choose-photo-method' },
+            { field: 'dps', value: true, next: [
+                { field: 'submitPhoto', value: true, next: '/apply/passport-details' },
+                '/photo/choose-photo-method'
+            ]},
             '/filter/previous-passport'
         ]
     },
@@ -192,7 +194,7 @@ const apply = {
         ],
         next: [
             { field: 'photoOverride', value: false, next: '/photo/choose-photo-method' },
-            { field: 'dps', value: true, next: '/dps/dps-passport-details' },
+            { field: 'dps', value: true, next: '/apply/passport-details' },
             '/filter/previous-passport'
         ]
     },
@@ -330,6 +332,7 @@ const apply = {
         ],
         next: [
             { field: 'applyNow', value: 'false', next: '/start' },
+            { field: 'dps', value: true , next: '/dps/dps-how-to-apply' },
             { field: 'applicationType', value: 'first', next: '/apply/what-you-need' },
             { field: 'adultOrChild', value: 'child', next: '/apply/what-you-need' },
             { field: 'previousPassport', value: true, next: [
@@ -421,10 +424,7 @@ const apply = {
         fields: [
             'gender'
         ],
-        next: [
-            { field: 'dps', value: true, next: '/dps/dps-birth' },
-            '/apply/birth'
-        ]
+        next: '/apply/birth'
     },
     '/apply/birth': {
         fields: [
@@ -1185,11 +1185,14 @@ const dps = {
     },
     '/dps/dps-damaged': {
         fields: [
-            'dpsDamaged'
+            'damaged'
         ],
-        next:[
-            { field: 'dpsDamaged', value: 'false', next: '/dps/dps-other-passports' },
-            '/dps/dps-not-eligible'
+        next: [
+            { field: 'dps', value: true, next: [
+                { field: 'damaged', value: false, next: '/filter/other-passports' },
+                '/dps/dps-not-eligible'
+            ]},
+            '/filter/other-passports'
         ]
     },
     '/dps/dps-other-passports': {
@@ -1222,12 +1225,23 @@ const dps = {
         next:'/dps/dps-name'
     },
     '/dps/dps-name':{
+        fields: [
+            'title',
+            'otherTitle',
+            'firstName',
+            'lastName'
+        ],
         next:'/apply/previous-names'
     },
     '/dps/dps-birth':{
         next:'/apply/address-manual'
     },
     '/dps/dps-new-passport':{
+        fields: [
+            'largePassport',
+            'braille'
+        ],
+        editBackStep: '/apply/cost',
         next:'/apply/sign'
     }
 }

@@ -89,7 +89,7 @@ class DefaultController extends BaseController {
 
     setCsigDPS (req) {
         let reqCsigDps = false
-        if (req.sessionModel.get('passportIssue') < '2002-01-01') {
+        if (req.sessionModel.get('passportIssue') < '2001-12-31') {
             reqCsigDps = true
         }
         req.sessionModel.set('reqCsigDps', reqCsigDps)

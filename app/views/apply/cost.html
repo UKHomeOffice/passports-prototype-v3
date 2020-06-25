@@ -46,7 +46,6 @@
     {% if values.dps === true%}
         {{ govukSummaryList({ rows: [
             {
-                key: { text: " New passport" },
                 key: { text: "Passport size" },
                 value: { html:
                     (
@@ -61,11 +60,10 @@
             },
             {
                 key: { text: "Total" },
-                value: { html:
-                    (values.passportCost | currency)
-                }
+                value: { text: values.passportCost | currency }
             }
-        ] }) }}
+        ] | filter }) }}
+
     {% else %}
         {{ govukSummaryList({ rows: [
             {
