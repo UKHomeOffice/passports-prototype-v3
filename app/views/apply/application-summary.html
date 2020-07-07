@@ -13,6 +13,13 @@
 
         <h1>{{ hmpoTitle }}</h1>
 
+        {# DPS #}
+        {% if values.dps == true %}
+            <p>Based on your answers, you’re applying for an adult renewal.</p>
+            <p>If you’re applying for someone who is unable to make their own decisions, you need to<a href=“https://www.gov.uk/get-a-passport-urgently”> apply with Paper Premium</a>.</p>
+
+    {% else %}
+
         {# Hidden FTA (Old Blue) #}
         {% if values.oldBlue and values.adultOrChild == "adult" %}
             <p>Based on your answers, you have an old passport that was issued in {{values.passportIssue | date("YYYY") }}.</p>
@@ -181,6 +188,7 @@
             ]
         }) }}
 
+        {% endif %}
         {{ hmpoSubmit(ctx) }}
     {% endcall %}
 {% endblock %}

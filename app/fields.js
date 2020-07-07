@@ -125,7 +125,7 @@ module.exports = {
     },
 
     applyReason: {
-        validate: 'required'
+        //validate: 'required'
     },
     applyNow: {
         validate: 'required'
