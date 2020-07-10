@@ -173,17 +173,19 @@
         }
     ] }) }}
 
-    <h2>Appointment</h2>
-        {{ govukSummaryList({ rows: [
-        {
-            key: { text: "Date and time" },
-            value: { html: appointmentTime}
-        },
-        {
-            key: { text: "Passport office" },
-            value: { html: appointmentAddress}
-        }
-    ] }) }}
+    {% if values.dps == true %}
+        <h2>Appointment</h2>
+            {{ govukSummaryList({ rows: [
+            {
+                key: { text: "Date and time" },
+                value: { html: appointmentTime}
+            },
+            {
+                key: { text: "Passport office" },
+                value: { html: appointmentAddress}
+            }
+        ] }) }}
+    {% endif %}
 
     {% call hmpoForm(ctx) %}
         {{ hmpoSubmit(ctx) }}
