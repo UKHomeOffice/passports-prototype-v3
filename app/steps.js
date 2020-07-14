@@ -133,7 +133,8 @@ const apply = {
                 { field: 'submitPhoto', value: true, next: '/apply/passport-details' },
                 '/photo/choose-photo-method'
             ]},
-            '/filter/previous-passport'
+            { field: 'submitPhoto', value: true, next: '/filter/previous-passport' },
+            '/photo/choose-photo-method'
         ]
     },
     '/photo/choose-submit-photo': {
