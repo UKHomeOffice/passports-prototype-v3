@@ -1114,7 +1114,7 @@ const dps = {
         resetJourney: true,
         next: '/filter/overseas'
     },
-    '/dps/dps-not-eligible':{
+    '/DPS/dps-not-eligible':{
     },
     '/dps/dps-lost-or-stolen-choose-different-service':{
         next:'/filter/begin'
