@@ -1,4 +1,4 @@
-const BaseController = require('./dps')
+const BaseController = require('./urgent')
 
 class DpsStartController extends BaseController {
 
