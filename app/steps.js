@@ -1045,8 +1045,8 @@ const dps = {
     },
     '/dps/dps-not-eligible':{
     },
-    '/dps/dps-lost-or-stolen-choose-different-service':{
-        next:'/filter/begin'
+    '/urgent/dps-lost-or-stolen-choose-different-service':{
+        next:'/filter/overseas'
     },
     '/dps/dps-lost-or-stolen-cannot-use-online-premium':{
         next:'https://www.gov.uk/report-a-lost-or-stolen-passport'
