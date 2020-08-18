@@ -59,7 +59,7 @@ const apply = {
         next:[
             { field: 'dps', value: true, next: [
                 { field: 'isUKApplication', value: true, next: '/filter/age' },
-                '/dps/dps-not-eligible'
+                '/urgent/dps-not-eligible'
             ]},
             '/filter/intro'
         ]
@@ -74,7 +74,7 @@ const apply = {
         next:[
             { field: 'dps', value: true, next: [
                 { field: 'adultOrChild', value: 'adult', next: '/filter/previous-passport' },
-                '/dps/dps-not-eligible'
+                '/urgent/dps-not-eligible'
             ]},
             '/photo/digital-photo'
         ]
@@ -221,7 +221,7 @@ const apply = {
         next: [
             { field: 'dps', value: true, next: [
                 { field: 'previousPassport', value: true, next: '/filter/lost-or-stolen' },
-                '/dps/dps-not-eligible'
+                '/urgent/dps-not-eligible'
             ]},
             { field: 'previousPassport', value: true, next: '/filter/lost-or-stolen' },
             '/filter/naturalisation-certificate'
@@ -261,7 +261,7 @@ const apply = {
         next: [
         { field: 'dps', value: true, next: [
             { field: 'reqCsigDps', value: false, next: '/dps/dps-damaged'  },
-            '/dps/dps-not-eligible'
+            '/urgent/dps-not-eligible'
         ]},
         '/filter/damaged'
         ]
@@ -274,7 +274,7 @@ const apply = {
         next: [
             { field: 'dps', value: true, next: [
                 { field: 'damaged', value: false, next: '/filter/other-passports' },
-                '/dps/dps-not-eligible'
+                '/urgent/dps-not-eligible'
             ]},
             '/filter/other-passports'
         ]
@@ -292,7 +292,7 @@ const apply = {
         next: [
             { field: 'dps', value: true, next: [
                 { field: 'otherPassports', value: false, next: '/apply/application-summary' },
-                '/dps/dps-not-eligible'
+                '/urgent/dps-not-eligible'
             ]},
             { field: 'isUKApplication', value: true, next: '/apply/application-summary' },
             { field: 'applicationType', value: 'first', next: '/filter/country-of-birth' },
@@ -1108,6 +1108,7 @@ const dps = {
 }
 
 const dps = {
+    // Changed /dps to /urgent
     '/urgent/dps-start': {
         controller: require('./controllers/dps-start'),
         entryPoint: true,
