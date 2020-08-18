@@ -1108,56 +1108,56 @@ const dps = {
 }
 
 const dps = {
-    '/dps/dps-start': {
+    '/DPS/dps-start': {
         controller: require('./controllers/dps-start'),
         entryPoint: true,
         resetJourney: true,
         next: '/filter/overseas'
     },
-    '/dps/dps-not-eligible':{
+    '/DPS/dps-not-eligible':{
     },
-    '/dps/dps-lost-or-stolen-choose-different-service':{
+    '/DPS/dps-lost-or-stolen-choose-different-service':{
         next:'/filter/begin'
     },
-    '/dps/dps-lost-or-stolen-cannot-use-online-premium':{
+    '/DPS/dps-lost-or-stolen-cannot-use-online-premium':{
         next:'https://www.gov.uk/report-a-lost-or-stolen-passport'
     },
-    '/dps/dps-name-changed': {
+    '/DPS/dps-name-changed': {
         fields: [
             'nameChanged'
         ],
         next:[
             { field: 'nameChanged', value: 'false', next: '/filter/issue-date' },
-            '/dps/dps-not-eligible'
+            '/DPS/dps-not-eligible'
         ]
     },
-    '/dps/dps-damaged': {
+    '/DPS/dps-damaged': {
         fields: [
             'damaged'
         ],
         next: [
             { field: 'dps', value: true, next: [
                 { field: 'damaged', value: false, next: '/filter/other-passports' },
-                '/dps/dps-not-eligible'
+                '/DPS/dps-not-eligible'
             ]},
             '/filter/other-passports'
         ]
     },
-    '/dps/dps-how-to-apply':{
-        next:'/dps/dps-choose-date-and-place'
+    '/DPS/dps-how-to-apply':{
+        next:'/DPS/dps-choose-date-and-place'
     },
-    '/dps/dps-choose-date-and-place':{
+    '/DPS/dps-choose-date-and-place':{
         noPost: true,
-        next: '/dps/dps-choose-time'
+        next: '/DPS/dps-choose-time'
     },
-    '/dps/dps-choose-time':{
+    '/DPS/dps-choose-time':{
         noPost: true,
-        next:'/dps/dps-check-appointment'
+        next:'/DPS/dps-check-appointment'
     },
-    '/dps/dps-check-appointment':{
+    '/DPS/dps-check-appointment':{
         next:'/photo/digital-photo'
     },
-    '/dps/dps-name':{
+    '/DPS/dps-name':{
         fields: [
             'title',
             'otherTitle',
@@ -1166,7 +1166,7 @@ const dps = {
         ],
         next:'/apply/previous-names'
     },
-    '/dps/dps-new-passport':{
+    '/DPS/dps-new-passport':{
         fields: [
             'largePassport',
             'braille'
