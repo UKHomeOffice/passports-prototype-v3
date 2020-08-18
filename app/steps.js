@@ -57,9 +57,9 @@ const apply = {
             'countryOfApplication'
         ],
         next:[
-            { field: 'dps', value: true, next: [
+            { field: 'urgent', value: true, next: [
                 { field: 'isUKApplication', value: true, next: '/filter/age' },
-                '/urgent/dps-not-eligible'
+                '/urgent/urgent-not-eligible'
             ]},
             '/filter/intro'
         ]
@@ -72,9 +72,9 @@ const apply = {
             'dateOfBirth'
         ],
         next:[
-            { field: 'dps', value: true, next: [
+            { field: 'urgent', value: true, next: [
                 { field: 'adultOrChild', value: 'adult', next: '/filter/previous-passport' },
-                '/urgent/dps-not-eligible'
+                '/urgent/urgent-not-eligible'
             ]},
             '/photo/digital-photo'
         ]
@@ -129,7 +129,7 @@ const apply = {
             'submitPhoto'
         ],
         next: [
-            { field: 'dps', value: true, next: [
+            { field: 'urgent', value: true, next: [
                 { field: 'submitPhoto', value: true, next: '/apply/passport-details' },
                 '/photo/choose-photo-method'
             ]},
@@ -143,7 +143,7 @@ const apply = {
             'photoOverrideReason'
         ],
         next: [
-            { field: 'dps', value: true, next: '/apply/passport-details' },
+            { field: 'urgent', value: true, next: '/apply/passport-details' },
             { field: 'photoOverride', value: false, next: '/photo/choose-photo-method' },
             '/filter/previous-passport'
         ]
@@ -219,9 +219,9 @@ const apply = {
             'previousPassport'
         ],
         next: [
-            { field: 'dps', value: true, next: [
+            { field: 'urgent', value: true, next: [
                 { field: 'previousPassport', value: true, next: '/filter/lost-or-stolen' },
-                '/urgent/dps-not-eligible'
+                '/urgent/urgent-not-eligible'
             ]},
             { field: 'previousPassport', value: true, next: '/filter/lost-or-stolen' },
             '/filter/naturalisation-certificate'
@@ -232,8 +232,8 @@ const apply = {
             'lost'
         ],
         next: [
-            { field: 'dps', value: true, next: [
-                { field: 'lost', value: false, next: '/dps/dps-name-changed' },
+            { field: 'urgent', value: true, next: [
+                { field: 'lost', value: false, next: '/urgent/urgent-name-changed' },
                 '/filter/cancelled-passport'
             ]},
             { field: 'lost', value: true, next: '/filter/cancelled-passport' },
@@ -245,9 +245,9 @@ const apply = {
             'cancelled'
         ],
         next: [
-            { field: 'dps', value: true, next: [
-                { field: 'cancelled', value: false, next: '/dps/dps-lost-or-stolen-cannot-use-online-premium'  },
-                '/dps/dps-lost-or-stolen-choose-different-service'
+            { field: 'urgent', value: true, next: [
+                { field: 'cancelled', value: false, next: '/urgent/urgent-lost-or-stolen-cannot-use-online-premium'  },
+                '/urgent/urgent-lost-or-stolen-choose-different-service'
             ]},
             { field: 'cancelled', value: true, next: '/filter/other-passports' },
             'https://www.gov.uk/report-a-lost-or-stolen-passport'
@@ -259,11 +259,12 @@ const apply = {
             'passportIssuingAuthority'
         ],
         next: [
-        { field: 'dps', value: true, next: [
-            { field: 'reqCsigDps', value: false, next: '/dps/dps-damaged'  },
-            '/urgent/dps-not-eligible'
-        ]},
-        '/filter/damaged'
+            { field: 'urgent', value: true, next: [
+                // { field: 'reqCsigRequiredUrgent', value: false, next: '/urgent/urgent-damaged'  },
+                { field: 'reqCsigRequiredUrgent', value: false, next: '/filter/damaged'  },
+                '/urgent/urgent-not-eligible'
+            ]},
+            '/filter/damaged'
         ]
     },
     '/filter/damaged': {
@@ -272,9 +273,9 @@ const apply = {
             'damagedReason'
         ],
         next: [
-            { field: 'dps', value: true, next: [
+            { field: 'urgent', value: true, next: [
                 { field: 'damaged', value: false, next: '/filter/other-passports' },
-                '/urgent/dps-not-eligible'
+                '/urgent/urgent-not-eligible'
             ]},
             '/filter/other-passports'
         ]
@@ -290,9 +291,9 @@ const apply = {
             'otherPassports'
         ],
         next: [
-            { field: 'dps', value: true, next: [
+            { field: 'urgent', value: true, next: [
                 { field: 'otherPassports', value: false, next: '/apply/application-summary' },
-                '/urgent/dps-not-eligible'
+                '/urgent/urgent-not-eligible'
             ]},
             { field: 'isUKApplication', value: true, next: '/apply/application-summary' },
             { field: 'applicationType', value: 'first', next: '/filter/country-of-birth' },
@@ -317,7 +318,7 @@ const apply = {
             'applyReason'
         ],
         next: [
-            { field: 'dps', value: true , next: '/dps/dps-how-to-apply' },
+            { field: 'urgent', value: true , next: '/urgent/urgent-how-to-apply' },
             { field: 'applyReason', value: 'compassionate', next: '/apply/urgent-compassionate-guidance' },
             { field: 'applyReason', value: 'government', next: '/apply/urgent-compassionate-guidance' },
             { field: 'applyReason', value: 'identification', next: '/apply/urgent-compassionate-guidance' },
@@ -333,7 +334,7 @@ const apply = {
         ],
         next: [
             { field: 'applyNow', value: 'false', next: '/start' },
-            { field: 'dps', value: true , next: '/dps/dps-how-to-apply' },
+            { field: 'urgent', value: true , next: '/urgent/urgent-how-to-apply' },
             { field: 'applicationType', value: 'first', next: '/apply/what-you-need' },
             { field: 'adultOrChild', value: 'child', next: '/apply/what-you-need' },
             { field: 'previousPassport', value: true, next: [
@@ -363,7 +364,7 @@ const apply = {
             'passportExpiry'
         ],
         next: [
-            { field: 'dps', value: true, next: '/dps/dps-name' },
+            { field: 'urgent', value: true, next: '/urgent/urgent-name' },
             '/apply/name'
         ]
     },
@@ -434,7 +435,7 @@ const apply = {
             'townOfBirth'
         ],
         next: [
-            { field: 'dps', value: true , next: '/apply/address-manual' },
+            { field: 'urgent', value: true , next: '/apply/address-manual' },
             { field: 'applicationType', value: 'first', next: [
                 { field: 'naturalised', value: true, next: '/apply/naturalisation-details' },
                 '/apply/family-details'
@@ -586,7 +587,7 @@ const apply = {
             'mobilePhoneGroup'
         ],
         next: [
-            { field: 'dps', value: true, next: '/dps/dps-new-passport' },
+            { field: 'urgent', value: true, next: '/urgent/urgent-new-passport' },
             '/apply/new-passport'
         ]
     },
@@ -607,7 +608,7 @@ const apply = {
             'noSignReason'
         ],
         next: [
-            { field: 'dps', value: true, next: '/apply/confirm' },
+            { field: 'urgent', value: true, next: '/apply/confirm' },
             { field: 'isUKApplication', value: true, next: [
                 { field: 'adultOrChild', value: 'child', next: '/apply/relationship-to-applicant' },
                 '/apply/who-for'
@@ -646,7 +647,7 @@ const apply = {
     '/apply/confirm': {
         editable: false,
         next: [
-            { field: 'dps', value: true, next: '/apply/cost' },
+            { field: 'urgent', value: true, next: '/apply/cost' },
             { field: 'documentsRequired', value: 'none', next: '/apply/cost' },
             { field: 'csigRequired', value: true, next: '/apply/confirm-identity' },
             // ====================================================================
@@ -1107,58 +1108,57 @@ const dps = {
     }
 }
 
-const dps = {
-    // Changed /dps to /urgent
-    '/urgent/dps-start': {
-        controller: require('./controllers/dps-start'),
+const urgent = {
+    '/urgent/urgent-start': {
+        controller: require('./controllers/urgent-start'),
         entryPoint: true,
         resetJourney: true,
         next: '/filter/overseas'
     },
-    '/urgent/dps-not-eligible':{
+    '/urgent/urgent-not-eligible':{
     },
-    '/urgent/dps-lost-or-stolen-choose-different-service':{
-        next:'/filter/begin'
+    '/urgent/urgent-lost-or-stolen-choose-different-service':{
+        next:'/filter/overseas'
     },
-    '/urgent/dps-lost-or-stolen-cannot-use-online-premium':{
+    '/urgent/urgent-lost-or-stolen-cannot-use-online-premium':{
         next:'https://www.gov.uk/report-a-lost-or-stolen-passport'
     },
-    '/urgent/dps-name-changed': {
+    '/urgent/urgent-name-changed': {
         fields: [
             'nameChanged'
         ],
         next:[
             { field: 'nameChanged', value: 'false', next: '/filter/issue-date' },
-            '/urgent/dps-not-eligible'
+            '/urgent/urgent-not-eligible'
         ]
     },
-    '/urgent/dps-damaged': {
+    '/urgent/urgent-damaged': {
         fields: [
             'damaged'
         ],
         next: [
-            { field: 'dps', value: true, next: [
+            { field: 'urgent', value: true, next: [
                 { field: 'damaged', value: false, next: '/filter/other-passports' },
-                '/urgent/dps-not-eligible'
+                '/urgent/urgent-not-eligible'
             ]},
             '/filter/other-passports'
         ]
     },
-    '/urgent/dps-how-to-apply':{
-        next:'/urgent/dps-choose-date-and-place'
+    '/urgent/urgent-how-to-apply':{
+        next:'/urgent/urgent-choose-date-and-place'
     },
-    '/urgent/dps-choose-date-and-place':{
+    '/urgent/urgent-choose-date-and-place':{
         noPost: true,
-        next: '/urgent/dps-choose-time'
+        next: '/urgent/urgent-choose-time'
     },
-    '/urgent/dps-choose-time':{
+    '/urgent/urgent-choose-time':{
         noPost: true,
-        next:'/urgent/dps-check-appointment'
+        next:'/urgent/urgent-check-appointment'
     },
-    '/urgent/dps-check-appointment':{
+    '/urgent/urgent-check-appointment':{
         next:'/photo/digital-photo'
     },
-    '/urgent/dps-name':{
+    '/urgent/urgent-name':{
         fields: [
             'title',
             'otherTitle',
@@ -1167,7 +1167,7 @@ const dps = {
         ],
         next:'/apply/previous-names'
     },
-    '/urgent/dps-new-passport':{
+    '/urgent/urgent-new-passport':{
         fields: [
             'largePassport',
             'braille'
@@ -1181,5 +1181,5 @@ module.exports = {
     apply,
     tracking,
     csig,
-    dps
+    urgent
 }

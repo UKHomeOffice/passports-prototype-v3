@@ -41,12 +41,12 @@ router.use(Wizard(
 ))
 
 router.use(Wizard(
-    steps.dps,
+    steps.urgent,
     fields,
     {
         name: 'apply',
         journeyName: 'apply',
-        controller: require('./controllers/dps')
+        controller: require('./controllers/urgent')
     }
 ))
 

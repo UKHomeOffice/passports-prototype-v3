@@ -43,7 +43,7 @@
 {% block mainContent %}
     <h1>{{ hmpoTitle }}</h1>
 
-    {% if values.dps === true%}
+    {% if values.urgent === true%}
         {{ govukSummaryList({ rows: [
             {
                 key: { text: "Passport size" },
@@ -56,7 +56,7 @@
                     "<br/>" +
                     (values.passportCost | currency)
                 },
-                actions: { items: [ { text: "Change", href: "/dps/dps-new-passport/edit" }]}
+                actions: { items: [ { text: "Change", href: "/urgent/urgent-new-passport/edit" }]}
             },
             {
                 key: { text: "Total" },
