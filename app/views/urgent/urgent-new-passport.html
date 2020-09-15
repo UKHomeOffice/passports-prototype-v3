@@ -1,0 +1,43 @@
+{% extends "layout-apply.html" %}
+
+{% set hmpoTitle %}New passport{% endset %}
+
+{% block mainContent %}
+
+    <h1 id="header" >{{ hmpoTitle }}</h1>
+
+    {% call hmpoForm(ctx) %}
+
+        {# TODO: computed cost, and logic for computed cost or free #}
+        {{ hmpoRadios(ctx, {
+            id: "largePassport",
+            legend: {
+                text: "Passport size",
+                classes: "govuk-label--m"
+            },
+            items: [
+                {
+                    value: false,
+                    text: "Standard 34-page passport (£177)"
+                },
+                {
+                    value: true,
+                    text: "Frequent traveller 50-page passport (£187)"
+                }
+            ]
+        }) }}
+
+        <p>If you’re blind or visually impaired, we can add a braille sticker that reads passport, your name and
+            passport expiry date.</p>
+
+        {{ hmpoCheckboxes(ctx, {
+            id: "braille",
+            label: "I need a braille sticker",
+            classes: "govuk-checkboxes--small"
+        }) }}
+
+        {{ hmpoSubmit(ctx) }}
+
+    {% endcall %}
+
+{% endblock %}
