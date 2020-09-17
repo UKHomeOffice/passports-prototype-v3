@@ -106,7 +106,11 @@ module.exports = {
     },
     damagedReason: {
         validate: [
+<<<<<<< HEAD
             // Removed require validation as it causes issues with the urgent journey.
+=======
+            // Removing require validation as it cause issues with the urgent journey. Solution should we found re this.
+>>>>>>> 02371ff... consolidate passport damage page for dcs and urgent journey
             //'required',
             'alphanumex1',
             { type: 'maxlength', arguments: 250 }
@@ -803,6 +807,7 @@ module.exports = {
         formatter: 'boolean',
         validate: 'required'
     },
+<<<<<<< HEAD
     csigAppReference: {
         validate: 'required'
     },
@@ -991,6 +996,16 @@ module.exports = {
     },
     dps: {
         journeyKey: 'application.dps'
+=======
+    nameChanged:{
+        validate: 'required'
+    },
+    dpsDamaged: {
+        validate: 'required'
+    },
+    urgent: {
+        journeyKey: 'application.urgent'
+>>>>>>> 02371ff... consolidate passport damage page for dcs and urgent journey
     },
     nameChanged:{
         validate: 'required'
