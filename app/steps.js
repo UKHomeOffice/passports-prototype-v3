@@ -1057,7 +1057,7 @@ const urgent = {
         ],
         next:[
             { field: 'nameChanged', value: 'false', next: '/filter/issue-date' },
-            '/dps/dps-not-eligible'
+            '/urgent/urgent-not-eligible'
         ]
     },
     '/urgent/urgent-how-to-apply':{
@@ -1074,23 +1074,6 @@ const urgent = {
     '/urgent/urgent-check-appointment':{
         next:'/photo/digital-photo'
     },
-    '/urgent/urgent-name':{
-        fields: [
-            'title',
-            'otherTitle',
-            'firstName',
-            'lastName'
-        ],
-        next:'/apply/previous-names'
-    },
-    '/urgent/urgent-new-passport':{
-        fields: [
-            'largePassport',
-            'braille'
-        ],
-        editBackStep: '/apply/cost',
-        next:'/apply/sign'
-    }
 }
 
 const urgent = {
