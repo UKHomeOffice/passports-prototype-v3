@@ -106,7 +106,7 @@ module.exports = {
     },
     damagedReason: {
         validate: [
-            // Removing require validation as it cause issues with the urgent journey. Solution should we found re this.
+            // Removed require validation as it causes issues with the urgent journey.
             //'required',
             'alphanumex1',
             { type: 'maxlength', arguments: 250 }
@@ -221,7 +221,8 @@ module.exports = {
     },
     changeOfName: {
         formatter: 'boolean',
-        validate: 'required'
+        // Removed require validation as it causes issues with the urgent journey.
+        //validate: 'required'
     },
     nameChangeReason: {
         validate: 'required'
@@ -992,9 +993,6 @@ module.exports = {
         journeyKey: 'application.dps'
     },
     nameChanged:{
-        validate: 'required'
-    },
-    dpsDamaged: {
         validate: 'required'
     },
     urgent: {

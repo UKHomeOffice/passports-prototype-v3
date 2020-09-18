@@ -260,7 +260,6 @@ const apply = {
         ],
         next: [
             { field: 'urgent', value: true, next: [
-                // { field: 'reqCsigRequiredUrgent', value: false, next: '/urgent/urgent-damaged'  },
                 { field: 'reqCsigRequiredUrgent', value: false, next: '/filter/damaged'  },
                 '/urgent/urgent-not-eligible'
             ]},
@@ -364,7 +363,6 @@ const apply = {
             'passportExpiry'
         ],
         next: [
-            { field: 'urgent', value: true, next: '/urgent/urgent-name' },
             '/apply/name'
         ]
     },
@@ -587,7 +585,6 @@ const apply = {
             'mobilePhoneGroup'
         ],
         next: [
-            { field: 'urgent', value: true, next: '/urgent/urgent-new-passport' },
             '/apply/new-passport'
         ]
     },
@@ -1132,18 +1129,6 @@ const urgent = {
             '/urgent/urgent-not-eligible'
         ]
     },
-    '/urgent/urgent-damaged': {
-        fields: [
-            'damaged'
-        ],
-        next: [
-            { field: 'urgent', value: true, next: [
-                { field: 'damaged', value: false, next: '/filter/other-passports' },
-                '/urgent/urgent-not-eligible'
-            ]},
-            '/filter/other-passports'
-        ]
-    },
     '/urgent/urgent-how-to-apply':{
         next:'/urgent/urgent-choose-date-and-place'
     },
@@ -1158,23 +1143,6 @@ const urgent = {
     '/urgent/urgent-check-appointment':{
         next:'/photo/digital-photo'
     },
-    '/urgent/urgent-name':{
-        fields: [
-            'title',
-            'otherTitle',
-            'firstName',
-            'lastName'
-        ],
-        next:'/apply/previous-names'
-    },
-    '/urgent/urgent-new-passport':{
-        fields: [
-            'largePassport',
-            'braille'
-        ],
-        editBackStep: '/apply/cost',
-        next:'/apply/sign'
-    }
 }
 
 module.exports = {

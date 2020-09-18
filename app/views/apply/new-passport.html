@@ -2,6 +2,22 @@
 
 {% set hmpoTitle %}New passport{% endset %}
 
+{% set largePassportInfo %}
+    {% if values.urgent %}
+        Frequent traveller 50-page passport (£187)
+    {% else %}
+        Frequent traveller 50-page passport (£85.50)
+    {% endif %}
+{% endset %}
+
+{% set standardPassportInfo %}
+    {% if values.urgent %}
+        Standard 34-page passport (£177)
+    {% else %}
+        Standard 34-page passport (£75.50)
+    {% endif %}
+{% endset %}
+
 {% block mainContent %}
 
     <h1 id="header" >{{ hmpoTitle }}</h1>
@@ -18,11 +34,11 @@
             items: [
                 {
                     value: false,
-                    text: "Standard 34-page passport (£75.50)"
+                    text: standardPassportInfo
                 },
                 {
                     value: true,
-                    text: "Frequent traveller 50-page passport (£85.50)"
+                    text: largePassportInfo
                 }
             ]
         }) }}
