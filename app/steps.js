@@ -1076,45 +1076,45 @@ const urgent = {
     },
 }
 
-const urgent = {
-    '/urgent/urgent-start': {
-        controller: require('./controllers/urgent-start'),
-        entryPoint: true,
-        resetJourney: true,
-        next: '/filter/overseas'
-    },
-    '/urgent/urgent-not-eligible':{
-    },
-    '/urgent/urgent-lost-or-stolen-choose-different-service':{
-        next:'/filter/overseas'
-    },
-    '/urgent/urgent-lost-or-stolen-cannot-use-online-premium':{
-        next:'https://www.gov.uk/report-a-lost-or-stolen-passport'
-    },
-    '/urgent/urgent-name-changed': {
-        fields: [
-            'nameChanged'
-        ],
-        next:[
-            { field: 'nameChanged', value: 'false', next: '/filter/issue-date' },
-            '/urgent/urgent-not-eligible'
-        ]
-    },
-    '/urgent/urgent-how-to-apply':{
-        next:'/urgent/urgent-choose-date-and-place'
-    },
-    '/urgent/urgent-choose-date-and-place':{
-        noPost: true,
-        next: '/urgent/urgent-choose-time'
-    },
-    '/urgent/urgent-choose-time':{
-        noPost: true,
-        next:'/urgent/urgent-check-appointment'
-    },
-    '/urgent/urgent-check-appointment':{
-        next:'/photo/digital-photo'
-    },
-}
+// const urgent = {
+//     '/urgent/urgent-start': {
+//         controller: require('./controllers/urgent-start'),
+//         entryPoint: true,
+//         resetJourney: true,
+//         next: '/filter/overseas'
+//     },
+//     '/urgent/urgent-not-eligible':{
+//     },
+//     '/urgent/urgent-lost-or-stolen-choose-different-service':{
+//         next:'/filter/overseas'
+//     },
+//     '/urgent/urgent-lost-or-stolen-cannot-use-online-premium':{
+//         next:'https://www.gov.uk/report-a-lost-or-stolen-passport'
+//     },
+//     '/urgent/urgent-name-changed': {
+//         fields: [
+//             'nameChanged'
+//         ],
+//         next:[
+//             { field: 'nameChanged', value: 'false', next: '/filter/issue-date' },
+//             '/urgent/urgent-not-eligible'
+//         ]
+//     },
+//     '/urgent/urgent-how-to-apply':{
+//         next:'/urgent/urgent-choose-date-and-place'
+//     },
+//     '/urgent/urgent-choose-date-and-place':{
+//         noPost: true,
+//         next: '/urgent/urgent-choose-time'
+//     },
+//     '/urgent/urgent-choose-time':{
+//         noPost: true,
+//         next:'/urgent/urgent-check-appointment'
+//     },
+//     '/urgent/urgent-check-appointment':{
+//         next:'/photo/digital-photo'
+//     },
+// }
 
 module.exports = {
     apply,
