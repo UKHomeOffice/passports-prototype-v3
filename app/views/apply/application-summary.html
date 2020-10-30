@@ -13,10 +13,10 @@
 
         <h1>{{ hmpoTitle }}</h1>
 
-        {# urgent #}
+        {# Urgent #}
         {% if values.urgent == true %}
             <p>Based on your answers, you’re applying for an adult renewal.</p>
-            <p>If you’re applying for someone who is unable to make their own decisions, you need to<a href=“https://www.gov.uk/get-a-passport-urgently”> apply with Paper Premium</a>.</p>
+            <p>If you’re applying for someone who is unable to make their own decisions, you need to<a href="https://www.gov.uk/get-a-passport-urgently"> apply with Paper Premium</a>.</p>
 
     {% else %}
 
@@ -163,8 +163,9 @@
                 <li>send us your old passport</li>
 
             {% endif %}
-    {% endif %}
-    </ul>
+        </ul>
+
+        <br/> -->
 
         {# COVID-19 messaging #}
         <h2>Coronavirus (COVID-19)</h2>
@@ -191,4 +192,3 @@
         {{ hmpoSubmit(ctx) }}
     {% endcall %}
 {% endblock %}
-
