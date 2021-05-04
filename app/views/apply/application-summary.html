@@ -10,11 +10,21 @@
 
 {% set dpsText %}
     {% if values.urgent and not values.urgentNameChanged %}
-        Based on your answers, you’re applying for an adult renewal.
+        Based on your answers, you want to renew your passport urgently.
     {% elif values.urgent and values.urgentNameChanged %}
-        Based on your answers, you’re applying for an adult renewal and you’ve changed your name.
+        Based on your answers, you want to renew and change the name on your passport urgently.
     {% endif %}
 {% endset %}
+
+{% set howItWorksText %}
+    {% if values.urgent and not values.urgentNameChanged %}
+        We’ll check your old passport at your appointment
+    {% elif values.urgent and values.urgentNameChanged %}
+        We’ll check your old passport and documents at your appointment
+    {% endif %}
+{% endset %}
+
+
 
 
 {% block mainContent %}
@@ -24,7 +34,16 @@
         {# Urgent #}
         {% if values.urgent == true %}
             <p>{{ dpsText }}</p>
-            <p>If you’re applying for someone who is unable to make their own decisions, you need to <a href="https://www.gov.uk/get-a-passport-urgently">apply with the 1 week Fast Track service</a>.</p>
+            
+            <h2>How it works</h2>
+            <p>You’ll need to apply and pay online.</p>
+            <p>You’ll also be asked to book an appointment at a <a href="https://www.passport.service.gov.uk/help/passport-offices/" target="_blank">passport office</a>.</p>
+            <p>{{ howItWorksText }}. Your new passport will be ready to collect 2 hours later.</p>
+
+            <h2>What it costs</h2>
+            <p>Appointments within the next 5 working days cost £177.</p>
+            <p>Appointments between 5 working days and 3 weeks cost £142.</p>
+            <br>
         
         {% else %}
 
@@ -181,6 +200,7 @@
             </ul>
 
             <br/>
+            
 
             {# Disable COVID-19 messaging 
             <h2>Coronavirus (COVID-19)</h2>

@@ -71,7 +71,7 @@ const apply = {
     },
     '/filter/intro': {
         next:[
-            { field: 'urgent', value: true, next:'/urgent/urgent-how' },
+            { field: 'urgent', value: true, next:'/urgent/urgent-choose-date-and-place' },
             '/filter/age'
         ]
     },

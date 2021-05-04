@@ -5,10 +5,15 @@
 {% block mainContent %}
 
     {% call hmpoForm(ctx) %}
-
-        <div class="govuk-inset-text hmpo-inset-info">
-            If you’re applying on behalf of an adult or child, answer these questions with their details rather than your own.
-        </div>
+        {% if values.urgent %}
+            <div class="govuk-inset-text hmpo-inset-info">
+                If you’re applying for someone else, answer these questions with their details. If they are unable to make their own decisions, you need to apply with <a href="#">1 week Fast Track</a>.
+            </div>
+        {% else %}
+            <div class="govuk-inset-text hmpo-inset-info">
+                If you’re applying on behalf of an adult or child, answer these questions with their details rather than your own.
+            </div>
+        {% endif %}
 
         {{ hmpoRadios(ctx, {
             id: "isUKApplication",

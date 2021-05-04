@@ -72,13 +72,8 @@
                 actions: { items: [ { text: "Change", href: "/apply/new-passport/edit" }]}
             },
             {
-                key: { text: "Appointment type" },
-                value: { text: appointmentType },
-                actions: { items: [ { text: "Change", href: "/urgent/urgent-how/edit" }]} 
-            },
-            {
                 key: { text: "Total" },
-                value: { text: values.passportCost | currency }
+                value: { html: "<strong>" + (values.passportCost | currency) + "</strong>"}
             }
         ] | filter }) }}
 

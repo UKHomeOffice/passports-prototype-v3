@@ -1,4 +1,4 @@
-{% extends "layout-apply.html" %}
+{% extends "layout.html" %}
 
 {% set hmpoTitle %}Get a passport urgently{% endset %}
 
@@ -46,8 +46,8 @@
                 <h1 class="govuk-heading-xl">{{ hmpoTitle }}</h1>
                 <p class="govuk-body-s">Contents</p>
                 <ul class="govuk-list govuk-list--dashed">
-                    <li><a href="./urgent-gov-uk">How to apply</a></li>
-                    <li>Online Premium service</li>
+                    <li>How to apply</li>
+                    <li><a href="./urgent-start">Online Premium service</a></li>
                     <li><a href="./urgent-fast-track">1 week Fast Track service</a></li>
                 </ul>
                 <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
@@ -55,43 +55,37 @@
 
             <div class="govuk-grid-column-two-thirds-from-desktop">
 
-                <h2 class="govuk-heading-l">Online Premium</h2>
-                <p>You’ll need to book an appointment at a <a href="https://www.gov.uk/find-regional-passport-office">passport office</a>.</p>
-                <p>Take your old passport and any documents to your appointment to be checked. You’ll need to return 2 hours later to collect your new passport.</p>
-
-                <h3 class="govuk-heading-m">What it costs</h3>
-                <p>It costs:</p>
+                <h2 class="govuk-heading-l">How to apply</h2>
+                <p>You can pay for a faster service if you need a passport within 3 weeks.</p>
+                <p>You’ll need to book an appointment at a <a href="https://www.gov.uk/find-regional-passport-office">passport office</a>. Appointments are available up to 3 weeks in advance.</p>
+                <p>You can’t use these services if:</p>
                 <ul class="govuk-list govuk-list--bullet">
-                    <li>£177 (or £187 or a 50 page frequent traveller passport) for an appointment within the next 5 working days</li>
-                    <li>£142 (or £152 or a 50 page frequent traveller passport) for an appointment between 5 working days and 3 weeks</li>
+                    <li>you’re applying for a <a href="/start">first adult passport</a></li>
+                    <li>you’re outside the UK - apply for an <a href="https://www.gov.uk/emergency-travel-document">emergency travel document </a>instead </li>
                 </ul>
 
-                <h3 class="govuk-heading-m">Apply, book an appointment and pay</h3>
-                <p>To use the Online Premium service you’ll need:</p>
-                <ul class="govuk-list govuk-list--bullet">
-                    <li>your old passport</li>
-                    <li>a digital photo of you</li>
-                    <li>a credit or debit card</li>
-                </ul>     
-                  
-                {% call hmpoForm(ctx) %}
-                    {{ govukButton({
-                        text: "Start now",
-                        isStartButton: true
-                    }) }} 
-                {% endcall %}   
+                <h2 class="govuk-heading-m">Ways to apply</h2>
+                <p>There are 2 ways to apply for an urgent passport.</p>
 
-                <h3 class="govuk-heading-m">What to bring to your appointment</h3>
-                <p>You need to bring your old passport.</p>
-                <p>You can ask someone else to go to your appointment for you. They’ll need to bring:</p>
-                <ul class="govuk-list govuk-list--bullet">
-                    <li>your old passport and any documents</li>
-                    <li>a signed and dated letter from you, naming them and giving them permission to collect the passport</li>
-                    <li>their ID or example a passport or driving licence</li>
-                </ul>   
+                <h3>Online Premium</h3>
+                <p>Use this service if you’re renewing an adult passport, or if you’ve changed your name by marriage or civil partnership. </p>
+                <p>The earliest appointment is 2 days from when you apply.</p>
+                <p>You’ll need to apply, pay and book an appointment online.</p>
+                <p>Your old passport and documents will be checked at your appointment. You’ll need to return 2 hours later to collect your new passport.</p>
+                <p><a href="/urgent/urgent-start">Use the Online Premium service</a></p>
 
-                <h3 class="govuk-heading-m">Changing your appointment</h3>
-                <p>Call the <a href="https://www.gov.uk/passport-advice-line">passport adviceline</a> to reschedule your appointment.</p>                     
+                <h3>1 week Fast Track</h3>
+                <p>You can use this service to:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>renew a passport</li>
+                    <li>change your name or personal details on your passport</li>
+                    <li>replace a lost, stolen or damaged passport</li>
+                    <li>get a child passport</li>
+                </ul>
+                <p>The earliest appointment is 7 days from when you apply.</p>
+                <p>You’ll need to go to a <a href="https://www.postoffice.co.uk/branch-finder">Post Office</a> to apply, pay and book an appointment at a passport office.</p>
+                <p>You’ll get your new passport at your appointment.</p>
+                <p><a href="">Use the 1 week Fast Track service</a></p>
 
             </div>
         </main>

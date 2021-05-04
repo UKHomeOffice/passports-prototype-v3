@@ -2,19 +2,11 @@
 
 {% set hmpoTitle %}How to apply{% endset %}
 
-{% set chooseAppointmentText%}
-    {% if values.urgent and not values.urgentNameChanged %}
-        , where we’ll check your old passport and print your new one.
-    {% elif values.urgent and values.urgentNameChanged %}
-        , where we’ll check your documents and print your new passport.
-    {% endif %}
-{% endset %}
-
 {% set goAppointmentText%}
     {% if values.urgent and not values.urgentNameChanged %}
-        Take your old passport to your appointment and return 2 hours later to collect your new one.
+        We’ll check and cancel your old passport.
     {% elif values.urgent and values.urgentNameChanged %}
-        Take your old documents  to your appointment and return 2 hours later to collect your new passport.
+        We’ll check your documents and cancel your old passport.
     {% endif %}
 {% endset %}
  
@@ -29,7 +21,7 @@
                         <li class="circle-step">
                         <span class="circle-step-circle">1</span>
                             <h2>Choose an appointment</h2>
-                            <p>You’ll need an appointment at a <a target="_blank" href="https://www.passport.service.gov.uk/help/passport-offices/">passport office</a> {{ chooseAppointmentText }}</p>
+                            <p>You’ll need an appointment at a <a target="_blank" href="https://www.passport.service.gov.uk/help/passport-offices/">passport office</a>.</p>
                         </li>
                         <li class="circle-step">
                         <span class="circle-step-circle">2</span>
@@ -39,12 +31,17 @@
                         <li class="circle-step">
                         <span class="circle-step-circle">3</span>
                             <h2>Apply and pay online</h2>
-                            <p>You’ll need a debit or credit card. It costs £177 or £142 depending on how quickly you need your passport.</p>
+                            <p>You’ll need a debit or credit card.</p>
                         </li>
                         <li class="circle-step">
                         <span class="circle-step-circle">4</span>
                             <h2>Go to your appointment</h2>
                             <p>{{ goAppointmentText }}</p>
+                        </li>
+                        <li class="circle-step">
+                        <span class="circle-step-circle">5</span>
+                            <h2>Collect your new passport</h2>
+                            <p>We’ll text you when it’s ready - usually 2 hours after your appointment.</p>
                         </li>
                     </ul>
                     {% call hmpoForm(ctx) %}

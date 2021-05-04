@@ -12,12 +12,15 @@ let availableAppointmentsByDateAndPlace = (req) => {
     let locations = dpsAppointmentsAvailability['locations'];
     let locationsMaxDates = locations['LONDON'].length;
 
-    if (!req.sessionModel.get('within5Urgent') && !req.params.direction) {
-        //Skip 5 days in View to display non urgent appointments first
-        dateParam = nonUrgentAppointment();
-    } else {
-        dateParam = paramParser.parseDateTimeParam(req, 'DD-MM-YYYY', 'date');
-    }
+    //** Skip this logic to show next 5 days **
+    // if (!req.sessionModel.get('within5Urgent') && !req.params.direction) {
+    //     //Skip 5 days in View to display non urgent appointments first
+    //     dateParam = nonUrgentAppointment();
+    // } else {
+    //     dateParam = paramParser.parseDateTimeParam(req, 'DD-MM-YYYY', 'date');
+    // }
+
+    dateParam = paramParser.parseDateTimeParam(req, 'DD-MM-YYYY', 'date');
 
     let dateParamDiffFromTodaysDate = Math.ceil(moment(dateParam, 'DD-MM-YYYY').diff(moment(), 'days', true));
 
@@ -40,10 +43,11 @@ let availableAppointmentsByDateAndPlace = (req) => {
 
 };
 
-let nonUrgentAppointment = () => {
-    let nextFiveDays = moment().add(5, 'days');
-    return nextFiveDays.format('DD-MM-YYYY');
-};
+//** No longer required to skip 5 days **
+// let nonUrgentAppointment = () => {
+//     let nextFiveDays = moment().add(5, 'days');
+//     return nextFiveDays.format('DD-MM-YYYY');
+// };
 
 let createNextAndPreviousLinks = (req, dateParam, locationsMaxDates, locationAvailability, dateParamDiffFromTodaysDate) => {
 

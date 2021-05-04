@@ -47,52 +47,58 @@
                 <p class="govuk-body-s">Contents</p>
                 <ul class="govuk-list govuk-list--dashed">
                     <li><a href="./urgent-gov-uk">How to apply</a></li>
-                    <li>Online Premium service</li>
-                    <li><a href="./urgent-fast-track">1 week Fast Track service</a></li>
+                    <li><a href="./urgent-start">Online Premium service</a></li>
+                    <li>1 week Fast Track service</li>
                 </ul>
+
                 <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
             </header>
 
             <div class="govuk-grid-column-two-thirds-from-desktop">
 
-                <h2 class="govuk-heading-l">Online Premium</h2>
-                <p>You’ll need to book an appointment at a <a href="https://www.gov.uk/find-regional-passport-office">passport office</a>.</p>
-                <p>Take your old passport and any documents to your appointment to be checked. You’ll need to return 2 hours later to collect your new passport.</p>
+                <h2 class="govuk-heading-l">1 week Fast Track</h2>
+                <p>Take your old passport and any documents to a Post Office.</p>
+                <p>Staff at the Post Office will help you apply and pay for your passport, and book an appointment at a <a href="https://www.gov.uk/find-regional-passport-office">passport office</a>.</p>
+                <p>You’ll collect your new passport at your appointment.</p>
 
                 <h3 class="govuk-heading-m">What it costs</h3>
                 <p>It costs:</p>
                 <ul class="govuk-list govuk-list--bullet">
-                    <li>£177 (or £187 or a 50 page frequent traveller passport) for an appointment within the next 5 working days</li>
-                    <li>£142 (or £152 or a 50 page frequent traveller passport) for an appointment between 5 working days and 3 weeks</li>
+                    <li>£142 or an adult passport (or £152 or a 50 page frequent traveller passport)</li>
+                    <li>£122 for a child passport (or £152 or a 50 page frequent traveller passport)</li>
                 </ul>
 
-                <h3 class="govuk-heading-m">Apply, book an appointment and pay</h3>
-                <p>To use the Online Premium service you’ll need:</p>
-                <ul class="govuk-list govuk-list--bullet">
-                    <li>your old passport</li>
-                    <li>a digital photo of you</li>
-                    <li>a credit or debit card</li>
-                </ul>     
-                  
-                {% call hmpoForm(ctx) %}
-                    {{ govukButton({
-                        text: "Start now",
-                        isStartButton: true
-                    }) }} 
-                {% endcall %}   
+                <h3 class="govuk-heading-m">What you’ll need to take to the Post Office</h3>
+                <p>What you need to take depends on what type of application you’re making.</p>
 
-                <h3 class="govuk-heading-m">What to bring to your appointment</h3>
-                <p>You need to bring your old passport.</p>
+                <h4>If you’re renewing or replacing a passport</h4>
+                <p>You must take your old passport to the Post Office if you still have it.</p>
+                <p>If you’ve changed your name, you’ll also need to bring proof of your new name (like a marriage certificate)</p>
+                <p>If your passport is lost, you’ll need the name and email address of someone who can confirm your identity.</p>
+
+                <h4>If you’re applying for someone under 16</h4>
+                <p>You must take their old passport to the Post Office if they have one.</p>
+                <p>You’ll need to give both of their parents’ details, including their:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>names, dates and places of birth</li>
+                    <li>nationality</li>
+                    <li>UK passport details, if they have them</li>
+                    <li>details of their marriage or civil partnership if it applies</li>
+                </ul>                           
+                <p>If you cannot provide both parents’ details, you need to say why, for example you’re the only parent named on the birth certificate.</p>
+                <p>You’ll also need the email address of someone who can confirm the child’s identity, unless you’re renewing a child’s passport who is 12 or over.</p>
+
+
+                <h3 class="govuk-heading-m">Your passport office appointment</h3>
+                <p>You’ll collect your new passport at your appointment.</p>
                 <p>You can ask someone else to go to your appointment for you. They’ll need to bring:</p>
                 <ul class="govuk-list govuk-list--bullet">
-                    <li>your old passport and any documents</li>
                     <li>a signed and dated letter from you, naming them and giving them permission to collect the passport</li>
                     <li>their ID or example a passport or driving licence</li>
                 </ul>   
 
                 <h3 class="govuk-heading-m">Changing your appointment</h3>
-                <p>Call the <a href="https://www.gov.uk/passport-advice-line">passport adviceline</a> to reschedule your appointment.</p>                     
-
+                <p>Call the <a href="https://www.gov.uk/passport-advice-line">passport adviceline</a> to reschedule your appointment.</p>
             </div>
         </main>
 
