@@ -39,7 +39,7 @@
     </ul>
 
     <h2 class="compact">Track your application</h2>
-    <p>Use your reference <strong>PEX 123 456 789X</strong> to <a href="/track">track your application.</a> We’ll send updates to {{ values.contactEmail }} and {{ values.contactPhone }}. </p>
+    <p>Use your reference <strong>PEX 123 456 789X</strong> to <a href="/track?&urgent=false">track your application.</a> We’ll send updates to {{ values.contactEmail }} and {{ values.contactPhone }}. </p>
     <p>We'll check your application. If there's a problem, we'll call you on the number you provided.</p>
     <p>If you have any questions contact <a href="https://www.passport.service.gov.uk/help">HM PassportOffice</a>.</p>
 
@@ -130,7 +130,7 @@
         {{ hmpoSubmit(ctx, {
             id: "track-button",
             text: "Sign in",
-            href: "/track"
+            href: "/track?&urgent=false"
         }) }}
 
     {% else %}
@@ -175,7 +175,7 @@
 
         <h2>Track your application</h2>
         <p>You’ll need your application reference: PEX 123 456 789X<br/>
-        <a href="/track">www.passport.service.gov.uk/track</a></p>
+        <a href="/track?&urgent=false">www.passport.service.gov.uk/track</a></p>
 
         {{ hmpoSubmit(ctx, {
             text: "Give feedback",
