@@ -27,6 +27,10 @@
         <a data-id="appointment-location-map" href="https://www.google.co.uk/maps/?q={{location.name}}, {{location.postcode}}" class="new-window" target="_blank">View map</a>
     </p>
 
+    <div class="govuk-inset-text">
+        If you need to, <a href="/urgent/urgent-choose-date-and-place">change your appointment</a> before you start your application. It will be difficult to change it later on.
+    </div>
+
     {% call hmpoForm(ctx) %}
         {{ hmpoSubmit(ctx, { text: "Start your application" }) }}
     {% endcall %}

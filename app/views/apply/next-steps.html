@@ -91,7 +91,11 @@
 
         <h2 class="compact">Track your application</h2>
         <p>You’ll need your application reference: <strong>PEX 123 456 789X</strong>
-        <a href="/track">www.passport.service.gov.uk/track</a></p>
+        {% if values.urgent %}
+            <a href="/track?docs=none&csig=false&urgent=true">www.passport.service.gov.uk/track</a>
+        {% else %}
+            <a href="/track?&urgent=false">www.passport.service.gov.uk/track</a>
+        {% endif %}
 
         <br/><br/>
 

@@ -10,39 +10,67 @@
     {% endif %}
 {% endblock %}
 
+{% set appointmentTime %}
+    <p>{{ctx("values.apt-date-time") | date("dddd D MMMM YYYY")}}<br>
+        at {{ctx("values.apt-date-time") | date("h:mma") }}</h2></p>
+{% endset %}
+{% set appointmentAddress %}
+    <p>
+        {{ctx("values.apt-location.name")}}<br>
+        {% for item in ctx("values.apt-location.address") %}
+            {{item }}<br>
+        {% endfor %}
+
+        {{ctx("values.apt-location.postcode")}}<br>
+        <a data-id="appointment-location-map" href="https://www.google.co.uk/maps/?q={{ctx("values.apt-location.name")}}, {{ctx("values.apt-location.postcode")}}" class="new-window" target="_blank">View map</a>
+    </p>
+{% endset %}
+
 {% block trackingBody %}
     {% if values.isUrgent %}
         <h2>What happends next</h2>
-        <p> If there's a problem with your application, we'll call you on the phone number you provided.</p>
-        <p>When we've finished checking your application we'll update this page.</p>
+        <p> If there’s a problem with your application, we’ll call you on the phone number you provided. Otherwise we’ll see you at your appointment.</p>
 
         <h2>Your collection appointment</h2>
-        <p><b>Wednesday 1 April 2021</b>
+        <h3 class="govuk-heading-s">{{ctx("values.apt-date-time") | date("dddd D MMMM YYYY")}}<br>
+            at {{ctx("values.apt-date-time") | date("h:mma") }}</h3></p>
+
+        <h3 class="govuk-heading-s">{{ctx("values.apt-location.name")}}</strong>
+        <p>    
+            {% for item in ctx("values.apt-location.address") %}
+                {{item }}<br>
+            {% endfor %}
+
+            {{ctx("values.apt-location.postcode")}}<br>
+            <a data-id="appointment-location-map" href="https://www.google.co.uk/maps/?q={{ctx("values.apt-location.name")}}, {{ctx("values.apt-location.postcode")}}" class="new-window" target="_blank">View map</a>
+        </p>
+
+        
         <br>
-        at <b>8:45pm</b></p>
-        <p>Glasgow HM Passport Office<br>
-        3 Northgate<br>
-        96 Milton Street<br>
-        Cowcaddens<br>
-        Glasgow<br>
-        G4 0BT<br>
-        <a href="https://www.google.co.uk/maps/?q=Glasgow%20HM%20Passport%20Office,%20G4%200BT" target="_blank">View map</a></p>
-        <br>
-        <p> if you can't go to your collection appointment, <a href="" target="_blank">contact us</a>. Your new appointment details will be send to you by email.
+        <p>Don’t arrive any earlier than 10 minutes before your appointment.</p>
+        <p>We’ll check and cancel your old passport at your appointment.</p>
+        <p>You’ll need to return 2 hours later to collect your new passport. We’ll text you when it’s ready.</p>
 
         <h2>What you need to bring</h2>
-        <p>You must bring your old passport with you.</p>
+        {% if values.urgentNameChanged %}
+            <p>You must bring your <a href="/apply/documents-to-send">old passport and documents</a> with you.</p>
+        {% else %}
+            <p>You must bring your old passport with you.</p>
+        {% endif %}
         <p>If someone is collecting your new passport for you, they need to bring:</p>
         <ul class="govuk-list govuk-list--bullet">
-            <li>your old passport</li>
+            {% if values.urgentNameChanged %}
+                <li>your <a href="/apply/documents-to-send">old passport and documents</a></li>
+            {% else %}
+                <li>your old passport</li>
+            {% endif %}
             <li>a signed and dated letter from you, confirming their full name and giving them permission to collect your passport</li>
             <li>proof of their identity, for example a driving licence or passport</li>
         </ul>
 
-        {{ govukWarningText({
-            text: "Your old passport will be cancelled on the day of your collection appointment. You won't be able to use it.",
-            iconFallbackText: "Warning"
-        }) }}
+        <h2>Changing your appointment</h2>
+        <p>If you need to change or cancel your appointment, <a href="">contact us</a>.</p>
+
     {% else %}
         <h2>What you need to do</h2>
 
@@ -100,11 +128,11 @@
 {% endblock %}
 
 {% set nextStatuses = [
-    "IN_QUEUE",
-    "PROCESSING",
-    "REPLACED",
-    "WITHDRAWN",
-    "APPLICATION_FAILED"
+    "IN_QUEUE" if values.isUrgent == false,
+    "PROCESSING" if values.isUrgent == false,
+    "REPLACED" if values.isUrgent == false,
+    "WITHDRAWN" if values.isUrgent == false,
+    "APPLICATION_FAILED" if values.isUrgent == false
 ] | filter %}
 
 
