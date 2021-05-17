@@ -3,8 +3,7 @@
 {% set hmpoTitle %}Get a digital photo{% endset %}
 
 {%- set photoCodeConditional -%}
-    <p>Check if your printed photos have a photo code – you’ll need to enter this code to retrieve your photo.</p>
-    <p>The photo code may not be available from photo booths or shops in your area.</p>
+    <p>Check if your printed photos have a <a href="/help/photo-with-a-code" target="_blank">photo code</a> – you’ll need to enter this code to retrieve your photo.</p>
 {%- endset -%}
 
 {% block mainContent %}
@@ -18,12 +17,13 @@
             },
             isPageHeading: true,
             items: [{
-                value: "digital-photo",
-                text: "I’ll take or upload a digital photo"
-            }, {
                 value: "photo-code",
                 text: "I have a code to enter",
                 conditional: { html: photoCodeConditional }
+            },
+            {
+                value: "digital-photo",
+                text: "I’ll take or upload a digital photo"
             }]
         }) }}
 
