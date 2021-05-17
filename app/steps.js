@@ -151,7 +151,7 @@ const apply = {
         ],
         next: [
             { field: 'urgent', value: true, next: '/apply/passport-details' },
-            { field: 'photoOverride', value: false, next: '/photo/choose-photo-method' },
+            { field: 'photoOverride', value: false, next: '/photo/digital-photo' },
             '/filter/previous-passport'
         ]
     },
