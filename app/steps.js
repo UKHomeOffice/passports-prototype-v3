@@ -187,11 +187,12 @@ const apply = {
             'submitPhoto'
         ],
         next: [
-            { field: 'dps', value: true, next: [
+            { field: 'urgent', value: true, next: [
                 { field: 'submitPhoto', value: true, next: '/apply/passport-details' },
                 '/photo/choose-photo-method'
             ]},
-            '/filter/previous-passport'
+            { field: 'submitPhoto', value: true, next: '/filter/previous-passport' },
+            '/photo/digital-photo'
         ]
     },
     '/photo/check-and-submit-photo': {
@@ -201,8 +202,8 @@ const apply = {
             'photoOverrideReason'
         ],
         next: [
-            { field: 'photoOverride', value: false, next: '/photo/choose-photo-method' },
-            { field: 'dps', value: true, next: '/apply/passport-details' },
+            { field: 'photoOverride', value: false, next: '/photo/digital-photo' },
+            { field: 'urgent', value: true, next: '/apply/passport-details' },
             '/filter/previous-passport'
         ]
     },
