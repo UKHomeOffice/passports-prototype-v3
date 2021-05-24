@@ -141,7 +141,7 @@ const apply = {
                 '/photo/choose-photo-method'
             ]},
             { field: 'submitPhoto', value: true, next: '/filter/previous-passport' },
-            '/photo/choose-photo-method'
+            '/photo/digital-photo'
         ]
     },
     '/photo/choose-submit-photo': {
