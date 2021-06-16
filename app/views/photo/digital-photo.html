@@ -12,12 +12,13 @@
     <h2>Go to a photo shop</h2>
     <p>Get a digital copy of your photo, to upload to your application. You can also ask for a <a href="/help/photo-with-a-code" target="_blank">photo with a code</a>.</p>
 
+    {{ govukInsetText({
+        classes: 'govuk-inset-text hmpo-inset-info',
+        text: "Booth and shop photos are checked for you - they are more likely to meet the rules and pass our checks."
+    }) }}
+    
     <h2>Take a digital photo during your application</h2>
     <p>You'll need someone to help you take a photo using a digital camera, smartphone or tablet.</p>
-
-    {% call hmpoInsetText() %}
-        <p>Booth and shop photos are checked for you - they are more likely to meet the rules and pass our checks.</p>
-    {% endcall %}
 
     {% call hmpoForm(ctx) %}
         {{ hmpoSubmit(ctx) }}

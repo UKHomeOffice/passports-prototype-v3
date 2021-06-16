@@ -125,8 +125,8 @@
 
                 <p>You can use this photo if:</p>
                 <ul class="govuk-list govuk-list--bullet">
-                    <li>you think the reason for the result is not correct</li>
                     <li>you can’t meet the rules because of a religious or medical reason</li>
+                    <li>you think the reason for the result is not correct</li>
                 </ul>
             {% endif %}
         </div>
@@ -139,7 +139,7 @@
         {{ govukButton({
         text: "get a different photo",
         classes: "govuk-button--secondary",
-        href: "/photo/digital-photo"
+        href: "/photo/choose-photo-method"
     }) }}
     {% endcall %}
 {% else %}

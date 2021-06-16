@@ -192,7 +192,7 @@ const apply = {
                 '/photo/choose-photo-method'
             ]},
             { field: 'submitPhoto', value: true, next: '/filter/previous-passport' },
-            '/photo/digital-photo'
+            '/photo/choose-photo-method'
         ]
     },
     '/photo/check-and-submit-photo': {
@@ -202,7 +202,7 @@ const apply = {
             'photoOverrideReason'
         ],
         next: [
-            { field: 'photoOverride', value: false, next: '/photo/digital-photo' },
+            { field: 'photoOverride', value: false, next: '/photo/choose-photo-method' },
             { field: 'urgent', value: true, next: '/apply/passport-details' },
             '/filter/previous-passport'
         ]
