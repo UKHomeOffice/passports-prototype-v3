@@ -23,12 +23,11 @@
     <h2>How accessible this website is<h2>
     <p>We know some parts of this website are not fully accessible. For example:<p>
     <ul class="govuk-list govuk-list--bullet">
-        <li>the line height or spacing of text cannot be modified</li>
-        <li>PDF documents are partially accessible to screen reader software</li>
-        <li>the skip to main content link does not work when using a screen reader on desktop web browsers</li>
-        <li>if using a screen reader, the autofocus may not move to the error summary that appears when an error occurs </li>
-        <li>when selecting the continue button after leaving the form fields empty, the focus returns to the top of the page and the page title is read out - if this occurs, try asking the screen reader to start again from the top of the page</li>
-        <li>sometimes content on web elements are read out more than once using screen readers or "blank" is read out erroneously</li>
+        <li>access issues for users who require audio feedback to navigate and interact with page content</li>
+        <li>some page elements are not descriptive enough</li>
+        <li>in some pages general navigation is difficult due to non-descriptive page titles and headings</li>
+        <li>keyboard only users may be unable to track the order of some page elements</li>
+        <li>users are not given the opportunity to extend their session before it expires</li>
     </ul>
 
     <h2>Feedback and contact information<h2>
@@ -54,28 +53,25 @@
     <p>Her Majesty’s Passport Office is committed to making its website accessible, in accordance with the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018.<p>
 
     <h2>Compliance status<h2>
-    <p>This website is partially compliant with the <a id="Web Content Accessibility Guidelines version 2.1" href=https://www.w3.org/TR/WCAG21/ target="_blank">Web Content Accessibility Guidelines version 2.1</a> AA standard, due to the non-compliances listed below..</p>
+    <p>This website is partially compliant with the <a id="Web Content Accessibility Guidelines version 2.1" href=https://www.w3.org/TR/WCAG21/ target="_blank">Web Content Accessibility Guidelines version 2.1</a> AA standard, due to the non-compliances listed below.</p>
 
-    <h2>Non-compliance with the accessibility regulations<h2>
-    <p>We have identified these instances which we are researching and looking into further. We will investigate where issues exist and fix them by March 2021.<p>
+    <h2>Non-accessible content<h2>
+    <p>The content listed below is non-accessible for the following reasons.<p>
+
+    <h3>Non-compliance with the accessibility regulations<h3>
     <ul class="govuk-list govuk-list--bullet">
-        <li>If a user does not enter all form information an error message appears which gives users links to where the errors are on the page. These links are not functioning correctly and move users to the start of the page. This fails WCAG 3.3.1 Error Identification (A).</li>
-        <li>The skip to content function on this service is not moving the user to the start of the main content on pages. This fails WCAG 2.4.1 Bypass Blocks (A).</li>
-        <li>Before the “back” link on each page, screen readers identify an additional blank link that does nothing. This is in error and fails WCAG 2.4.4 Link Purpose (A), 4.1.1 Parsing (A) and 4.1.2 Name, Role, Value (A).</li>
-        <li>Screen reader users may experience blank elements between form labels and user input fields when navigating with the arrow keys and in other places such as on the ‘How to take a digital passport photo’ guidance page. This fails WCAG 4.1.1 Parsing (A).</li>
-        <li>In High contrast modes, there are collapsible content boxes that use icons to identify their status. These can become difficult to identify in high contrast modes and fail WCAG 1.4.11 Non-text Contrast (AA).</li>
-        <li>On some pages, users are asked to provide expiry date information, or will come across questions that use radio buttons. These questions are not correctly described for screen reader users. This fails WCAG 1.3.5 Identify Input Purpose (AA) and 3.3.2 Labels or Instructions (A).</li>
-        <li>When adding additional names, some screen reader users may find it difficult to tell form fields apart and which additional name entry these fields are associated with. This fails WCAG 3.3.2 Labels or Instructions (A) and 4.1.1 Parsing (A).</li>
-        <li>When uploading a photo, the “upload your photo” button does not receive focus indication. This fails WCAG 2.4.7 Focus Visible (AA).</li>
-        <li>On the “Home address” and “Application history” pages there are some rogue elements that are read out to screen reader users in error. This fails WCAG 4.1.1 Parsing (A).</li>
-        <li>On the “Ask someone to confirm your identity online” page there is a button called “if they can’t do this online”. This button opens dropdown content that explains what to do. Some screen reader users may not be informed that this is dropdown content. This fails WCAG 4.1.2 Name, Role, Value (A).</li>
-        <li>On the “Choose a date and place” and “Choose a collection time” pages, the service uses tables to present timeslots for users. These may be particularly difficult for screen reader users to navigate as some of the links to book a given timeslot are not correctly read out. This fails WCAG 2.4.4 Link Purpose (A) and 4.1.1 Parsing (A).</li>
-    </ul>
-    <p>Other issues:<p>
-    <ul class="govuk-list govuk-list--bullet">
-        <li>We believe that there are some compatibility issues for users that use a combination of JAWS and pre-Chromium Microsoft edge which causes the screen reader to miss some plaintext content throughout pages. This is a very inconsistent issue and appears to be an AT / browser compatibility issues that we cannot change. If you are having difficulty please contact us.</li>
-        <li>We believe that there is a compatibility issue for users with Google Talkback / Android devices which causes some plaintext content throughout pages not to be read out. This is a very inconsistent issue and appears to be an AT / browser compatibility issues that we cannot change. If you are having difficulty please contact us.</li>
-        <li>For users that are using IOS/Voiceover they may experience difficulty in moving out of the keyboard when entering information in a form field. Clicking again on the form field should move users out of the keyboard and then be able to navigate as normal.</li>
+        <li>The 'Upload your photo' heading and button are confusing when viewed with a screen reader. This fails WCAG 4.1.2 Name, Role, Value (A), 1.3.1 Info and Relationships (A) and WCAG 2.4.7 Focus Visible (AA).</li>
+        <li>Users are not warned of the duration in which activity will result in their session expiring and not given the opportunity to extend their session before it expires. This fails WCAG 2.2.1 Timing Adjustable (A).</li>
+        <li>When users upload a photo, the ‘Uploading image’ and ‘Processing image’ progress element does not include an accessible name. This means some users of assistive technology may be unable to determine progress on the processing of the image. This fails WCAG 1.3.1 Info and Relationships (A).</li>
+        <li>The ‘Upload your photo’, ‘Uploading image’ and ‘Processing image’ pages do not contain a level-one heading that is visible to screen reader users. This means users may not be able to determine the structure of content on the page. This fails WCAG 1.3.1 Info and Relationships (A).</li>
+        <li>In some pages where there is a summary list, some definition list items are not wrapped in parent elements. This means assistive technologies will not read the list correctly. This fails WCAG 1.3.1 Info and Relationships (A).</li>
+        <li>In some pages, screen reader users find the general navigation difficult due to non-descriptive page titles and heading structures. This means users are unable to accurately determine the topic or purpose of some pages. This fails WCAG 2.4.2 Page Titled (A).</li>
+        <li>On the ‘Choose a date and place’ page, the service uses tables to present timeslots for users. The ‘Earlier’ and ‘Later’ links related to the table is not descriptive enough for users to determine its destination or purpose. This fails WCAG 2.4.4 Link Purpose (A).</li>
+        <li>Some validation error messages are not descriptive enough. This means screen readers are not able to differentiate between them. This fails WCAG 2.4.4 Link Purpose (A).</li>
+        <li>Some image icons do not include alternative text elements. This means screen readers may be unable to determine the elements content or purpose. This fails WCAG 1.1.1 Non-text Content (A).</li>
+        <li>On the ‘You need a new photo’ tracking page, the image icons receive keyboard focus, but focus becomes trapped.  This means some keyboard users may be unable to navigate the main content of the page. This fails WCAG 2.1.2 No Keyboard Trap (A).</li>
+        <li>On the first page, users applying on behalf of an adult or child are warned to 'answer questions with their details rather than your own'. This is not repeated throughout the service, which means some users may not know whose information to provide. This fails WCAG 2.4.6 Headings and Labels (AA).</li>
+        <li>On the page where users are asked 'Which is your passport issuing authority' the  acronyms are not expanded. This means users may not understand the acronym's purpose or meaning. This fails WCAG 2.4.6 Headings and Labels (AA).</li>
     </ul>
 
     <h2>Disproportionate burden<h2>
@@ -84,11 +80,14 @@
     <h2>Content that’s not within the scope of the accessibility regulations<h2>
     <p>PDFs and other documents. Some of our PDFs are essential to providing our services. For example, we have PDFs that users can use to confirm their identity or provide proof of payment. We plan to either fix these or replace them with accessible HTML pages. Any new PDFs we publish will meet accessibility standards.<p>
 
+    <h2>What we’re doing to improve accessibility<h2>
+    <p>We will fix issues that fail to meet the Web Content Accessibility Guidelines version 2.1 AA standard. We will update this page when issues are fixed.<p>
+
     <h2>Preparation of this accessibility statement<h2>
     <p>This statement was prepared on 23 September 2020.<p>
-    <p>It was last reviewed on 23 September 2020.<p>
-    <p>This website was last tested on 15 June 2020 and was checked for compliance with WCAG 2.1 AA. Testing was carried out internally by the Home Office.<p>
-    <p>We tested the service based on a user's ability to complete key journeys. All parts of the chosen journeys were tested, including documents. Journeys were chosen on a number of factors including usage statistics, risk assessments and subject matter.<p>
+    <p>It was last reviewed on 24 June 2021.<p>
+    <p>This website was last tested on 26 February 2021 and was checked for compliance with Web Content Accessibility Guidelines version 2.1. Testing was carried out by the Digital Accessibility Centre.<p>
+    <p>The service was tested based on a user's ability to complete key journeys. All parts of the chosen journeys were tested, including documents. Journeys were chosen on a number of factors including usage statistics, risk assessments and subject matter.<p>
     </ul>
 
 {% endblock %}
