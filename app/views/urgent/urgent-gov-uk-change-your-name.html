@@ -68,58 +68,94 @@
             <div class="govuk-grid-column-two-thirds-from-desktop">
 
                 <h1 class="part-title">How it works</h1>
-                <p>You can pay for a faster service if you need a passport within 3 weeks.</p>
-                <p>You’ll need to book an appointment at a <a href="https://www.passport.service.gov.uk/help/passport-offices/">passport office</a>. Appointments are available up to 3 weeks in advance.</p>
-                <p>You can’t use these services if:</p>
+                <p>You’ll need to get a new passport to travel abroad or prove your identity if you change any of the following:</p>
                 <ul class="govuk-list govuk-list--bullet">
-                    <li>you’re applying for a <a href="/start">first adult passport</a></li>
-                    <li>you’re outside the UK - apply for an <a href="https://www.gov.uk/emergency-travel-document">emergency travel document </a>instead </li>
+                    <li>your name</li>
+                    <li>your <a href="https://www.gov.uk/changing-passport-information/gender">gender</a></li>
+                    <li>your appearance, if you cannot be recognised from your passport photo any more (for example, you’ve had plastic surgery)</li>
+                </ul>
+                {{ govukWarningText({
+                    text: "The name on your passport must match the one you use when you book your travel.",
+                    iconFallbackText: "Warning"
+                }) }}
+                <p>You’ll be sent a new 10 year passport. Time left on your old passport will not be added to your new one.</p>
+
+                <h2 class="govuk-heading-m">When you do not need a new passport</h2>
+                <p>You do not need to get a new passport if you:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>change your address or contact details</li>
+                    <li>get a new job</li>
+                    <li>change your appearance slightly - for example, dye your hair or grow a beard</li>
+                    <li>change your marital status (divorce, marry or form a civil partnership) but keep your name</li>
+                    <li>change your title, for example, doctor or professor</li>
+                    <li>become a national of another country as well as the UK</li>
+                    <li>emigrate</li>
                 </ul>
 
-                <h2 class="govuk-heading-m">Ways to apply</h2>
-                <p>There are 2 ways to apply for an urgent passport.</p>
+                <h2 class="govuk-heading-m">How long it takes</h2>
+                <p><a href="">Check out how long it'll take to get your passport before you apply</a>. It takes longer to apply by post than online.
+                {# <p>Allow up to 10 weeks to get your passport. It takes longer to apply by post than online.</p> #}
+                <p>You may be able to <a href="/urgent/urgent-gov-uk">get a passport urgently</a> if you need to travel sooner.</p>
+                <p>Do not book travel until you have a valid passport - your new passport will not have the same number as your old one.</p>
 
-                <h3>Online Premium</h3>
-                <p>Use this service if you’re renewing an adult passport, or if you’ve changed your name by marriage or civil partnership. </p>
-                <p>The earliest appointment is 2 days from when you apply.</p>
-                <p>You’ll need to apply, pay and book an appointment online.</p>
-                <p>Your old passport and documents will be checked at your appointment. You’ll need to return 2 hours later to collect your new passport.</p>
-                <p><a href="/urgent/urgent-start">Use the Online Premium service</a></p>
+                <h2 class="govuk-heading-m">Apply online</h2>
+                <p>You can apply for a new passport online. It costs £75.50.</p>
+                <p>
+                {% call hmpoForm(ctx) %}
+                    {{ govukButton({
+                        text: "Start now",
+                        isStartButton: true
+                    }) }} 
+                {% endcall %} 
+                </p> 
+                <br>
 
-                <h3>1 week Fast Track</h3>
-                <p>You can use this service to:</p>
+                <h2 class="govuk-heading-m">Apply using a paper application form</h2>
+                {{ govukInsetText({
+                    text: "Because of coronavirus (COVID-19), it’s taking longer to process paper applications than online applications. Use the online service to get your passport."
+                }) }}
+
+                <p>You can get a paper application form by either:</p>
                 <ul class="govuk-list govuk-list--bullet">
-                    <li>renew a passport</li>
-                    <li>change your name or personal details on your passport</li>
-                    <li>replace a lost, stolen or damaged passport</li>
-                    <li>get a child passport</li>
+                    <li>going to a Post Office that has a <a href="https://www.gov.uk/how-the-post-office-check-and-send-service-works">Check and Send service</a></li>
+                    <li>calling the <a href="https://www.gov.uk/passport-advice-line">Passport Advice</a></li>
                 </ul>
-                <p>The earliest appointment is 7 days from when you apply.</p>
-                <p>You’ll need to go to a <a href="https://www.postoffice.co.uk/branch-finder">Post Office</a> to apply, pay and book an appointment at a passport office.</p>
-                <p>You’ll get your new passport at your appointment.</p>
-                <p><a href="">Use the 1 week Fast Track service</a></p>
+                <p>It costs £85.</p>
+                <p>Fill in and sign your passport application using the name that you want to see printed on your passport.</p>
+                <h3>Countersignatures</h3>
+                <p>You must get a <a href="https://www.gov.uk/countersigning-passport-applications">countersignature</a> if your appearance has changed and you cannot be recognised from your existing passport.</p>
+                <p>You do not need a countersignature if you’re changing your name or adding a title.</p>
+                <br>
+
+                <h2 class="govuk-heading-m">Unexpired visas</h2>
+                <p>Unexpired visas in your old passport may become invalid if you change your name. Check with the <a href="https://www.gov.uk/government/publications/foreign-embassies-in-the-uk">embassy or consulate</a> of the country that issued the visa.</p>
+                <br>
+
+                <h2 class="govuk-heading-m">If you have a non-British passport</h2>
+                <p>If you have dual citizenship (‘dual nationality’) and have a non-British passport, the name on your non-British passport must match the name and gender you want on your British passport.</p>
+                <p>If it’s different, change the details on your non-British passport before you apply for a new British passport.</p>
 
             </div>
         </main>
 
         <div class="govuk-grid-column-one-third-from-desktop app-related-items">
             <h3 id="parent-subsection" style="margin-bottom: 10px;">Related content</h3>
-            <nav role="navigation" aria-labelledby="parent-subsection">
-                <ul>
+            <nav role="navigation">
+                <ul style="font-size: 16px;">
+                    <li>
+                        <a href="/urgent/urgent-gov-uk">Get a passport urgently</a>
+                    </li>
+                    <li>
+                        <a href="https://www.gov.uk/order-copy-birth-death-marriage-certificate">Order a copy of a birth, death or marriage certificate</a>
+                    </li>
+                    <li>
+                        <a href="https://www.gov.uk/how-the-post-office-check-and-send-service-works">Passport Check and Send service</a>
+                    </li>
                     <li>
                         <a href="https://www.gov.uk/renew-adult-passport">Renew or replace your adult passport</a>
                     </li>
                     <li>
-                        <a href="https://www.gov.uk/get-a-child-passport">Get a passport for your child</a>
-                    </li>
-                    <li>
-                        <a href="https://www.gov.uk/apply-first-adult-passport">Getting your first adult passport</a>
-                    </li>
-                    <li>
-                        <a href="https://www.gov.uk/report-a-lost-or-stolen-passport">Cancel a lost or stolen passport</a>
-                    </li>
-                    <li>
-                        <a href="https://www.gov.uk/passport-services-disabled">Passport services if you're disabled</a>
+                        <a href="https://www.gov.uk/change-name-deed-poll">Change your name by deed poll</a>
                     </li>
                 </ul>
             </nav>
