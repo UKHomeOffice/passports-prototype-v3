@@ -1,0 +1,179 @@
+{% extends "layout.html" %}
+
+{% set hmpoTitle %}About our services{% endset %}
+
+{% block pageTitle %}
+    {{ hmpoTitle | safe }} – GOV.UK
+{% endblock %}
+
+{% block phaseBanner %}
+{% endblock %}
+
+{% block govukHeader %}
+    {{ govukHeader({
+        assetsPath: assetPath + '/images',
+        homepageUrl: govukHomePage or "https://gov.uk",
+        serviceName: "",
+        navigation: govukNavigation,
+        serviceUrl: govukServiceUrl or "/",
+        containerClasses: "govuk-width-container"
+    }) }}
+{% endblock %}
+
+{% block beforeContent %}
+    {{ govukBreadcrumbs({
+        items: [
+            {
+                text: "Home",
+                href: "#"
+            },
+            {
+                text: "Going and being abroad",
+                href: "#"
+            },
+            {
+                text: "Passports"
+            }
+        ]
+    }) }}
+{% endblock %}
+
+{# TODO: Update h1 and app-related-items styling to new GOV.UK styling #}
+{% block hmpoContent %}
+
+    <style>
+        .part-title {
+            margin-bottom: 20px;
+            font-size: 27px;
+            line-height: 1.1111111111;
+        }
+        .title-paragraph{
+            font-size: 23px;
+        }
+        .hmpo-inset-info{
+            border-color: #f3f2f1;
+            background-color: #f3f2f1;
+        }
+        .govuk-inset-text {
+            padding-top: 30px;
+            padding-bottom: 30px;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+    </style>
+
+    <div class="govuk-grid-row">
+        <main id="content" role="main" class="">
+
+            <header class="page-header govuk-grid-column-two-thirds">
+                <h1 class="govuk-heading-xl">{{ hmpoTitle }}</h1>
+                <p class="title-paragraph">How long your passport application takes depends on what you're applying for and which service you use.</p><br><br>
+            </header>
+
+            <div class="govuk-grid-column-two-thirds-from-desktop">
+                <h1 class="part-title">Passport application processing times</h1>
+                <div class="govuk-inset-text hmpo-inset-info">
+                    Demand for passports is likely to be high as travel restrictions ease. There may be delays and passport applications could take up to 10 weeks. 
+                    Check current processing times regularly for updates.
+                </div>
+                <p>How long your passport application takes depends on what you're applying for and which service you use.</p>
+                <p>There are different turnaround times if you're applying <a href="https://www.gov.uk/overseas-passports">from another country</a>.</p>
+            </div>
+        
+
+            <div class="govuk-grid-column-full" style="margin-top:3em;">
+                <table class="govuk-table" style="margin-bottom:4em;">
+                    <caption class="govuk-table__caption govuk-table__caption--l" style="font-size:23px; padding-bottom:20px;">Adult passport applications (16 or older)</caption>
+                    <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header"> </th>
+                        <th scope="col" class="govuk-table__header">Standard £75.50</th>
+                        <th scope="col" class="govuk-table__header">Fast Track £142</th>
+                        <th scope="col" class="govuk-table__header">Online Premium £177</th>
+                        </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell">Renew a passport</td>
+                            <td class="govuk-table__cell">3 weeks</td>
+                            <td class="govuk-table__cell">1 week after appointment</td>
+                            <td class="govuk-table__cell">Day of appointment</td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell">Replace a damaged passport</td>
+                            <td class="govuk-table__cell">3 weeks</td>
+                            <td class="govuk-table__cell">1 week after appointment</td>
+                            <td class="govuk-table__cell">Not applicable</td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell">Replace a lost or stolen passport</td>
+                            <td class="govuk-table__cell">3 weeks</td>
+                            <td class="govuk-table__cell">1 week after appointment</td>
+                            <td class="govuk-table__cell">Not applicable</td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell">Change of details</td>
+                            <td class="govuk-table__cell">3 weeks</td>
+                            <td class="govuk-table__cell">1 week after appointment</td>
+                            <td class="govuk-table__cell">Not applicable</td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell">Apply for a first passport</td>
+                            <td class="govuk-table__cell">6 weeks</td>
+                            <td class="govuk-table__cell">Not applicable</td>
+                            <td class="govuk-table__cell">Not applicable</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="govuk-table" style="margin-bottom:4em;">
+                    <caption class="govuk-table__caption govuk-table__caption--l" style="font-size:23px; padding-bottom:20px;">Child passport applications (under 16)</caption>
+                    <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header"> </th>
+                        <th scope="col" class="govuk-table__header">Standard £49</th>
+                        <th scope="col" class="govuk-table__header">Fast Track £122</th>
+                        </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell">Renew a passport</td>
+                            <td class="govuk-table__cell">3 weeks</td>
+                            <td class="govuk-table__cell">1 week after appointment</td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell">Replace a damaged passport</td>
+                            <td class="govuk-table__cell">3 weeks</td>
+                            <td class="govuk-table__cell">1 week after appointment</td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell">Replace a lost or stolen passport</td>
+                            <td class="govuk-table__cell">3 weeks</td>
+                            <td class="govuk-table__cell">1 week after appointment</td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell">Change of details</td>
+                            <td class="govuk-table__cell">3 weeks</td>
+                            <td class="govuk-table__cell">1 week after appointment</td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell">Apply for a first passport</td>
+                            <td class="govuk-table__cell">6 weeks</td>
+                            <td class="govuk-table__cell">1 week after appointment</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="govuk-grid-column-two-thirds-from-desktop">
+                <h1 class="part-title">If you've already applied</h1>
+                <p>You can <a href="https://www.gov.uk/track-passport-application">track your passport application</a>.</p>
+                <h1 class="part-title">Urgent travel for compassionate reasons</h1>
+                <p>If you need a passport to travel urgently for medical treatment, or because a friend or family member is seriously ill or has died,
+                 <a href="https://www.gov.uk/passport-advice-line">call the passport adviceline</a>.</p>
+            </div>
+        </main>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
