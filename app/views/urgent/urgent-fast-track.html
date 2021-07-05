@@ -40,92 +40,89 @@
 
 {# TODO: Update h1 and app-related-items styling to new GOV.UK styling #}
 {% block content %}
-    <div class="govuk-grid-row">
-        <main id="content" role="main" class="">
-            <header class="page-header govuk-grid-column-two-thirds">
-                <h1 class="govuk-heading-xl">{{ hmpoTitle }}</h1>
-                <p class="govuk-body-s">Contents</p>
-                <ul class="govuk-list govuk-list--dashed">
-                    <li><a href="./urgent-gov-uk">How to apply</a></li>
-                    <li><a href="./urgent-start">Online Premium service</a></li>
-                    <li>1 week Fast Track service</li>
-                </ul>
+    <div class="govuk-width-container">
+        <main class="govuk-main-wrapper">
+            <div class="govuk-grid-row">
+                <header class="page-header govuk-grid-column-two-thirds">
+                    <h1 class="govuk-heading-xl">{{ hmpoTitle }}</h1>
+                    <p class="govuk-body-s">Contents</p>
+                    <ul class="govuk-list govuk-list--dashed">
+                        <li><a href="./urgent-gov-uk">How to apply</a></li>
+                        <li><a href="./urgent-start">Online Premium service</a></li>
+                        <li>1 week Fast Track service</li>
+                    </ul>
 
-                <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-            </header>
+                    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+                </header>
+            </div>
 
-            <div class="govuk-grid-column-two-thirds-from-desktop">
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-two-thirds">
+                    <h2 class="govuk-heading-l">1 week Fast Track</h2>
+                    <p>Take your old passport and any documents to a Post Office.</p>
+                    <p>Staff at the Post Office will help you apply and pay for your passport, and book an appointment at a <a href="https://www.gov.uk/find-regional-passport-office">passport office</a>.</p>
+                    <p>You’ll collect your new passport at your appointment.</p>
 
-                <h2 class="govuk-heading-l">1 week Fast Track</h2>
-                <p>Take your old passport and any documents to a Post Office.</p>
-                <p>Staff at the Post Office will help you apply and pay for your passport, and book an appointment at a <a href="https://www.gov.uk/find-regional-passport-office">passport office</a>.</p>
-                <p>You’ll collect your new passport at your appointment.</p>
+                    <h3 class="govuk-heading-m">What it costs</h3>
+                    <p>It costs:</p>
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>£142 or an adult passport (or £152 or a 50 page frequent traveller passport)</li>
+                        <li>£122 for a child passport (or £152 or a 50 page frequent traveller passport)</li>
+                    </ul>
 
-                <h3 class="govuk-heading-m">What it costs</h3>
-                <p>It costs:</p>
-                <ul class="govuk-list govuk-list--bullet">
-                    <li>£142 or an adult passport (or £152 or a 50 page frequent traveller passport)</li>
-                    <li>£122 for a child passport (or £152 or a 50 page frequent traveller passport)</li>
-                </ul>
+                    <h3 class="govuk-heading-m">What you’ll need to take to the Post Office</h3>
+                    <p>What you need to take depends on what type of application you’re making.</p>
 
-                <h3 class="govuk-heading-m">What you’ll need to take to the Post Office</h3>
-                <p>What you need to take depends on what type of application you’re making.</p>
+                    <h4>If you’re renewing or replacing a passport</h4>
+                    <p>You must take your old passport to the Post Office if you still have it.</p>
+                    <p>If you’ve changed your name, you’ll also need to bring proof of your new name (like a marriage certificate)</p>
+                    <p>If your passport is lost, you’ll need the name and email address of someone who can confirm your identity.</p>
 
-                <h4>If you’re renewing or replacing a passport</h4>
-                <p>You must take your old passport to the Post Office if you still have it.</p>
-                <p>If you’ve changed your name, you’ll also need to bring proof of your new name (like a marriage certificate)</p>
-                <p>If your passport is lost, you’ll need the name and email address of someone who can confirm your identity.</p>
-
-                <h4>If you’re applying for someone under 16</h4>
-                <p>You must take their old passport to the Post Office if they have one.</p>
-                <p>You’ll need to give both of their parents’ details, including their:</p>
-                <ul class="govuk-list govuk-list--bullet">
-                    <li>names, dates and places of birth</li>
-                    <li>nationality</li>
-                    <li>UK passport details, if they have them</li>
-                    <li>details of their marriage or civil partnership if it applies</li>
-                </ul>                           
-                <p>If you cannot provide both parents’ details, you need to say why, for example you’re the only parent named on the birth certificate.</p>
-                <p>You’ll also need the email address of someone who can confirm the child’s identity, unless you’re renewing a child’s passport who is 12 or over.</p>
+                    <h4>If you’re applying for someone under 16</h4>
+                    <p>You must take their old passport to the Post Office if they have one.</p>
+                    <p>You’ll need to give both of their parents’ details, including their:</p>
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>names, dates and places of birth</li>
+                        <li>nationality</li>
+                        <li>UK passport details, if they have them</li>
+                        <li>details of their marriage or civil partnership if it applies</li>
+                    </ul>                           
+                    <p>If you cannot provide both parents’ details, you need to say why, for example you’re the only parent named on the birth certificate.</p>
+                    <p>You’ll also need the email address of someone who can confirm the child’s identity, unless you’re renewing a child’s passport who is 12 or over.</p>
 
 
-                <h3 class="govuk-heading-m">Your passport office appointment</h3>
-                <p>You’ll collect your new passport at your appointment.</p>
-                <p>You can ask someone else to go to your appointment for you. They’ll need to bring:</p>
-                <ul class="govuk-list govuk-list--bullet">
-                    <li>a signed and dated letter from you, naming them and giving them permission to collect the passport</li>
-                    <li>their ID or example a passport or driving licence</li>
-                </ul>   
+                    <h3 class="govuk-heading-m">Your passport office appointment</h3>
+                    <p>You’ll collect your new passport at your appointment.</p>
+                    <p>You can ask someone else to go to your appointment for you. They’ll need to bring:</p>
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>a signed and dated letter from you, naming them and giving them permission to collect the passport</li>
+                        <li>their ID or example a passport or driving licence</li>
+                    </ul>   
 
-                <h3 class="govuk-heading-m">Changing your appointment</h3>
-                <p>Call the <a href="https://www.gov.uk/passport-advice-line">passport adviceline</a> to reschedule your appointment.</p>
+                    <h3 class="govuk-heading-m">Changing your appointment</h3>
+                    <p>Call the <a href="https://www.gov.uk/passport-advice-line">passport adviceline</a> to reschedule your appointment.</p>
+                </div>
+                {% call hmpoSidebar({ classes: "hmpo-sidebar" }) %}
+                    <h3>Related content</h3>
+                    <ul style="font-size: 16px;">
+                        <li>
+                            <a href="https://www.gov.uk/renew-adult-passport">Renew or replace your adult passport</a>
+                        </li>
+                        <li>
+                            <a href="https://www.gov.uk/get-a-child-passport">Get a passport for your child</a>
+                        </li>
+                        <li>
+                            <a href="https://www.gov.uk/apply-first-adult-passport">Getting your first adult passport</a>
+                        </li>
+                        <li>
+                            <a href="https://www.gov.uk/report-a-lost-or-stolen-passport">Cancel a lost or stolen passport</a>
+                        </li>
+                        <li>
+                            <a href="https://www.gov.uk/passport-services-disabled">Passport services if you're disabled</a>
+                        </li>
+                    </ul>
+                {% endcall %}
             </div>
         </main>
-
-        <div class="govuk-grid-column-one-third-from-desktop app-related-items">
-            <h3 id="parent-subsection" style="margin-bottom: 10px;">Related content</h3>
-            <nav role="navigation" aria-labelledby="parent-subsection">
-                <ul style="font-size: 16px;">
-                    <li>
-                        <a href="https://www.gov.uk/renew-adult-passport">Renew or replace your adult passport</a>
-                    </li>
-                    <li>
-                        <a href="https://www.gov.uk/get-a-child-passport">Get a passport for your child</a>
-                    </li>
-                    <li>
-                        <a href="https://www.gov.uk/apply-first-adult-passport">Getting your first adult passport</a>
-                    </li>
-                    <li>
-                        <a href="https://www.gov.uk/report-a-lost-or-stolen-passport">Cancel a lost or stolen passport</a>
-                    </li>
-                    <li>
-                        <a href="https://www.gov.uk/passport-services-disabled">Passport services if you're disabled</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
     </div>
-  </div>
-</div>
-
 {% endblock %}
