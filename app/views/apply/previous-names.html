@@ -97,12 +97,9 @@
 
 {% block hmpoContent %}
     <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
+    <div class="govuk-grid-column-two-thirds">
 
         {% if values.changeOfName or values.urgentNameChanged %}
-
-            <div class="govuk-grid-row">
-            <div class="govuk-grid-column-two-thirds">
 
                 <h1>{{ hmpoTitle }}</h1>
                 <p>
@@ -121,9 +118,6 @@
                         For example a maiden name, a previous married name or a name you were given at birth and changed later.
                     {% endif %}
                 </p>
-
-            </div>
-            </div>
 
             {% call hmpoForm(ctx) %}
                 <input type="hidden" name="previousNames" value="true" />
