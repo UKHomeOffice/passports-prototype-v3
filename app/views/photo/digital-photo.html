@@ -5,11 +5,18 @@
 {% block mainContent %}
     <h1>{{ hmpoTitle }}</h1>
 
-    <h2>Go to a photo booth</h2>
-    <p>You'll need to choose to get a <a href="/help/photo-with-a-code" target="_blank">photo with a code</a>. It's easy to use when you apply online - simply enter the code to add the photo to your application.</p>
+    <h2>Photo with a code</h2>
+    <p>Go to a photo shop or booth, and choose to get a code with your photo.</p>
+    <p>It’s simple to use in your online passport application.</p>
 
-    <h2>Go to a photo shop</h2>
-    <p>You'll get a digital photo taken by a photographer. You can also ask for a <a href="/help/photo-with-a-code" target="_blank">photo with a code</a>.</p>
+    <ol class="govuk-list govuk-list--number">
+        <li>you’ll have the option to enter the code to access your photo</li>
+        <li>after entering the code, you’ll see your photo on the screen</li>
+        <li>check your photo and submit it</li>
+        <li>your photo will be added directly to your application</li>
+    </ol>
+    <p>In a shop you can also get a digital photo taken by a photographer that is emailed to you.</p>
+
 
     {{ govukInsetText({
         classes: 'govuk-inset-text hmpo-inset-info',
