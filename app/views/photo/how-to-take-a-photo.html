@@ -326,11 +326,9 @@
 {% block mainContent %}
     <h1 id="header">{{ hmpoTitle }}</h1>
 
-    <p>If your photo doesn't meet the rules you may have problems with your application or when you travel.</p>
-
-    <div class="govuk-inset-text hmpo-inset-info">
-        You may find it easier to get a <a href="/help/photo-with-a-code" target="_blank">photo with a code</a>. They are more likely to pass our checks.
-    </div>
+    {% call hmpoInsetText() %}
+        <p>If your photo doesn't meet the rules you may have problems with your application or when you travel.</p>
+        {% endcall %}
 
     {% if values.adultOrChild == 'adult' %}
         {{ adultPhotoSection | safe }}
