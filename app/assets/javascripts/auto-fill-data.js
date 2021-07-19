@@ -18,13 +18,18 @@
         'naturalised': 'Naturalised',
         'changeOfName': 'Change of name',
         'grandparents': 'Grandparents',
-        'thirdParty': 'Third party'
+        'thirdParty': 'Third party',
+        'showCookieBanner': 'Show Cookie Banner'
     }
 
     window.hmpoAutoFillRestrictions = {
         'naturalised': {
             'type': ['firstTime']
         },
+
+        // 'showCookieBanner': {
+            
+        // },
 
         'grandparents': {
             'type': ['firstTime'],

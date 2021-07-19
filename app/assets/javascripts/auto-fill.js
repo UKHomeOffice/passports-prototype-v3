@@ -20,24 +20,36 @@ $(document).ready(function () {
             .text('Settings')
             .on('click', function () { toggleSettings($settings) })
             .appendTo($container)
-        $('<a>')
-            .attr('class', 'hmpoAutoFill-showCookieBannerlink')
-            .attr('href', '?cookies=clear')
-            .text('Show cookie banner')
-            .appendTo($container)
         var $settings = $('<div>')
             .appendTo($container)
         if (!sessionStorage.getItem('hmpoAutoFill-settings')) $settings.hide()
         for (var key in controls) {
-            var $control = $('<span>')
+            var $control;
+            if (key == 'showCookieBanner') {
+                $control = $('<span>')
+                .attr('class', 'cookieSpan')
                 .appendTo($settings)
+            } else {
+                $control = $('<span>')
+                .appendTo($settings)
+            }
             if (typeof controls[key] === 'string') {
-                $('<input type="checkbox">')
+                if (key == 'showCookieBanner') {
+                    $('<input type="checkbox">')
                     .attr('type', 'checkbox')
                     .attr('id', 'hmpoAutoFill-' + key)
                     .attr('value', key)
-                    .on('change', update)
+                    .on('change', showCookieBanner)
                     .appendTo($control)
+                } 
+                else{
+                    $('<input type="checkbox">')
+                        .attr('type', 'checkbox')
+                        .attr('id', 'hmpoAutoFill-' + key)
+                        .attr('value', key)
+                        .on('change', update)
+                        .appendTo($control)
+                }
                 $('<label>')
                     .attr('for', 'hmpoAutoFill-' + key)
                     .text(controls[key])
@@ -57,7 +69,12 @@ $(document).ready(function () {
         }
         $container.appendTo('body')
     }
+    
+    function showCookieBanner () {
+        window.location.assign("?cookies=clear")
 
+    }
+    
     function update () {
         saveSettings()
         setRestrictions()

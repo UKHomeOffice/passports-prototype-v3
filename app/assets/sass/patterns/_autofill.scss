@@ -51,6 +51,14 @@
             margin-bottom: 8px;
         }
 
+        .cookieSpan {
+            display: block;
+            margin-right: 4px;
+            margin-bottom: 8px;
+            border-top: 2px solid #bbb;
+            padding-top: 10px;
+        }
+
         input[type=checkbox] {
             height: $fontsize;
             width: $fontsize;
