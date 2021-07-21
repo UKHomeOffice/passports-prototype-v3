@@ -1,8 +1,17 @@
 {% extends "layout-apply.html" %}
 
 {% set hmpoTitle %}Naturalisation or registration details{% endset %}
-
+{% set guideText %}
+    <p>This is usually a 7 digit number towards the bottom left of the certificate.</p>
+    For example, 1091644
+{% endset %}
 {% block mainContent %}
+
+    <style>
+    .photo-guide-photos img {
+        width: 80%;
+    }
+    </style>
     <h1 id="header">{{ hmpoTitle }}</h1>
 
     {% call hmpoForm(ctx) %}
@@ -13,7 +22,9 @@
                 text: "Certificate number",
                 classes: "govuk-label--m"
             },
-            hint: "For example, 1091644"
+            hint:{
+                html: guideText
+            } 
         }) }}
 
         {{ hmpoDate(ctx, {
@@ -29,4 +40,43 @@
 
     {% endcall %}
 
+    {% if values.adultOrChild == 'child' %}
+        {% call hmpoSidebar({ attributes: { "aria-hidden": true }, classes: "hmpo-sidebar__small-image" }) %}
+            <h2>Where to find your certificate number</h2>
+            <ul class="photo-guide-photos" aria-hidden="true" style="margin-bottom: 0px;">
+                <li>
+                    <a rel="opener" href="/help/registration-example-number" target="_blank">
+                        <img src="/public/images/registration_certificate_example_number.svg" alt="Example registration certificate" style="margin-bottom: 10px;">
+                    </a>
+                </li>
+            </ul>
+            <div class="govuk-hint">
+                Click on the image to view it (opens in a new window)
+            </div>
+        {% endcall %}
+        <style>
+            .govuk-main-wrapper{
+                padding-bottom: 50px;
+            }
+        </style>
+    {% else %}
+        {% call hmpoSidebar({ attributes: { "aria-hidden": true }, classes: "hmpo-sidebar__small-image" }) %}
+            <h2>Where to find your certificate number</h2>
+            <a class="photo-guide-photos" rel="opener" href="/help/naturalisation-example-number" target="_blank">
+                <img src="/public/images/naturalisation_certificate_example_number.svg" alt="Example naturalisation certificate " style="margin-bottom: 10px;">
+            </a>
+            <a class="photo-guide-photos" rel="opener" href="/help/registration-example-number" target="_blank">
+                <img src="/public/images/registration_certificate_example_number.svg" alt="Example registration certificate" style="margin-bottom: 10px;">
+            </a>
+            <div class="govuk-hint">
+                Click on an image to view it (opens in a new window)                
+            </div>
+        {% endcall %}
+        <style>
+            .govuk-main-wrapper{
+                padding-bottom: 450px;
+            }
+        </style>
+    {% endif %}
+ 
 {% endblock %}
