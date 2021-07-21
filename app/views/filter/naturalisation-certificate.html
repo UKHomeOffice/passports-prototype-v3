@@ -3,9 +3,7 @@
 {% set hmpoTitle %}Do you have a naturalisation or registration certificate?{% endset %}
 {% set hintText %}
     <div class="govuk-hint">
-        You’ll only have one of these certificates if you weren’t a British Citizen at birth, but applied to become British through the Home Office.
-         This isn’t a birth certificate. 
-
+        You’ll only have one of these certificates if you weren’t a British Citizen at birth, but applied to become British through the Home Office. This isn’t a birth certificate. 
     </div>
 {% endset %}
 {% set naturalisedReveal %}<p>If you’re applying on behalf of a child, make sure you’ve answered this question with their details and not your own.</p>{% endset %}
@@ -13,13 +11,21 @@
 {% block mainContent %}
 
     <style>
-    .photo-guide-photos img {
-        width: 98.5%;
-    }
+        .photo-guide-photos img {
+            width: 98.5%;
+        }
+        .nat-reg-container {
+            margin-bottom: 10px;
+            object-fit: contain;
+            width: 65%;
+            height: 100%;
+        }
+        .govuk-main-wrapper{
+            padding-bottom: 100px;
+        }
     </style>
 
     {% call hmpoForm(ctx) %}
-
         {{ hmpoRadios(ctx, {
             id: "naturalised",
             legend: {
@@ -38,44 +44,40 @@
                 } if values.adultOrChild == 'child'
             }]
         }) }}
-
-        {% if values.adultOrChild == 'child' %}
-            {% call hmpoSidebar({ attributes: { "aria-hidden": true }, classes: "hmpo-sidebar__photo-preview" }) %}
-                <h2>Example certificate</h2>
-                <ul class="photo-guide-photos" aria-hidden="true" style="margin-bottom: 0px;">
-                    <li>
-                        <a rel="opener" href="/help/registration-certificate-example" target="_blank">
-                            <img src="/public/images/nat-cert-example.png" alt="Example registration certificate" style="margin-bottom: 10px; border: 1px solid #b1b4b6;">
-                        </a>
-                    </li>
-                </ul>
-                <div class="govuk-hint">
-                    Click on the image to view it (opens in a new window)
-                </div>
-            {% endcall %}
-        {% else %}
-            {% call hmpoSidebar({ attributes: { "aria-hidden": true }, classes: "hmpo-sidebar__photo-preview" }) %}
-                <h2>Example certificates</h2>
-                <ul class="photo-guide-photos" aria-hidden="true" style="margin-bottom: 0px;">
-                    <li>
-                        <a rel="opener" href="/help/naturalisation-certificate-example" target="_blank">
-                            <img src="/public/images/nat-cert-example.png"  alt="Example registration certificate" style="border: 1px solid #b1b4b6;">
-                        </a>
-                    </li>
-                    <li>
-                        <a rel="opener" href="/help/registration-certificate-example" target="_blank">
-                            <img src="/public/images/nat-cert-example.png" alt="Example naturalisation certificate" style="border: 1px solid #b1b4b6;">
-                        </a>
-                    </li>
-                </ul>
-                <div class="govuk-hint">
-                    Click on an image to view it (opens in a new window)                
-                </div>
-            {% endcall %}
-        {% endif %}
-
         {{ hmpoSubmit(ctx) }}
-
     {% endcall %}
 
+    {% if values.adultOrChild == 'child' %}
+        {% call hmpoSidebar({ attributes: { "aria-hidden": true }, classes: "hmpo-sidebar__photo-preview" }) %}
+            <h2>Example certificate</h2>
+            <div class="nat-reg-container">
+                <a rel="opener" href="/help/registration-certificate-example" target="_blank">
+                    <img src="/public/images/registration_certificate_example.svg" alt="Example naturalisation certificate" >
+                </a>
+            </div>
+            <div class="govuk-hint">
+                    Click on the image to view it (opens in a new window)
+            </div>
+        {% endcall %}
+    {% else %}
+        {% call hmpoSidebar({ attributes: { "aria-hidden": true }, classes: "hmpo-sidebar__photo-preview" }) %}
+            <h2>Example certificates</h2>
+            <ul class="photo-guide-photos" aria-hidden="true" style="margin-bottom: 0px;">
+                <li>
+                    <a rel="opener" href="/help/naturalisation-certificate-example" target="_blank">
+                        <img src="/public/images/naturalisation_certificate_example.svg"  alt="Example registration certificate">
+                    </a>
+                </li>
+                <li>
+                    <a rel="opener" href="/help/registration-certificate-example" target="_blank">
+                        <img src="/public/images/registration_certificate_example.svg" alt="Example naturalisation certificate">
+                    </a>
+                </li>
+            </ul>
+            <div class="govuk-hint">
+                Click on an image to view it (opens in a new window)                
+            </div>
+            {% endcall %}
+    {% endif %}
 {% endblock %}
+
