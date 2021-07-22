@@ -187,11 +187,12 @@ const apply = {
             'submitPhoto'
         ],
         next: [
-            { field: 'dps', value: true, next: [
+            { field: 'urgent', value: true, next: [
                 { field: 'submitPhoto', value: true, next: '/apply/passport-details' },
                 '/photo/choose-photo-method'
             ]},
-            '/filter/previous-passport'
+            { field: 'submitPhoto', value: true, next: '/filter/previous-passport' },
+            '/photo/choose-photo-method'
         ]
     },
     '/photo/check-and-submit-photo': {
@@ -202,11 +203,10 @@ const apply = {
         ],
         next: [
             { field: 'photoOverride', value: false, next: '/photo/choose-photo-method' },
-            { field: 'dps', value: true, next: '/apply/passport-details' },
+            { field: 'urgent', value: true, next: '/apply/passport-details' },
             '/filter/previous-passport'
         ]
     },
-
     /* Both Upload and OIX */
     '/photo/not-accepted': {
         next: '/photo/choose-photo-method'

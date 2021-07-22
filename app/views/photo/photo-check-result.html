@@ -1,8 +1,19 @@
 {% extends "layout-apply.html" %}
 
 {% set hmpoTitle %}Photo result{% endset %}
+{% set text %}or{% endset %}
 
 {% block mainContent %}
+
+    <style>
+    .govuk-button{
+        margin-right: 15px;
+    }
+    .govuk-button--secondary{
+        margin-left: 15px;
+    }
+
+    </style>
     <h1>{{ hmpoTitle }}</h1>
 
     <div class="govuk-grid-row">
@@ -112,18 +123,30 @@
                     {% endif %}
                 {% endcall %}
 
-                <p>Next, you can:</p>
+                <p>You can use this photo if:</p>
                 <ul class="govuk-list govuk-list--bullet">
-                    <li>use this photo if you think the reason for the result is not correct</li>
-                    <li>use this photo if you can’t meet the rules because of a religious or medical reason</li>
-                    <li>choose to take another photo</li>
+                    <li>you can’t meet the rules because of a religious or medical reason</li>
+                    <li>you think the reason for the result is not correct</li>
                 </ul>
             {% endif %}
         </div>
     </div>
-
+<br>
+{% if values.photoQuality == "poor" or values.photoQuality == "fair" %}
+    {% call hmpoForm(ctx) %}
+        <p>{{ hmpoSubmit(ctx) }}
+        {{text}}
+        {{ govukButton({
+        text: "get a different photo",
+        classes: "govuk-button--secondary",
+        href: "/photo/choose-photo-method"
+    }) }}
+    {% endcall %}
+{% else %}
     {% call hmpoForm(ctx) %}
         {{ hmpoSubmit(ctx) }}
     {% endcall %}
-{% endblock %}
+{% endif %}
 
+
+{% endblock %}
