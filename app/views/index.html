@@ -2,175 +2,18 @@
 
 {% set disableCookieBanner = true %}
 
-{% set hmpoTitle %}Latest{% endset %}
-
-{% block header %}
-    {{ govukHeader({
-        serviceName: govukServiceName,
-        navigation: [
-            {
-                href: "./",
-                text: hmpoTitle,
-                active: true
-            },
-            {
-                href: "notifications",
-                text: "Notifications"
-            },
-            {
-                href: "archive",
-                text: "Archive"
-            }
-        ],
-        serviceUrl: "/"
-    }) }}
-{% endblock %}
+{% set hmpoTitle %}DPS Change of Name by Marriage V2{% endset %}
 
 {% block phaseBanner %}
 {% endblock %}
 
 {% block mainContent %}
-    <span class="govuk-caption-xl">{{ govukServiceName }}</span>
     <h1>{{ hmpoTitle }}</h1>
-
-    <h2>Apply</h2>
-    <p>Main user journey for all application types.</p>
-
-    {# ========================
-       Comment hmpoForm call out if index.html does not need to use the form-wizard (normally doesn't).
-       TODO: Improve this: Viewing the first page (index.html) will reset the journey, so shouldn't be used normally.
-       Uncomment to use for purposes such as lab testing variations, and you need radio options in index.html.
-       ======================== #}
-    {# {% call hmpoForm(ctx) %}
-
-        {{ hmpoRadios(ctx, {
-            id: "labTestOptions",
-            classes: "govuk-radios--small",
-            legend: {
-                text: "Lab test options",
-                classes: "govuk-fieldset__legend--s"
-            },
-            items: [{
-                value: "option1",
-                text: "Option 1"
-
-            }, {
-                value: "option2",
-                text: "Option 2"
-            }]
-        }) }}
-
-        {{ hmpoSubmit(ctx, { text: "View prototype" }) }}
-
-    {% endcall %} #}
-    {#  ======================== #}
+    <p>Lab day: 6 July 2021</p>
 
     {{ govukButton({
         text: "View prototype",
-        href: "/start",
+        href: "/urgent/urgent-gov-uk-change-your-name",
         classes: "govuk-!-margin-bottom-2"
     }) }}
-
-    <br>
-    <br>
-    <p>Photos to use for upload:</p>
-    <ul class="govuk-list">
-        <li><a href="/public/images/download/Photos%20to%20use%20for%20upload.zip" download>Download photos</a></li>
-    </ul>
-
-    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-
-    <h2>Tracking</h2>
-    <p>User journeys for tracking, without going through the main journey.</p>
-
-    <h3>First Time</h3>
-    <ul class="govuk-list govuk-list--bullet">
-        <li><a href="/track?docs=documents&csig=true&urgent=false">all age groups</a></li>
-    </ul>
-
-    <h3>Renewal</h3>
-    <ul class="govuk-list govuk-list--bullet">
-        <li><a href="/track?docs=passport&csig=false&urgent=false">adult</a></li>
-        <li><a href="/track?docs=documents&csig=false&urgent=false">child, 12 to 15</a></li>
-        <li><a href="/track?docs=documents&csig=true&urgent=false">child, under 12</a></li>
-    </ul>
-
-    <h3>Change of Name</h3>
-    <ul class="govuk-list govuk-list--bullet">
-        <li><a href="/track?docs=documents&csig=false&urgent=false">adult</a></li>
-        <li><a href="/track?docs=documents&csig=false&urgent=false">child, 12 to 15</a></li>
-        <li><a href="/track?docs=documents&csig=true&urgent=false">child, under 12</a></li>
-    </ul>
-
-    <h3>Damaged</h3>
-    <ul class="govuk-list govuk-list--bullet">
-        <li><a href="/track?docs=passport&csig=false&urgent=false">adult</a></li>
-        <li><a href="/track?docs=passport&csig=false&urgent=false">child, 12 to 15</a></li>
-        <li><a href="/track?docs=passport&csig=true&urgent=false">child, under 12</a></li>
-    </ul>
-
-    <h3>Lost or Stolen</h3>
-    <ul class="govuk-list govuk-list--bullet">
-        <li><a href="/track?docs=none&csig=true&urgent=false">adult</a></li>
-        <li><a href="/track?docs=documents&csig=true&urgent=false">child, with docs to send</a></li>
-        <li><a href="/track?docs=none&csig=true&urgent=false">child, with no docs to send</a></li>
-    </ul>
-
-    <h3>Urgent</h3>
-        <ul class="govuk-list govuk-list--bullet">
-            <li><a href="/track?docs=none&csig=false&urgent=true">Digital Premium Service</a></li>
-        </ul>
-
-     <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-
-    <h2>Urgent services</h2>
-    <p> Urgent services user journeys.</p>
-
-    <ul class="govuk-list govuk-list--bullet">
-    <li><a href="/urgent/urgent-gov-uk-change-your-name">Online Premium service (DPS)</a></li>
-    </ul>
-
-<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-    <h2>Countersignatures</h2>
-    <p>User journeys for countersignatures.</p>
-
-    {#<h3>Applicant – user initiated</h3>
-    <ul class="govuk-list govuk-list--bullet">
-        <li><a href="#">Adult csig</a></li>
-        <li><a href="#">Child csig</a></li>
-        <li><a href="#">Adult csig (overseas)</a></li>
-        <li><a href="#">Child csig (overseas)</a></li>
-        <li><a href="#">Adult renominate</a></li>
-        <li><a href="#">Application submitted</a></li>
-        <li><a href="#">Identity details received</a></li>
-    </ul>
-
-    <h3>Applicant – examiner initiated/no docs</h3>
-    <ul class="govuk-list govuk-list--bullet">
-        <li><a href="#">Your application is in the queue</a></li>
-        <li><a href="#">Application approved</a></li>
-        <li><a href="#">Your passport is on its way</a></li>
-        <li><a href="#">Ask someone to confirm your identity</a></li>
-        <li><a href="#">Identity details received</a></li>
-        <li><a href="#">Person not eligible</a></li>
-        <li><a href="#">Send the form</a></li>
-    </ul>#}
-
-    <h3>Confirm someone's identity journey</h3>
-    <ul class="govuk-list govuk-list--bullet">
-        <li><a href="/csig/start">Confirm someone's identity</a></li>
-            <p>Enter a application reference number beginning with:</p>
-            <ul class="govuk-list govuk-list--bullet">
-                <li>1 or 6-9, for confirm adult identity journey</li>
-                <li>2, for confirm child identity journey</li>
-                <li>3, to view 'Details not recognised' page.</li>
-                <li>4, to view 'You no longer need to do this' page.</li>
-                <li>5, for 'Your details don't match our records' journey.</li>
-            </ul>
-        <li><a href="/csig/csig-identity-failed">Experian check failed</a></li>
-        <li><a href="/csig/csig-identity-failed-three-times">Experian check failed 3 times</a></li>
-        <!-- <li><a href="#">Renominate anytime</a></li> -->
-        <!-- <li><a href="#">What you need to do (new tracking page)</a></li> -->
-    </ul>
-
 {% endblock %}
