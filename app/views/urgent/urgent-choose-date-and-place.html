@@ -20,14 +20,14 @@
         {% if links.previous %}
             <div class="earlier-time direction-arrow">
                 <a class="govuk-body-m" href="/urgent/urgent-choose-date-and-place/{{links.previous}}">
-                    Earlier
+                    View earlier dates
                 </a>
             </div>
         {% endif %}
         {% if links.next %}
             <div class="later-time direction-arrow {% if ctx("last-full-page") %}hide-above-mobile{% endif %}">
                 <a class="govuk-body-m" href="/urgent/urgent-choose-date-and-place/{{links.next}}">
-                    Later
+                    View later dates
                 </a>
             </div>
         {% endif %}
