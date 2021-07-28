@@ -64,14 +64,14 @@
                     {% if links.previous %}
                         <div class="earlier-time direction-arrow">
                             <a class="govuk-body-m" href="/urgent/urgent-choose-time/{{office.location | lowercase}}/{{links.previous}}#morning">
-                                Earlier
+                                View earlier times
                             </a>
                         </div>
                     {% endif %}
                     {% if links.next %}
                         <div class="later-time direction-arrow {% if ctx("last-full-page") %}hide-above-mobile{% endif %}">
                             <a class="govuk-body-m" href="/urgent/urgent-choose-time/{{office.location | lowercase}}/{{links.next}}#morning">
-                                Later
+                                View later times
                             </a>
                         </div>
                     {% endif %}
@@ -135,14 +135,14 @@
                     {% if links.previous %}
                         <div class="earlier-time direction-arrow">
                             <a class="govuk-body-m" href="/urgent/urgent-choose-time/{{office.location | lowercase}}/{{links.previous}}#afternoon">
-                                Earlier
+                                View earlier times
                             </a>
                         </div>
                     {% endif %}
                     {% if links.next %}
                         <div class="later-time direction-arrow {% if ctx("last-full-page") %}hide-above-mobile{% endif %}">
                             <a class="govuk-body-m" href="/urgent/urgent-choose-time/{{office.location | lowercase}}/{{links.next}}#afternoon">
-                                Later
+                                View later times
                             </a>
                         </div>
                     {% endif %}
