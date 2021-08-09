@@ -326,9 +326,10 @@
 {% block mainContent %}
     <h1 id="header">{{ hmpoTitle }}</h1>
 
-    {% call hmpoInsetText() %}
-        <p>If your photo doesn't meet the rules you may have problems with your application or when you travel.</p>
-        {% endcall %}
+    {{ govukWarningText({
+        text: "If your photo doesn't meet the rules you may have problems with your application or when you travel.",
+        iconFallbackText: "Warning"
+    }) }}
 
     {% if values.adultOrChild == 'adult' %}
         {{ adultPhotoSection | safe }}

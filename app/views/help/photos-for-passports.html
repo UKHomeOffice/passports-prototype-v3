@@ -1,0 +1,151 @@
+{% extends "layout.html" %}
+
+{% set hmpoTitle %}Get a passport photo{% endset %}
+
+{% block pageTitle %}
+    {{ hmpoTitle | safe }} – GOV.UK
+{% endblock %}
+
+{% block phaseBanner %}
+{% endblock %}
+
+{% block govukHeader %}
+    {{ govukHeader({
+        assetsPath: assetPath + '/images',
+        homepageUrl: govukHomePage or "https://gov.uk",
+        serviceName: "",
+        navigation: govukNavigation,
+        serviceUrl: govukServiceUrl or "/",
+        containerClasses: "govuk-width-container"
+    }) }}
+{% endblock %}
+
+{% block beforeContent %}
+    {{ govukBreadcrumbs({
+        items: [
+            {
+                text: "Home",
+                href: "#"
+            },
+            {
+                text: "Passports, travel and living abroad",
+                href: "#"
+            },
+            {
+                text: "Passports"
+            }
+        ]
+    }) }}
+{% endblock %}
+
+{# TODO: Update h1 and app-related-items styling to new GOV.UK styling #}
+{% block content %}
+
+    <style>
+        .part-title {
+            margin-bottom: 20px;
+            font-size: 27px;
+            line-height: 1.1111111111;
+        }
+    </style>
+
+    <div class="govuk-grid-row">
+        <main id="content" role="main" class="">
+            <header class="page-header govuk-grid-column-two-thirds">
+                <h1 class="govuk-heading-xl">{{ hmpoTitle }}</h1>
+                <p class="govuk-body-s">Contents</p>
+                <ul class="govuk-list govuk-list--dashed">
+                    <li>Digital photos</li>
+                    <li><a href="">Printed photos</a></li>
+                </ul>
+                <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+            </header>
+
+            <div class="govuk-grid-column-two-thirds-from-desktop">
+
+                <h1 class="part-title">Digital photos</h1>
+                <p>You need a digital photo to apply for a passport online.</p>
+                <p>You must get a new photo when you get a new passport, even if your appearance has not changed.</p>
+                <p>Your photo must have been taken in the last month.</p>
+                <p>Your application will be delayed if your photos do not meet the rules.</p>
+                <div class="govuk-inset-text">
+                    You can get <a href="https://www.gov.uk/passport-services-disabled">help with your passport photos</a> if you’re disabled.
+                </div>
+
+                <h2 class="govuk-heading-m">How to get a digital photo</h2>
+                <h3>Photo with a code</h3>
+                <p>Choose to get a <a href= "/help/photo-with-a-code" rel="opener" target="_blank">photo with a code</a> when you get your photo taken either:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>in a photo booth</li>
+                    <li>by a photographer in a photo specialiast shop (you can also get your digital photo emailed to you)</li>
+                </ul>
+                <p>In your passport application, simply enter the code to access your photo, and add it to your application.</p>
+                <div class="govuk-inset-text">
+                    Photos from a booth or shop are more likely to meet the rules.
+                </div>
+                <h3>Take a digital photo at home</h3>
+                <p>Take a photo during your application - you'll need someone to help you using digital camera, smartphone or tablet.</p>
+
+
+                <h2 class="govuk-heading-m">Rules for digital photos</h2>
+                <h3>The quality of your digital photo</h3>
+                <p>Your photo must be:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>contain no other objects or people</li>
+                    <li>be taken against a plain light-coloured background</li>
+                    <li>be in clear contrast to the background</li>
+                    <li>not have ‘red eye’</li>
+                </ul>
+                <p>If you’re using a photo taken during your application, include your head, shoulders and upper body. Do not crop your photo - it will be done for you.</p>
+                <p>In your photo you must:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>be facing forwards and looking straight at the camera</li>
+                    <li>have a plain expression and your mouth closed</li>
+                    <li>have your eyes open and visible</li>
+                    <li>not have hair in front of your eyes</li>
+                    <li>not have a head covering (unless it’s for religious or medical reasons)</li>
+                    <li>not have anything covering your face</li>
+                    <li>not have any shadows on your face or behind you</li>
+                </ul>
+                <div class="govuk-inset-text">
+                    Do not wear glasses in your photo unless you have to do so. If you must wear glasses, they cannot be sunglasses or tinted glasses, and you must make sure your eyes are not covered by the frames or any glare, reflection or shadow.
+                </div>
+                <p><img src="../../public/images/photo-guidance/Adult_Photo_guidance_HMPO-v2.jpeg"></p>
+
+                <h2 class="govuk-heading-m">Photos of babies and children</h2>
+                <p>Children must be on their own in the picture. Babies must not be holding toys or using dummies.</p>
+                <p>Children under 6 do not have to be looking directly at the camera or have a plain expression.</p>
+                <p>Children under one do not have to have their eyes open. You can support their head with your hand, but your hand must not be visible in the photo.</p>
+                <p>Children under one should lie on a plain light-coloured sheet. Take the photo from above.</p>
+                <p><img src="../../public/images/photo-guidance/Child_Photo_guidance_HMPO-v2.jpeg"></p>
+
+                {# {{ govukButton({
+                    text: "Apply online",
+                    href: "/filter",
+                    isStartButton: true
+                }) }} #}
+            </div>
+        </main>
+
+        <div class="govuk-grid-column-one-third-from-desktop app-related-items">
+            <h3 id="parent-subsection" style="margin-bottom: 10px;">Related content</h3>
+            <nav role="navigation" aria-labelledby="parent-subsection">
+                <ul>
+                    <li>
+                        <a href="https://www.gov.uk/countersigning-passport-applications">Countersigning passport applications and photos</a>
+                    </li>
+                    <li>
+                        <a href="https://www.gov.uk/apply-renew-passport">Apply online for a UK passport</a>
+                    </li>
+                    <li>
+                        <a href="https://www.gov.uk/confirm-identity-online-for-passport-application">Confirm someone’s identity online for a passport application</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}
