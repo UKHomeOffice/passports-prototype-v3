@@ -47,6 +47,53 @@
             font-size: 27px;
             line-height: 1.1111111111;
         }
+        .gem-c-pagination {
+            display: block;
+            margin: 50px 0;
+        }
+        .gem-c-pagination__link-icon {
+            font-size: 24px;
+            line-height: 1.25;
+        }
+        .gem-c-pagination__link-title {
+            display: block;
+            border-top: 1px solid #b1b4b6;
+            padding-top: 15px;
+        }
+        .gem-c-pagination__link-label {
+            display: inline-block;
+            margin-top: .1em;
+            margin-left: 25px;
+            text-decoration: underline;
+            text-decoration-thickness: max(1px, .0625rem);
+            text-underline-offset: .1em;
+            font-size: 16px;
+        }
+        .gem-c-pagination__link-text {
+            font-family: "nta",arial,sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 1.25;
+            margin-left: 10px;
+        }
+        .gem-c-pagination__link {
+            display: block;
+            text-decoration: none;
+            padding-bottom: 20px;
+        }
+        .gem-c-pagination__item:first-child {
+            margin-bottom: 20px;
+        }
+        .gem-c-pagination__list {
+            margin: 0;
+            padding: 0;
+        }
+        .gem-c-pagination__link-text {
+            font-size: 19px;
+            line-height: 1.3157894737;
+        }
     </style>
 
     <div class="govuk-grid-row">
@@ -55,49 +102,61 @@
                 <h1 class="govuk-heading-xl">{{ hmpoTitle }}</h1>
                 <p class="govuk-body-s">Contents</p>
                 <ul class="govuk-list govuk-list--dashed">
-                    <li>Digital photos</li>
-                    <li><a href="">Printed photos</a></li>
+                    <li><a href="/help/photos-for-passports-digital">Digital photos</a></li>
+                    <li>Printed photos</li>
                 </ul>
                 <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
             </header>
 
             <div class="govuk-grid-column-two-thirds-from-desktop">
 
-                <h1 class="part-title">Digital photos</h1>
-                <p>You need a digital photo to apply for a passport online.</p>
+                <h1 class="part-title">Printed photos</h1>
+                <p>You need 2 identical printed photos if you are applying for a passport using a paper form.</p>
+                <p>You need <a href="/help/photos-for-passports-digital">digital photos</a> to apply for a passport online.</p>
                 <p>You must get a new photo when you get a new passport, even if your appearance has not changed.</p>
                 <p>Your photo must have been taken in the last month.</p>
                 <p>Your application will be delayed if your photos do not meet the rules.</p>
                 <div class="govuk-inset-text">
                     You can get <a href="https://www.gov.uk/passport-services-disabled">help with your passport photos</a> if you’re disabled.
                 </div>
+                <br>
 
-                <h2 class="govuk-heading-m">How to get a digital photo</h2>
-                <h3>Photo with a code</h3>
-                <p>Choose to get a <a href= "/help/photo-with-a-code" rel="opener" target="_blank">photo with a code</a> when you get your photo taken either:</p>
+                <h2 class="govuk-heading-m">The size of your printed photos</h2>
+                <p>You need to provide 2 identical photos.</p>
+                <p>They must:</p>
                 <ul class="govuk-list govuk-list--bullet">
-                    <li>in a photo booth</li>
-                    <li>by a photographer in a photo specialiast shop (you can also get your digital photo emailed to you)</li>
+                    <li>measure 45 millimetres (mm) high by 35mm wide (the standard size used in photo booths in the UK)</li>
+                    <li>not be a cut down version of a larger picture</li>
                 </ul>
-                <p>In your passport application, simply enter the code to access your photo, and add it to your application.</p>
                 <div class="govuk-inset-text">
-                    Photos from a booth or shop are more likely to meet the rules.
+                    If you use a photo booth outside the UK, check it can give you photos that measure 45mm high by 35mm wide.
                 </div>
-                <h3>Take a digital photo at home</h3>
-                <p>Take a photo during your application - you'll need someone to help you using digital camera, smartphone or tablet.</p>
+                <h3>The size of your image</h3>
+                <p>The image of you - from the crown of your head to your chin - must be between 29mm and 34mm high.</p>
+                <p><img src="../../public/images/photo-guidance/passport_photos_outline.jpeg"></p>
 
 
-                <h2 class="govuk-heading-m">Rules for digital photos</h2>
-                <h3>The quality of your digital photo</h3>
+                <h2 class="govuk-heading-m">The quality of your printed photos</h2>
                 <p>Your photo must be:</p>
                 <ul class="govuk-list govuk-list--bullet">
+                    <li>printed to a professional standard</li>
+                    <li>clear and in focus</li>
+                    <li>in colour on plain white photographic paper with no border</li>
+                    <li>without any creases or tears</li>
+                    <li>unmarked on both sides (unless a photo needs to be countersigned)</li>
+                    <li>unaltered by computer software</li>
+                </ul>
+
+                <h2 class="govuk-heading-m">What your printed photos must show</h2>
+                <p>Your photo must be:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>be a close-up of your full head and upper shoulders</li>
                     <li>contain no other objects or people</li>
-                    <li>be taken against a plain light-coloured background</li>
+                    <li>be taken against a plain cream or light grey background</li>
                     <li>be in clear contrast to the background</li>
                     <li>not have ‘red eye’</li>
                 </ul>
-                <p>If you’re using a photo taken during your application, include your head, shoulders and upper body. Do not crop your photo - it will be done for you.</p>
-                <p>In your photo you must:</p>
+                <p>In your photo, you must:</p>
                 <ul class="govuk-list govuk-list--bullet">
                     <li>be facing forwards and looking straight at the camera</li>
                     <li>have a plain expression and your mouth closed</li>
@@ -107,17 +166,38 @@
                     <li>not have anything covering your face</li>
                     <li>not have any shadows on your face or behind you</li>
                 </ul>
+
                 <div class="govuk-inset-text">
                     Do not wear glasses in your photo unless you have to do so. If you must wear glasses, they cannot be sunglasses or tinted glasses, and you must make sure your eyes are not covered by the frames or any glare, reflection or shadow.
                 </div>
-                <p><img src="../../public/images/photo-guidance/Adult_Photo_guidance_HMPO-v2.jpeg"></p>
+
+                <p><img src="../../public/images/photo-guidance/passport_photos_large.jpeg"></p>
 
                 <h2 class="govuk-heading-m">Photos of babies and children</h2>
                 <p>Children must be on their own in the picture. Babies must not be holding toys or using dummies.</p>
                 <p>Children under 6 do not have to be looking directly at the camera or have a plain expression.</p>
                 <p>Children under one do not have to have their eyes open. You can support their head with your hand, but your hand must not be visible in the photo.</p>
-                <p>Children under one should lie on a plain light-coloured sheet. Take the photo from above.</p>
-                <p><img src="../../public/images/photo-guidance/Child_Photo_guidance_HMPO-v2.jpeg"></p>
+                
+                <h2 class="govuk-heading-m">Posting your photos</h2>
+                <p>When sending your application, your photos must be:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>separated from each other</li>
+                    <li>left loose and not attached to your application form</li>
+                </ul>
+
+                <ul>
+                    <li>
+                        <a href="/help/photos-for-passports-digital" class="govuk-link gem-c-pagination__link">
+                            <span class="gem-c-pagination__link-title">
+                                <svg class="gem-c-pagination__link-icon" height="13" width="17">
+                                <path d="m6.5938-0.0078125-6.7266 6.7266 6.7441 6.4062 1.377-1.449-4.1856-3.9768h12.896v-2h-12.984l4.2931-4.293-1.414-1.414z"></path>
+                                </svg>
+                                <span class="gem-c-pagination__link-text">Previous</span>
+                            </span>
+                            <span class="gem-c-pagination__link-label">Digital photos</span>
+                        </a>
+                    </li>
+                </ul>
 
                 {# {{ govukButton({
                     text: "Apply online",
