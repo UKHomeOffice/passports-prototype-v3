@@ -61,6 +61,9 @@
             margin-top: 40px;
             margin-bottom: 40px;
         }
+        .govuk-table__header, .govuk-table__cell {
+            font-size: 14px;
+        }
     </style>
 
     <div class="govuk-grid-row">
@@ -68,49 +71,54 @@
 
             <div class="govuk-grid-column-two-thirds">
                 <h1 class="govuk-heading-xl">{{ hmpoTitle }}</h1>
-                <p class="title-paragraph">How long your passport application takes depends on what you're applying for and which service you use.</p><br><br>
-                <h1 class="part-title">Current passport processing times in the UK</h1>
-                <div class="govuk-inset-text hmpo-inset-info">
-                    Check current processing times regularly for updates. When demand for passport is high it could take up to 10 weeks to get a passport.
-                </div>
-                <p>How long your passport application takes depends on what you're applying for and which service you use.</p>
-                <p>Times for our standard service aren't guaranteed.</p>
-                <p>There are different turnaround times if you're applying <a href="https://www.gov.uk/overseas-passports">from another country</a>.</p>
-            </div>
+                <p class="title-paragraph">Find out how long your passport application is likely to take. When demand for passports is high, it could take up to 10 weeks to get a passport.</p><br><br>
 
-            <div class="govuk-grid-column-full" style="margin-top:3em;">
+                <p class="govuk-body-s">Contents</p>
+                <ul class="govuk-list govuk-list--dashed">
+                    <li><a href="">Current passport processing times in the UK</a></li>
+                    <li><a href="">How to apply</a></li>
+                    <li><a href="">Urgent travel for compassionate reasons</a></li>
+                    <li><a href="">If you’ve already applied</a></li>
+                </ul>
+
+
+                <h1 class="part-title">Current passport processing times in the UK</h1>
+                <p>Check current processing times regularly for updates.</p>
+                <p>Last reviewed: 16 August 2021</p>
+
+ 
                 <table class="govuk-table" style="margin-bottom:4em;">
                     <caption class="govuk-table__caption govuk-table__caption--l" style="font-size:23px; padding-bottom:20px;">Adult passport applications (16 or older)</caption>
                     <thead class="govuk-table__head">
                         <tr class="govuk-table__row">
                         <th class="govuk-table__header"> </th>
                         <th class="govuk-table__header">Standard online £75.50</th>
-                        <th class="govuk-table__header">Fast Track £142</th>
+                        <th class="govuk-table__header">Fast Track <br>£142</th>
                         <th class="govuk-table__header">Online Premium £177</th>
                         </tr>
                     </thead>
                     <tbody class="govuk-table__body">
                         <tr class="govuk-table__row">
                             <td class="govuk-table__cell">Renew a passport</td>
-                            <td class="govuk-table__cell">3 weeks</td>
+                            <td class="govuk-table__cell">4 weeks</td>
                             <td class="govuk-table__cell">1 week after appointment</td>
                             <td class="govuk-table__cell">Day of appointment</td>
                         </tr>
                         <tr class="govuk-table__row">
                             <td class="govuk-table__cell">Replace a damaged passport</td>
-                            <td class="govuk-table__cell">3 weeks</td>
+                            <td class="govuk-table__cell">4 weeks</td>
                             <td class="govuk-table__cell">1 week after appointment</td>
                             <td class="govuk-table__cell">Not applicable</td>
                         </tr>
                         <tr class="govuk-table__row">
                             <td class="govuk-table__cell">Replace a lost or stolen passport</td>
-                            <td class="govuk-table__cell">3 weeks</td>
+                            <td class="govuk-table__cell">4 weeks</td>
                             <td class="govuk-table__cell">1 week after appointment</td>
                             <td class="govuk-table__cell">Not applicable</td>
                         </tr>
                         <tr class="govuk-table__row">
                             <td class="govuk-table__cell">Change of details</td>
-                            <td class="govuk-table__cell">3 weeks</td>
+                            <td class="govuk-table__cell">4 weeks</td>
                             <td class="govuk-table__cell">1 week after appointment</td>
                             <td class="govuk-table__cell">Day of appointment</td>
                         </tr>
@@ -127,29 +135,29 @@
                     <thead class="govuk-table__head">
                         <tr class="govuk-table__row">
                         <th scope="col" class="govuk-table__header"> </th>
-                        <th scope="col" class="govuk-table__header">Standard online £49</th>
-                        <th scope="col" class="govuk-table__header">Fast Track £122</th>
+                        <th scope="col" class="govuk-table__header">Standard online <br>£49</th>
+                        <th scope="col" class="govuk-table__header">Fast Track <br>£122</th>
                         </tr>
                     </thead>
                     <tbody class="govuk-table__body">
                         <tr class="govuk-table__row">
                             <td class="govuk-table__cell">Renew a passport</td>
-                            <td class="govuk-table__cell">3 weeks</td>
+                            <td class="govuk-table__cell">4 weeks</td>
                             <td class="govuk-table__cell">1 week after appointment</td>
                         </tr>
                         <tr class="govuk-table__row">
                             <td class="govuk-table__cell">Replace a damaged passport</td>
-                            <td class="govuk-table__cell">3 weeks</td>
+                            <td class="govuk-table__cell">4 weeks</td>
                             <td class="govuk-table__cell">1 week after appointment</td>
                         </tr>
                         <tr class="govuk-table__row">
                             <td class="govuk-table__cell">Replace a lost or stolen passport</td>
-                            <td class="govuk-table__cell">3 weeks</td>
+                            <td class="govuk-table__cell">4 weeks</td>
                             <td class="govuk-table__cell">1 week after appointment</td>
                         </tr>
                         <tr class="govuk-table__row">
                             <td class="govuk-table__cell">Change of details</td>
-                            <td class="govuk-table__cell">3 weeks</td>
+                            <td class="govuk-table__cell">4 weeks</td>
                             <td class="govuk-table__cell">1 week after appointment</td>
                         </tr>
                         <tr class="govuk-table__row">
@@ -163,7 +171,7 @@
             
 
             <div class="govuk-grid-column-two-thirds">
-
+                <p>There are different turnaround times if you're applying <a href="https://www.gov.uk/overseas-passports">from another country</a>.</p>
                 <h1 class="part-title">How to apply</h1>
                 <p><a href="/start">Apply online</a> to use standard service.</p>
                 <p>You can also apply with a paper form from a <a href="https://www.postoffice.co.uk/branch-finder">Post Office</a>, but it costs £9.50 extra and make it take longer to get your new passport.</p>
