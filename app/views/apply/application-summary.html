@@ -84,15 +84,15 @@
         <h2>How long it takes</h2>
         {% if values.applicationType == "first" and values.adultOrChild == "adult" %}
             {# SLA content WITHOUT 10 weeks reference #}            
-                {# <p><a href="../help/about-our-services-gov-uk" target="_blank">Check how long it will take to get your passport</a> before you continue.</p> #}
+                <p><a href="../help/about-our-services-gov-uk" target="_blank">Check how long it will take to get your passport</a> before you continue.</p>
                 
             {# SLA content WITH 10 weeks reference #}            
-                <p><a href="../help/about-our-services-gov-uk" target="_blank">Check how long passport applications are taking</a> before you continue. It could take up to 10 weeks to get your passport.</p> 
+                {# <p><a href="../help/about-our-services-gov-uk" target="_blank">Check how long passport applications are taking</a> before you continue. It could take up to 10 weeks to get your passport.</p>  #}
         {% else %}
-            {# <p><a href="../help/about-our-services-gov-uk" target="_blank">Check how long it will take to get your passport</a> before you continue.</p> #}
+            <p><a href="../help/about-our-services-gov-uk" target="_blank">Check how long it will take to get your passport</a> before you continue.</p>
                 
             {# SLA content WITH 10 weeks reference #}            
-                <p><a href="../help/about-our-services-gov-uk" target="_blank">Check how long passport applications are taking</a> before you continue. It could take up to 10 weeks to get your passport.</p> 
+                {# <p><a href="../help/about-our-services-gov-uk" target="_blank">Check how long passport applications are taking</a> before you continue. It could take up to 10 weeks to get your passport.</p>  #}
         {#
         { FTC }
         {% if values.applicationType == "first" and values.adultOrChild == "child" %}
